@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechCorp Profile | Project Detail</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Project Hero -->
+    <section class="project-hero">
+      <div class="container">
+        <span class="project-category">Corporate Website</span>
+        <h1 class="project-title">TechCorp Profile</h1>
+        <p class="project-subtitle">
+          Immersive corporate identity for a leading tech firm.
+        </p>
+
+        <div class="project-meta">
+          <div class="meta-item">
+            <i class="far fa-calendar-alt"></i> Oct 2024
+          </div>
+          <div class="meta-item">
+            <i class="fas fa-user"></i> Role: Frontend Dev
+          </div>
+        </div>
+
+        <div class="project-actions">
+          <a href="#" class="btn btn-primary"
+            >Live Demo <i class="fas fa-external-link-alt"></i
+          ></a>
+          <a href="#" class="btn btn-outline"
+            >Github <i class="fab fa-github"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Banner (Placeholder style) -->
+    <div class="container">
+      <div
+        class="project-banner"
+        style="
+          background: linear-gradient(135deg, #334155, #1e293b);
+          min-height: 400px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <i
+          class="fas fa-building"
+          style="font-size: 5rem; color: rgba(255, 255, 255, 0.2)"
+        ></i>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <section class="project-details">
+      <div class="container">
+        <div class="details-grid">
+          <div class="details-main">
+            <div class="detail-card">
+              <h3>Overview</h3>
+              <p>
+                TechCorp needed a website that reflected their position as an
+                industry leader in AI solutions. The old site was static and
+                uninspiring; the new one is alive with motion.
+              </p>
+            </div>
+
+            <div class="detail-card">
+              <h3>The Challenge</h3>
+              <p>
+                Implementing decent WebGL effects without crashing low-end
+                laptops. We had to optimize the 3D assets significantly.
+              </p>
+            </div>
+
+            <div class="detail-card">
+              <h3>The Solution</h3>
+              <ul class="feature-list">
+                <li>
+                  <i class="fas fa-check"></i> Three.js for the hero background.
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> GSAP for scroll-triggered
+                  animations.
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Lazy loading for heavy assets.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="details-sidebar">
+            <div class="detail-card">
+              <h3>Tech Stack</h3>
+              <div class="tech-stack-list">
+                <span class="tech-badge">Three.js</span>
+                <span class="tech-badge">GSAP</span>
+                <span class="tech-badge">WebGL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nav -->
+    <nav class="dock-nav">
+      <a href="index.html" class="dock-item">
+        <i class="fas fa-home"></i>
+        <span class="dock-label">Home</span>
+      </a>
+      <a href="projects.html" class="dock-item active">
+        <i class="fas fa-folder"></i>
+        <span class="dock-label">Projects</span>
+      </a>
+      <a href="blog.html" class="dock-item">
+        <i class="fas fa-pen-nib"></i>
+        <span class="dock-label">Blog</span>
+      </a>
+      <a href="contact.html" class="dock-item">
+        <i class="fas fa-envelope"></i>
+        <span class="dock-label">Contact</span>
+      </a>
+    </nav>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Joy</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="container">
+        <h1 class="page-title">Get in Touch</h1>
+        <p class="page-subtitle">
+          Have a project in mind or just want to say hi?
+        </p>
+      </div>
+    </header>
+
+    <main class="container" style="max-width: 600px; margin-bottom: 100px">
+      <div class="card" style="padding: 40px">
+        <form style="display: flex; flex-direction: column; gap: 20px">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label style="color: var(--text-secondary); font-size: 0.9rem"
+              >Name</label
+            >
+            <input
+              type="text"
+              style="
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid var(--border-color);
+                padding: 12px;
+                border-radius: 8px;
+                color: #fff;
+                outline: none;
+              "
+            />
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label style="color: var(--text-secondary); font-size: 0.9rem"
+              >Email</label
+            >
+            <input
+              type="email"
+              style="
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid var(--border-color);
+                padding: 12px;
+                border-radius: 8px;
+                color: #fff;
+                outline: none;
+              "
+            />
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <label style="color: var(--text-secondary); font-size: 0.9rem"
+              >Message</label
+            >
+            <textarea
+              rows="5"
+              style="
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid var(--border-color);
+                padding: 12px;
+                border-radius: 8px;
+                color: #fff;
+                outline: none;
+              "
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="margin-top: 20px; justify-content: center"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <div style="margin-top: 40px; text-align: center">
+        <p style="color: var(--text-secondary); margin-bottom: 20px">
+          Or connect via
+        </p>
+        <div style="display: flex; justify-content: center; gap: 20px">
+          <a href="#" style="font-size: 1.5rem; color: var(--text-primary)"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a href="#" style="font-size: 1.5rem; color: var(--text-primary)"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="#" style="font-size: 1.5rem; color: var(--text-primary)"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Navigation will be updated globally in next steps -->
+    <nav class="dock-nav">
+      <a href="index.html" class="dock-item">
+        <i class="fas fa-home"></i>
+        <span class="dock-label">Home</span>
+      </a>
+      <a href="projects.html" class="dock-item">
+        <i class="fas fa-folder"></i>
+        <span class="dock-label">Projects</span>
+      </a>
+      <a href="blog.html" class="dock-item">
+        <i class="fas fa-pen-nib"></i>
+        <span class="dock-label">Blog</span>
+      </a>
+      <a href="contact.html" class="dock-item active">
+        <i class="fas fa-envelope"></i>
+        <span class="dock-label">Contact</span>
+      </a>
+    </nav>
+  </body>
+</html>

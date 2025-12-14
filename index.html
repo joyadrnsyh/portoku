@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joy | Creative Developer</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Hero Header -->
+    <header class="hero-section">
+      <div class="container">
+        <div class="status-badge">
+          <div class="status-dot"></div>
+          Open to work
+        </div>
+        <h1 class="hero-title">
+          Building digital<br />
+          products that matter.
+        </h1>
+        <p class="hero-subtitle">
+          Software Engineer with a focus on intuitive design and robust
+          architecture.
+        </p>
+      </div>
+    </header>
+
+    <!-- Refined Bento Grid -->
+    <main class="container">
+      <div class="grid-bento">
+        <!-- 1. Profile (Span 2) -->
+        <div class="card card-profile span-2">
+          <div class="profile-text">
+            <h3>Joy Ad.</h3>
+            <p>based in Jakarta, ID</p>
+          </div>
+          <img src="src/profile.png" alt="Profile" class="profile-img" />
+        </div>
+
+        <!-- 2. Location/Map (Span 1) -->
+        <div class="card card-info span-1">
+          <i
+            class="fas fa-map-pin"
+            style="
+              font-size: 1.5rem;
+              margin-bottom: 15px;
+              color: var(--accent-color);
+            "
+          ></i>
+          <p>GMT+7</p>
+          <p style="color: #fff; font-weight: 600">Jakarta</p>
+        </div>
+
+        <!-- 3. Social Action (Span 1) -->
+        <a href="mailto:email@Example.com" class="card card-action span-1">
+          <i class="fas fa-paper-plane icon-lg"></i>
+          <!-- <h3>Contact</h3> -->
+        </a>
+
+        <!-- 4. Main Project (Span 2, Row 2) - Large vertical or horizontal -->
+        <a href="project-1.html" class="card card-project span-2 row-2">
+          <img src="src/project1.png" alt="Dashboard UI" />
+          <div class="project-overlay">
+            <h3>Dashboard UI Kit</h3>
+            <div class="tags">
+              <span class="tag">Design</span>
+              <span class="tag">System</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 5. Tech Stack (Span 1) -->
+        <div class="card card-stack span-1">
+          <h3>Toolkit</h3>
+          <div class="stack-grid">
+            <i class="fab fa-react stack-icon"></i>
+            <i class="fab fa-js stack-icon"></i>
+            <i class="fab fa-html5 stack-icon"></i>
+            <i class="fab fa-css3-alt stack-icon"></i>
+          </div>
+        </div>
+
+        <!-- 6. Github/Code (Span 1) -->
+        <a
+          href="#"
+          class="card card-info span-1"
+          style="background: #161b22; align-items: flex-start"
+        >
+          <i
+            class="fab fa-github"
+            style="font-size: 2rem; margin-bottom: auto; color: #fff"
+          ></i>
+          <p style="margin-top: auto">Open Source</p>
+        </a>
+
+        <!-- 7. Experience/Stats (Span 2) -->
+        <div
+          class="card card-info span-2"
+          style="
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+          "
+        >
+          <div>
+            <h3>5+</h3>
+            <p>Years Exp.</p>
+          </div>
+          <div>
+            <h3>20+</h3>
+            <p>Projects</p>
+          </div>
+          <div>
+            <h3>100%</h3>
+            <p>Commitment</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Floating Dock Nav -->
+    <nav class="dock-nav">
+      <a href="index.html" class="dock-item active">
+        <i class="fas fa-home"></i>
+        <span class="dock-label">Home</span>
+      </a>
+      <a href="projects.html" class="dock-item">
+        <i class="fas fa-folder"></i>
+        <span class="dock-label">Projects</span>
+      </a>
+      <a href="blog.html" class="dock-item">
+        <i class="fas fa-pen-nib"></i>
+        <span class="dock-label">Blog</span>
+      </a>
+      <a href="contact.html" class="dock-item">
+        <i class="fas fa-envelope"></i>
+        <span class="dock-label">Contact</span>
+      </a>
+    </nav>
+  </body>
+</html>
