@@ -22,13 +22,20 @@
 
     <main class="container" style="max-width: 600px; margin-bottom: 100px">
       <div class="card" style="padding: 40px">
-        <form style="display: flex; flex-direction: column; gap: 20px">
+        <form
+          action="mailto:joy85093@gmail.com"
+          method="post"
+          enctype="text/plain"
+          style="display: flex; flex-direction: column; gap: 20px"
+        >
           <div style="display: flex; flex-direction: column; gap: 8px">
             <label style="color: var(--text-secondary); font-size: 0.9rem"
               >Name</label
             >
             <input
               type="text"
+              name="name"
+              required
               style="
                 background: rgba(255, 255, 255, 0.05);
                 border: 1px solid var(--border-color);
@@ -45,6 +52,8 @@
             >
             <input
               type="email"
+              name="email"
+              required
               style="
                 background: rgba(255, 255, 255, 0.05);
                 border: 1px solid var(--border-color);
@@ -60,6 +69,8 @@
               >Message</label
             >
             <textarea
+              name="message"
+              required
               rows="5"
               style="
                 background: rgba(255, 255, 255, 0.05);
@@ -86,13 +97,19 @@
           Or connect via
         </p>
         <div style="display: flex; justify-content: center; gap: 20px">
-          <a href="#" style="font-size: 1.5rem; color: var(--text-primary)"
+          <a
+            href="https://www.linkedin.com/in/joyadriansyah/"
+            style="font-size: 1.5rem; color: var(--text-primary)"
             ><i class="fab fa-linkedin"></i
           ></a>
-          <a href="#" style="font-size: 1.5rem; color: var(--text-primary)"
-            ><i class="fab fa-twitter"></i
+          <a
+            href="https://wa.me/6285783482134"
+            style="font-size: 1.5rem; color: var(--text-primary)"
+            ><i class="fab fa-whatsapp"></i
           ></a>
-          <a href="#" style="font-size: 1.5rem; color: var(--text-primary)"
+          <a
+            href="https://www.instagram.com/joyadriansyah_/"
+            style="font-size: 1.5rem; color: var(--text-primary)"
             ><i class="fab fa-instagram"></i
           ></a>
         </div>
