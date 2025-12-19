@@ -4,131 +4,208 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact | Joy</title>
-    <link rel="stylesheet" href="style.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "dark-bg": "#030303",
+              "dark-surface": "#0d0d0d",
+              "dark-hover": "#141414",
+              "acid-lime": "#d4fd52",
+              "acid-hover": "#e2ff80",
+              "border-subtle": "rgba(255, 255, 255, 0.08)",
+            },
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            borderRadius: {
+              bento: "2rem",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        body {
+          @apply bg-dark-bg text-white font-sans antialiased;
+        }
+      }
+      @layer components {
+        .contact-input {
+          @apply w-full bg-white/5 border border-border-subtle rounded-2xl p-4 text-white outline-none focus:border-acid-lime/50 transition-all focus:bg-white/10;
+        }
+        .dock-item {
+          @apply flex flex-col items-center justify-center p-2 rounded-xl transition-all duration-300 min-w-[64px] text-gray-400 hover:bg-white/5 hover:text-white;
+        }
+        .dock-item.active {
+          @apply bg-white/10 text-white;
+        }
+        .dock-item.active i {
+          @apply text-acid-lime;
+        }
+      }
+    </style>
   </head>
-  <body>
-    <header class="page-header">
-      <div class="container">
-        <h1 class="page-title">Get in Touch</h1>
-        <p class="page-subtitle">
-          Have a project in mind or just want to say hi?
-        </p>
-      </div>
+  <body class="pb-32">
+    <!-- Header -->
+    <header class="pt-24 pb-16 px-6 max-w-4xl mx-auto text-center">
+      <h1
+        class="text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-6 text-white"
+      >
+        Get in <span class="text-acid-lime">Touch</span>
+      </h1>
+      <p
+        class="text-xl text-gray-400 font-normal leading-relaxed max-w-xl mx-auto"
+      >
+        Have a project in mind or just want to say hi? I'm always open to new
+        opportunities.
+      </p>
     </header>
 
-    <main class="container" style="max-width: 600px; margin-bottom: 100px">
-      <div class="card" style="padding: 40px">
+    <main class="container mx-auto px-6 max-w-2xl mb-24">
+      <div
+        class="bg-dark-surface border border-border-subtle rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden group"
+      >
+        <!-- Decoration Blur -->
+        <div
+          class="absolute -top-24 -right-24 w-48 h-48 bg-acid-lime opacity-5 blur-[100px] group-hover:opacity-10 transition-opacity duration-700"
+        ></div>
+
         <form
           action="mailto:joy85093@gmail.com"
           method="post"
           enctype="text/plain"
-          style="display: flex; flex-direction: column; gap: 20px"
+          class="flex flex-col gap-6 relative z-10"
         >
-          <div style="display: flex; flex-direction: column; gap: 8px">
-            <label style="color: var(--text-secondary); font-size: 0.9rem"
-              >Name</label
+          <div class="flex flex-col gap-2">
+            <label
+              class="text-sm font-bold uppercase tracking-widest text-gray-500 ml-1"
+              >Your Name</label
             >
             <input
               type="text"
               name="name"
+              placeholder="John Doe"
               required
-              style="
-                background: rgba(255, 255, 255, 0.05);
-                border: 1px solid var(--border-color);
-                padding: 12px;
-                border-radius: 8px;
-                color: #fff;
-                outline: none;
-              "
+              class="contact-input"
             />
           </div>
-          <div style="display: flex; flex-direction: column; gap: 8px">
-            <label style="color: var(--text-secondary); font-size: 0.9rem"
-              >Email</label
+
+          <div class="flex flex-col gap-2">
+            <label
+              class="text-sm font-bold uppercase tracking-widest text-gray-500 ml-1"
+              >Your Email</label
             >
             <input
               type="email"
               name="email"
+              placeholder="john@example.com"
               required
-              style="
-                background: rgba(255, 255, 255, 0.05);
-                border: 1px solid var(--border-color);
-                padding: 12px;
-                border-radius: 8px;
-                color: #fff;
-                outline: none;
-              "
+              class="contact-input"
             />
           </div>
-          <div style="display: flex; flex-direction: column; gap: 8px">
-            <label style="color: var(--text-secondary); font-size: 0.9rem"
-              >Message</label
+
+          <div class="flex flex-col gap-2">
+            <label
+              class="text-sm font-bold uppercase tracking-widest text-gray-500 ml-1"
+              >Your Message</label
             >
             <textarea
               name="message"
+              placeholder="Tell me about your project..."
               required
               rows="5"
-              style="
-                background: rgba(255, 255, 255, 0.05);
-                border: 1px solid var(--border-color);
-                padding: 12px;
-                border-radius: 8px;
-                color: #fff;
-                outline: none;
-              "
+              class="contact-input resize-none"
             ></textarea>
           </div>
+
           <button
             type="submit"
-            class="btn btn-primary"
-            style="margin-top: 20px; justify-content: center"
+            class="mt-4 bg-acid-lime hover:bg-acid-hover text-black font-bold py-5 rounded-2xl transition-all duration-300 transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3"
           >
-            Send Message
+            <span>Send Message</span>
+            <i class="fas fa-paper-plane text-sm"></i>
           </button>
         </form>
       </div>
 
-      <div style="margin-top: 40px; text-align: center">
-        <p style="color: var(--text-secondary); margin-bottom: 20px">
-          Or connect via
+      <!-- Social Links -->
+      <div class="mt-16 text-center">
+        <p
+          class="text-gray-500 font-medium mb-8 uppercase tracking-[4px] text-xs"
+        >
+          Or feel free to reach out via
         </p>
-        <div style="display: flex; justify-content: center; gap: 20px">
+        <div class="flex justify-center gap-6">
           <a
             href="https://www.linkedin.com/in/joyadriansyah/"
-            style="font-size: 1.5rem; color: var(--text-primary)"
-            ><i class="fab fa-linkedin"></i
-          ></a>
+            target="_blank"
+            class="w-14 h-14 bg-white/5 border border-border-subtle rounded-2xl flex items-center justify-center text-2xl transition-all hover:bg-acid-lime hover:text-black hover:-translate-y-2"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
           <a
             href="https://wa.me/6285783482134"
-            style="font-size: 1.5rem; color: var(--text-primary)"
-            ><i class="fab fa-whatsapp"></i
-          ></a>
+            target="_blank"
+            class="w-14 h-14 bg-white/5 border border-border-subtle rounded-2xl flex items-center justify-center text-2xl transition-all hover:bg-acid-lime hover:text-black hover:-translate-y-2"
+          >
+            <i class="fab fa-whatsapp"></i>
+          </a>
           <a
             href="https://www.instagram.com/joyadriansyah_/"
-            style="font-size: 1.5rem; color: var(--text-primary)"
-            ><i class="fab fa-instagram"></i
-          ></a>
+            target="_blank"
+            class="w-14 h-14 bg-white/5 border border-border-subtle rounded-2xl flex items-center justify-center text-2xl transition-all hover:bg-acid-lime hover:text-black hover:-translate-y-2"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://github.com/joyadrnsyh"
+            target="_blank"
+            class="w-14 h-14 bg-white/5 border border-border-subtle rounded-2xl flex items-center justify-center text-2xl transition-all hover:bg-acid-lime hover:text-black hover:-translate-y-2"
+          >
+            <i class="fab fa-github"></i>
+          </a>
         </div>
       </div>
     </main>
 
-    <!-- Navigation will be updated globally in next steps -->
-    <nav class="dock-nav">
+    <!-- Navigation -->
+    <nav
+      class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-dark-surface/80 backdrop-blur-2xl border border-white/10 p-2 rounded-2xl flex gap-2 z-50 shadow-2xl"
+    >
       <a href="index.html" class="dock-item">
-        <i class="fas fa-home"></i>
-        <span class="dock-label">Home</span>
+        <i class="fas fa-home text-lg"></i>
+        <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
+          >Home</span
+        >
       </a>
       <a href="projects.html" class="dock-item">
-        <i class="fas fa-folder"></i>
-        <span class="dock-label">Projects</span>
+        <i class="fas fa-folder text-lg"></i>
+        <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
+          >Projects</span
+        >
       </a>
       <a href="contact.html" class="dock-item active">
-        <i class="fas fa-envelope"></i>
-        <span class="dock-label">Contact</span>
+        <i class="fas fa-envelope text-lg"></i>
+        <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
+          >Contact</span
+        >
       </a>
     </nav>
   </body>

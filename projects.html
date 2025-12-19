@@ -4,138 +4,351 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Selected Works | Joy</title>
-    <link rel="stylesheet" href="style.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "dark-bg": "#030303",
+              "dark-surface": "#0d0d0d",
+              "dark-hover": "#141414",
+              "acid-lime": "#d4fd52",
+              "acid-hover": "#e2ff80",
+              "border-subtle": "rgba(255, 255, 255, 0.08)",
+            },
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "pulse-soft": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-20px)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        body {
+          @apply bg-dark-bg text-white font-sans antialiased selection:bg-acid-lime selection:text-black;
+        }
+      }
+      @layer components {
+        .glass-card {
+          @apply bg-dark-surface/60 backdrop-blur-xl border border-border-subtle rounded-[2.5rem] overflow-hidden transition-all duration-700 hover:border-white/20 hover:bg-dark-hover/80;
+        }
+        .dock-item {
+          @apply flex flex-col items-center justify-center p-2 rounded-xl transition-all duration-300 min-w-[64px] text-gray-400 hover:bg-white/5 hover:text-white;
+        }
+        .dock-item.active {
+          @apply bg-white/10 text-white;
+        }
+        .dock-item.active i {
+          @apply text-acid-lime;
+        }
+        .tag-pill {
+          @apply px-3 py-1 bg-white/5 border border-white/5 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:border-acid-lime/30 group-hover:text-acid-lime transition-all duration-500;
+        }
+      }
+    </style>
   </head>
-  <body>
+  <body class="pb-32 relative min-h-screen">
+    <!-- Background Decoration -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+      <div
+        class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-acid-lime/10 blur-[150px] animate-pulse-soft"
+      ></div>
+      <div
+        class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/10 blur-[150px] animate-float"
+      ></div>
+    </div>
+
     <!-- Header -->
-    <header class="page-header">
-      <div class="container">
-        <h1 class="page-title">Selected Works</h1>
-        <p class="page-subtitle">
-          A collection of projects attempting to solve problems with design and
-          code.
-        </p>
+    <header
+      class="pt-32 pb-20 px-6 max-w-5xl mx-auto text-center relative z-10"
+    >
+      <div
+        class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-border-subtle rounded-full text-xs font-bold uppercase tracking-[0.2em] text-acid-lime mb-8"
+      >
+        <span class="relative flex h-2 w-2">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-acid-lime opacity-75"
+          ></span>
+          <span
+            class="relative inline-flex rounded-full h-2 w-2 bg-acid-lime"
+          ></span>
+        </span>
+        Portfolio
       </div>
+      <h1
+        class="text-6xl md:text-8xl font-bold tracking-tighter leading-tight mb-8"
+      >
+        Selected
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-600"
+          >Works</span
+        >
+      </h1>
+      <p
+        class="text-xl text-gray-400 font-normal leading-relaxed max-w-2xl mx-auto"
+      >
+        Crafting digital experiences with precision, purpose, and a touch of
+        minimalism.
+      </p>
     </header>
 
     <!-- Projects Grid -->
-    <main class="container">
-      <div class="projects-list-grid">
-        <!-- Project 1 -->
-        <a href="project-1.html" class="project-list-card">
-          <div class="project-list-thumb">
-            <img src="src/projek 1/tumb-project1.png" alt="Dashboard UI Kit" />
+    <main class="container mx-auto px-6 max-w-6xl relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <!-- Featured Project (Full Width) -->
+        <a
+          href="project-1.html"
+          class="glass-card md:col-span-2 group relative"
+        >
+          <div class="grid grid-cols-1 lg:grid-cols-5 h-full">
+            <div
+              class="lg:col-span-3 aspect-[16/10] lg:aspect-auto overflow-hidden"
+            >
+              <img
+                src="src/projek 1/tumb-project1.png"
+                alt="Featured Project"
+                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+            </div>
+            <div
+              class="lg:col-span-2 p-10 md:p-14 flex flex-col justify-center bg-gradient-to-br from-dark-surface to-dark-bg"
+            >
+              <div class="flex gap-2 mb-6">
+                <span class="tag-pill">Laravel</span>
+                <span class="tag-pill">Tailwind</span>
+              </div>
+              <h3
+                class="text-4xl font-bold mb-6 group-hover:text-acid-lime transition-colors leading-tight"
+              >
+                Website Profile Agensi Digital
+              </h3>
+              <p class="text-gray-400 text-lg leading-relaxed mb-10">
+                A modern corporate ecosystem designed for a high-end creative
+                agency. Featuring seamless animations and a performance-driven
+                architecture.
+              </p>
+              <div
+                class="mt-auto flex items-center gap-4 text-white font-bold group/btn"
+              >
+                <span class="text-xl">Read Case Study</span>
+                <div
+                  class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center group-hover/btn:bg-acid-lime group-hover/btn:text-black transition-all duration-500"
+                >
+                  <i
+                    class="fas fa-arrow-right transition-transform group-hover/btn:translate-x-1"
+                  ></i>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="project-list-info">
-            <span class="project-list-category">Web Development</span>
-            <h3 class="project-list-title">Website Profile Agensi Digital</h3>
-            <p class="project-list-desc">
-              Proyek ini adalah pengembangan Website Corporate Profile modern
-              untuk sebuah agensi digital kreatif. Website ini dirancang sebagai
-              hub pusat untuk menampilkan identitas perusahaan, portofolio
-              proyek, dan layanan kepada calon klien potensial.
-            </p>
-            <span class="project-link-btn"
-              >View Case Study <i class="fas fa-arrow-right"></i
-            ></span>
+          <div
+            class="absolute top-6 left-6 px-4 py-2 bg-black/40 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest border border-white/5"
+          >
+            Featured Work
           </div>
         </a>
 
-        <a href="project-2.html" class="project-list-card">
-          <div class="project-list-thumb">
-            <img src="src/projek 2/tumb-project2.png" alt="Dashboard UI Kit" />
+        <!-- Project 2 -->
+        <a href="project-2.html" class="glass-card group flex flex-col">
+          <div class="aspect-[16/10] overflow-hidden">
+            <img
+              src="src/projek 2/tumb-project2.png"
+              alt="Project 2"
+              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+            />
           </div>
-          <div class="project-list-info">
-            <span class="project-list-category">Web Application</span>
-            <h3 class="project-list-title">
-              Sistem Informasi Manajemen Apotik & Point of Sales (POS)
+          <div class="p-10 flex flex-col flex-1">
+            <div class="flex gap-2 mb-4">
+              <span class="tag-pill">SaaS</span>
+              <span class="tag-pill">Dashboard</span>
+            </div>
+            <h3
+              class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors"
+            >
+              SIM Apotik & POS
             </h3>
-            <p class="project-list-desc">
-              Aplikasi ini adalah solusi digital lengkap untuk mengelola
-              operasional harian apotek. Sistem ini dirancang untuk
-              menyederhanakan proses bisnis mulai dari manajemen stok obat,
-              pendataan pelanggan, hingga transaksi penjualan (kasir).
+            <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+              Complete digital infrastructure for pharmacy management.
+              Streamlined inventory, real-time analytics, and optimized POS
+              flow.
             </p>
-            <span class="project-link-btn"
-              >View Case Study <i class="fas fa-arrow-right"></i
-            ></span>
+            <div class="flex items-center gap-2 text-white font-bold group/btn">
+              <span>Explore Project</span>
+              <i
+                class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"
+              ></i>
+            </div>
           </div>
         </a>
 
-        <a href="project-3.html" class="project-list-card">
-          <div class="project-list-thumb">
-            <img src="src/projek 3/tumb-project3.png" alt="Dashboard UI Kit" />
+        <!-- Project 3 -->
+        <a href="project-3.html" class="glass-card group flex flex-col">
+          <div class="aspect-[16/10] overflow-hidden">
+            <img
+              src="src/projek 3/tumb-project3.png"
+              alt="Project 3"
+              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+            />
           </div>
-          <div class="project-list-info">
-            <span class="project-list-category">Web Development</span>
-            <h3 class="project-list-title">Company Profile Website</h3>
-            <p class="project-list-desc">
-              Proyek ini adalah pengembangan Website Corporate Profile modern
-              untuk sebuah agensi digital kreatif. Website ini dirancang sebagai
-              hub pusat untuk menampilkan identitas perusahaan, portofolio
-              proyek, dan layanan kepada calon klien potensial.
-            </p>
-            <span class="project-link-btn"
-              >View Case Study <i class="fas fa-arrow-right"></i
-            ></span>
-          </div>
-        </a>
-
-        <a href="project-4.html" class="project-list-card">
-          <div class="project-list-thumb">
-            <img src="src/projek 4/project4.png" alt="Dashboard UI Kit" />
-          </div>
-          <div class="project-list-info">
-            <span class="project-list-category">UI UX Design</span>
-            <h3 class="project-list-title">
-              Brewmo Coffee Ordering Mobile App
+          <div class="p-10 flex flex-col flex-1">
+            <div class="flex gap-2 mb-4">
+              <span class="tag-pill">Foundation</span>
+              <span class="tag-pill">Non-Profit</span>
+            </div>
+            <h3
+              class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors"
+            >
+              Yayasan Haadii Nurul Ikhlas
             </h3>
-            <p class="project-list-desc">
-              Proyek ini adalah pengembangan UI/UX untuk sebuah mobile app
-              ordering coffee.
+            <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+              A community-driven platform for social welfare and education.
+              Focused on accessibility and identity visual clarity.
             </p>
-            <span class="project-link-btn"
-              >View Case Study <i class="fas fa-arrow-right"></i
-            ></span>
+            <div class="flex items-center gap-2 text-white font-bold group/btn">
+              <span>Explore Project</span>
+              <i
+                class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"
+              ></i>
+            </div>
           </div>
         </a>
 
-        <a href="project-5.html" class="project-list-card">
-          <div class="project-list-thumb">
-            <img src="src/projek 5/project5.png" alt="Dashboard UI Kit" />
+        <!-- Project 4 (Vertical Style) -->
+        <a href="project-4.html" class="glass-card group flex flex-col">
+          <div class="aspect-[16/10] overflow-hidden">
+            <img
+              src="src/projek 4/project4.png"
+              alt="Project 4"
+              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+            />
           </div>
-          <div class="project-list-info">
-            <span class="project-list-category">Web Application</span>
-            <h3 class="project-list-title">Buyheart E-Commerce Platform</h3>
-            <p class="project-list-desc">
-              Byuheart adalah sebuah aplikasi web e-commerce yang dirancang
-              dengan pendekatan desain minimalis dan fungsional.
+          <div class="p-10 flex flex-col flex-1">
+            <div class="flex gap-2 mb-4">
+              <span class="tag-pill">UI UX</span>
+              <span class="tag-pill">App Design</span>
+            </div>
+            <h3
+              class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors"
+            >
+              Brewmo Coffee App
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+              Designing the future of coffee ordering. A user-centered mobile
+              experience focused on speed and visual delight.
             </p>
-            <span class="project-link-btn"
-              >View Case Study <i class="fas fa-arrow-right"></i
-            ></span>
+            <div class="flex items-center gap-2 text-white font-bold group/btn">
+              <span>View Case Study</span>
+              <i
+                class="fas fa-arrow-right text-acid-lime text-xs transition-transform group-hover/btn:translate-x-1"
+              ></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- Project 5 -->
+        <a href="project-5.html" class="glass-card group flex flex-col">
+          <div class="aspect-[16/10] overflow-hidden">
+            <img
+              src="src/projek 5/project5.png"
+              alt="Project 5"
+              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+            />
+          </div>
+          <div class="p-10 flex flex-col flex-1">
+            <div class="flex gap-2 mb-4">
+              <span class="tag-pill">E-Commerce</span>
+              <span class="tag-pill">Retail</span>
+            </div>
+            <h3
+              class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors"
+            >
+              Buyheart E-Commerce
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+              Minimalist retail experience. Reducing cognitive load to increase
+              conversion and user satisfaction.
+            </p>
+            <div class="flex items-center gap-2 text-white font-bold group/btn">
+              <span>Explore Project</span>
+              <i
+                class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"
+              ></i>
+            </div>
           </div>
         </a>
       </div>
+
+      <!-- Let's Talk CTA -->
+      <section class="mt-32 mb-20">
+        <div
+          class="glass-card p-12 md:p-20 text-center relative overflow-hidden group"
+        >
+          <div
+            class="absolute -top-24 -left-24 w-64 h-64 bg-acid-lime/10 blur-[100px] group-hover:bg-acid-lime/20 transition-all duration-700"
+          ></div>
+          <h2 class="text-4xl md:text-6xl font-bold mb-8 relative z-10">
+            Have a project <br /><span class="text-acid-lime">in mind?</span>
+          </h2>
+          <p class="text-gray-400 text-lg mb-12 max-w-xl mx-auto relative z-10">
+            I'm always looking for interesting projects and creative people to
+            collaborate with.
+          </p>
+          <a
+            href="contact.html"
+            class="inline-flex h-20 px-12 bg-white text-black text-xl font-bold rounded-full items-center justify-center hover:bg-acid-lime transition-all duration-300 transform hover:scale-105 active:scale-95 relative z-10"
+          >
+            Start a Conversation
+          </a>
+        </div>
+      </section>
     </main>
 
     <!-- Navigation -->
-    <nav class="dock-nav">
+    <nav
+      class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-dark-surface/80 backdrop-blur-2xl border border-white/10 p-2 rounded-3xl flex gap-2 z-50 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+    >
       <a href="index.html" class="dock-item">
-        <i class="fas fa-home"></i>
-        <span class="dock-label">Home</span>
+        <i class="fas fa-home text-lg"></i>
+        <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
+          >Home</span
+        >
       </a>
       <a href="projects.html" class="dock-item active">
-        <i class="fas fa-folder"></i>
-        <span class="dock-label">Projects</span>
+        <i class="fas fa-folder text-lg"></i>
+        <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
+          >Projects</span
+        >
       </a>
       <a href="contact.html" class="dock-item">
-        <i class="fas fa-envelope"></i>
-        <span class="dock-label">Contact</span>
+        <i class="fas fa-envelope text-lg"></i>
+        <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
+          >Contact</span
+        >
       </a>
     </nav>
   </body>

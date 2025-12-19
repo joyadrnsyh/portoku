@@ -4,142 +4,275 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Joy | Creative Developer</title>
-    <link rel="stylesheet" href="style.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "dark-bg": "#030303",
+              "dark-surface": "#0d0d0d",
+              "dark-hover": "#141414",
+              "acid-lime": "#d4fd52",
+              "acid-hover": "#e2ff80",
+              "border-subtle": "rgba(255, 255, 255, 0.08)",
+            },
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            borderRadius: {
+              bento: "2rem",
+            },
+            animation: {
+              "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        body {
+          @apply bg-dark-bg text-white font-sans antialiased;
+        }
+      }
+      @layer components {
+        .bento-card {
+          @apply bg-dark-surface border border-border-subtle rounded-bento p-8 transition-all duration-500 hover:border-white/20 hover:bg-dark-hover relative overflow-hidden flex flex-col;
+        }
+        .dock-item {
+          @apply flex flex-col items-center justify-center p-2 rounded-xl transition-all duration-300 min-w-[64px] text-gray-400 hover:bg-white/5 hover:text-white;
+        }
+        .dock-item.active {
+          @apply bg-white/10 text-white;
+        }
+        .dock-item.active i {
+          @apply text-acid-lime;
+        }
+      }
+    </style>
   </head>
-  <body>
+  <body class="pb-32">
     <!-- Hero Header -->
-    <header class="hero-section">
-      <div class="container">
-        <div class="status-badge">
-          <div class="status-dot"></div>
-          Open to work
-        </div>
-        <h1 class="hero-title">
-          Building digital<br />
-          products that matter.
-        </h1>
-        <p class="hero-subtitle">
-          Software Engineer with a focus on intuitive design and robust
-          architecture.
-        </p>
+    <header class="pt-24 pb-16 px-6 max-w-4xl mx-auto text-center">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-border-subtle rounded-full text-sm font-medium text-gray-400 mb-8 animate-fade-in"
+      >
+        <div
+          class="w-2 h-2 bg-green-500 rounded-full shadow-[0_0_10px_rgba(34,197,94,0.5)] animate-pulse"
+        ></div>
+        Open to work
       </div>
+      <h1
+        class="text-5xl md:text-7xl font-bold tracking-tighter leading-[1.1] mb-6"
+      >
+        Building digital<br />
+        <span class="text-gray-500">products that matter.</span>
+      </h1>
+      <p
+        class="text-xl text-gray-400 font-normal leading-relaxed max-w-2xl mx-auto"
+      >
+        Software Engineer with a focus on intuitive design and robust
+        architecture.
+      </p>
     </header>
 
-    <!-- Refined Bento Grid -->
-    <main class="container">
-      <div class="grid-bento">
+    <!-- Bento Grid -->
+    <main class="container mx-auto px-6 max-w-6xl">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[240px]">
         <!-- 1. Profile (Span 2) -->
-        <div class="card card-profile span-2">
-          <div class="profile-text">
-            <h3>Joy Adriansyah.</h3>
-            <p>based in Yogyakarta, ID</p>
+        <div
+          class="bento-card md:col-span-2 flex-row items-center justify-between group"
+        >
+          <div class="z-10">
+            <h3 class="text-2xl font-bold mb-1">Joy Adriansyah.</h3>
+            <p class="text-gray-400">based in Yogyakarta, ID</p>
           </div>
-          <img src="src/pp.jpg" alt="Profile" class="profile-img" />
+          <div class="relative w-24 h-24 md:w-32 md:h-32">
+            <img
+              src="src/pp.jpg"
+              alt="Profile"
+              class="w-full h-full object-cover rounded-full border-2 border-border-subtle group-hover:border-acid-lime/50 transition-colors duration-500"
+            />
+            <div
+              class="absolute -inset-1 bg-gradient-to-tr from-acid-lime to-transparent rounded-full opacity-0 group-hover:opacity-20 blur transition-opacity duration-500"
+            ></div>
+          </div>
         </div>
 
         <!-- 2. Location/Map (Span 1) -->
-        <div class="card card-info span-1">
-          <i
-            class="fas fa-map-pin"
-            style="
-              font-size: 1.5rem;
-              margin-bottom: 15px;
-              color: var(--accent-color);
-            "
-          ></i>
-          <p>GMT+7</p>
-          <p style="color: #fff; font-weight: 600">Yogyakarta</p>
+        <div class="bento-card items-start justify-center">
+          <div class="bg-acid-lime/10 p-3 rounded-2xl mb-4 text-acid-lime">
+            <i class="fas fa-map-pin text-xl"></i>
+          </div>
+          <p class="text-gray-400 text-sm mb-1 uppercase tracking-widest">
+            Local Time
+          </p>
+          <p class="text-xl font-bold">
+            Yogyakarta
+            <span class="text-acid-lime font-medium ml-2">GMT+7</span>
+          </p>
         </div>
 
         <!-- 3. Social Action (Span 1) -->
-        <a href="mailto:joy85093@gmail.com" class="card card-action span-1">
-          <i class="fas fa-paper-plane icon-lg"></i>
-          <!-- <h3>Contact</h3> -->
+        <a
+          href="mailto:joy85093@gmail.com"
+          class="bento-card bg-acid-lime hover:bg-acid-hover border-none items-center justify-center text-black group"
+        >
+          <i
+            class="fas fa-paper-plane text-5xl transition-transform duration-500 group-hover:-rotate-45 group-hover:scale-110"
+          ></i>
         </a>
 
-        <!-- 4. Main Project (Span 2, Row 2) - Large vertical or horizontal -->
-        <a href="project-1.html" class="card card-project span-2 row-2">
-          <img src="src/projek 1/tumb-project1.png" alt="Dashboard UI" />
-          <div class="project-overlay">
-            <h3>Company Profile Website</h3>
-            <div class="tags">
-              <span class="tag">Laravel</span>
-              <span class="tag">Tailwind CSS</span>
+        <!-- 4. Main Project (Span 2, Row 2) -->
+        <a
+          href="project-1.html"
+          class="bento-card md:col-span-2 md:row-span-2 p-0 group"
+        >
+          <img
+            src="src/projek 1/tumb-project1.png"
+            alt="Dashboard UI"
+            class="w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-8 flex flex-col justify-end"
+          >
+            <h3 class="text-2xl font-bold mb-3">Company Profile Website</h3>
+            <div class="flex gap-2">
+              <span
+                class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs border border-white/5"
+                >Laravel</span
+              >
+              <span
+                class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs border border-white/5"
+                >Tailwind CSS</span
+              >
             </div>
           </div>
         </a>
 
         <!-- 5. Tech Stack (Span 1) -->
-        <div class="card card-stack span-1">
-          <h3>Toolkit</h3>
-          <div class="stack-grid">
-            <i class="fab fa-react stack-icon"></i>
-            <i class="fab fa-js stack-icon"></i>
-            <i class="fab fa-html5 stack-icon"></i>
-            <i class="fab fa-css3-alt stack-icon"></i>
-            <i class="fab fa-laravel stack-icon"></i>
-            <i class="fab fa-php stack-icon"></i>
-            <i class="fab fa-figma stack-icon"></i>
-            <i class="fab fa-wordpress stack-icon"></i>
+        <div class="bento-card justify-between">
+          <h3
+            class="text-xs font-bold uppercase tracking-[2px] text-gray-500 text-center"
+          >
+            Stack
+          </h3>
+          <div class="grid grid-cols-4 gap-4">
+            <i
+              class="fab fa-react text-2xl text-gray-400 hover:text-acid-lime transition-colors cursor-default"
+              title="React"
+            ></i>
+            <i
+              class="fab fa-js text-2xl text-gray-400 hover:text-acid-lime transition-colors cursor-default"
+              title="JavaScript"
+            ></i>
+            <i
+              class="fab fa-laravel text-2xl text-gray-400 hover:text-acid-lime transition-colors cursor-default"
+              title="Laravel"
+            ></i>
+            <i
+              class="fab fa-php text-2xl text-gray-400 hover:text-acid-lime transition-colors cursor-default"
+              title="PHP"
+            ></i>
+            <i
+              class="fab fa-html5 text-2xl text-gray-400 hover:text-acid-lime transition-colors cursor-default"
+              title="HTML5"
+            ></i>
+            <i
+              class="fab fa-css3-alt text-2xl text-gray-400 hover:text-acid-lime transition-colors cursor-default"
+              title="CSS3"
+            ></i>
+            <i
+              class="fab fa-figma text-2xl text-gray-400 hover:text-acid-lime transition-colors cursor-default"
+              title="Figma"
+            ></i>
+            <i
+              class="fab fa-wordpress text-2xl text-gray-400 hover:text-acid-lime transition-colors cursor-default"
+              title="WordPress"
+            ></i>
           </div>
         </div>
 
-        <!-- 6. Github/Code (Span 1) -->
+        <!-- 6. Github (Span 1) -->
         <a
           href="https://github.com/joyadrnsyh"
-          class="card card-info span-1"
-          style="background: #161b22; align-items: flex-start"
+          target="_blank"
+          class="bento-card bg-[#161b22] hover:bg-[#1f242c] items-start justify-between p-8 group"
         >
           <i
-            class="fab fa-github"
-            style="font-size: 2rem; margin-bottom: auto; color: #fff"
+            class="fab fa-github text-4xl text-white group-hover:scale-110 transition-transform"
           ></i>
-          <p style="margin-top: auto">Open Source</p>
+          <div>
+            <p class="text-white font-bold text-lg leading-tight">
+              Contributions
+            </p>
+            <p class="text-gray-400 text-sm">Open Source Work</p>
+          </div>
         </a>
 
-        <!-- 7. Experience/Stats (Span 2) -->
+        <!-- 7. Stats (Span 2) -->
         <div
-          class="card card-info span-2"
-          style="
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-            text-align: center;
-          "
+          class="bento-card md:col-span-2 flex-row items-center justify-around text-center"
         >
           <div>
-            <h3>2+</h3>
-            <p>Years Exp.</p>
+            <h3 class="text-4xl font-bold text-white mb-1">2+</h3>
+            <p class="text-gray-400 text-sm uppercase tracking-widest">
+              Years Exp.
+            </p>
           </div>
+          <div class="w-px h-12 bg-white/10 hidden md:block"></div>
           <div>
-            <h3>20+</h3>
-            <p>Projects</p>
+            <h3 class="text-4xl font-bold text-white mb-1">20+</h3>
+            <p class="text-gray-400 text-sm uppercase tracking-widest">
+              Projects
+            </p>
           </div>
+          <div class="w-px h-12 bg-white/10 hidden md:block"></div>
           <div>
-            <h3>90%</h3>
-            <p>Commitment</p>
+            <h3 class="text-4xl font-bold text-acid-lime mb-1">99%</h3>
+            <p class="text-gray-400 text-sm uppercase tracking-widest">
+              Quality
+            </p>
           </div>
         </div>
       </div>
     </main>
 
     <!-- Floating Dock Nav -->
-    <nav class="dock-nav">
+    <nav
+      class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-dark-surface/80 backdrop-blur-2xl border border-white/10 p-2 rounded-2xl flex gap-2 z-50 shadow-2xl"
+    >
       <a href="index.html" class="dock-item active">
-        <i class="fas fa-home"></i>
-        <span class="dock-label">Home</span>
+        <i class="fas fa-home text-lg"></i>
+        <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
+          >Home</span
+        >
       </a>
       <a href="projects.html" class="dock-item">
-        <i class="fas fa-folder"></i>
-        <span class="dock-label">Projects</span>
+        <i class="fas fa-folder text-lg"></i>
+        <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
+          >Projects</span
+        >
       </a>
       <a href="contact.html" class="dock-item">
-        <i class="fas fa-envelope"></i>
-        <span class="dock-label">Contact</span>
+        <i class="fas fa-envelope text-lg"></i>
+        <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
+          >Contact</span
+        >
       </a>
     </nav>
   </body>
