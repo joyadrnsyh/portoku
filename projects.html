@@ -1,54 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Selected Works | Joy</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              "dark-bg": "#030303",
-              "dark-surface": "#0d0d0d",
-              "dark-hover": "#141414",
-              "acid-lime": "#d4fd52",
-              "acid-hover": "#e2ff80",
-              "border-subtle": "rgba(255, 255, 255, 0.08)",
-            },
-            fontFamily: {
-              sans: ["Plus Jakarta Sans", "sans-serif"],
-            },
-            animation: {
-              float: "float 6s ease-in-out infinite",
-              "pulse-soft": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-            },
-            keyframes: {
-              float: {
-                "0%, 100%": { transform: "translateY(0)" },
-                "50%": { transform: "translateY(-20px)" },
-              },
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selected Works | Joy</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "dark-bg": "#030303",
+            "dark-surface": "#0d0d0d",
+            "dark-hover": "#141414",
+            "acid-lime": "#d4fd52",
+            "acid-hover": "#e2ff80",
+            "border-subtle": "rgba(255, 255, 255, 0.08)",
+          },
+          fontFamily: {
+            sans: ["Plus Jakarta Sans", "sans-serif"],
+          },
+          animation: {
+            float: "float 6s ease-in-out infinite",
+            "pulse-soft": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+          },
+          keyframes: {
+            float: {
+              "0%, 100%": { transform: "translateY(0)" },
+              "50%": { transform: "translateY(-20px)" },
             },
           },
         },
-      };
-    </script>
-    <style type="text/tailwindcss">
-      @layer base {
+      },
+    };
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {
         body {
           @apply bg-dark-bg text-white font-sans antialiased selection:bg-acid-lime selection:text-black;
         }
@@ -77,398 +73,318 @@
         }
       }
     </style>
-  </head>
-  <body class="pb-32 relative min-h-screen">
-    <!-- Background Decoration -->
-    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-      <div
-        class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-acid-lime/10 blur-[150px] animate-pulse-soft"
-      ></div>
-      <div
-        class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/10 blur-[150px] animate-float"
-      ></div>
+</head>
+
+<body class="pb-32 relative min-h-screen">
+  <!-- Background Decoration -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-acid-lime/10 blur-[150px] animate-pulse-soft"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/10 blur-[150px] animate-float"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="pt-32 pb-20 px-6 max-w-5xl mx-auto text-center relative z-10">
+    <div
+      class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-border-subtle rounded-full text-xs font-bold uppercase tracking-[0.2em] text-acid-lime mb-8">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-acid-lime opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-acid-lime"></span>
+      </span>
+      Portfolio
     </div>
+    <h1 class="text-6xl md:text-8xl font-bold tracking-tighter leading-tight mb-8">
+      Selected
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-600">Works</span>
+    </h1>
+    <p class="text-xl text-gray-400 font-normal leading-relaxed max-w-2xl mx-auto">
+      Crafting digital experiences with precision, purpose, and a touch of
+      minimalism.
+    </p>
+  </header>
 
-    <!-- Header -->
-    <header
-      class="pt-32 pb-20 px-6 max-w-5xl mx-auto text-center relative z-10"
-    >
-      <div
-        class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-border-subtle rounded-full text-xs font-bold uppercase tracking-[0.2em] text-acid-lime mb-8"
-      >
-        <span class="relative flex h-2 w-2">
-          <span
-            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-acid-lime opacity-75"
-          ></span>
-          <span
-            class="relative inline-flex rounded-full h-2 w-2 bg-acid-lime"
-          ></span>
-        </span>
-        Portfolio
-      </div>
-      <h1
-        class="text-6xl md:text-8xl font-bold tracking-tighter leading-tight mb-8"
-      >
-        Selected
-        <span
-          class="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-600"
-          >Works</span
-        >
-      </h1>
-      <p
-        class="text-xl text-gray-400 font-normal leading-relaxed max-w-2xl mx-auto"
-      >
-        Crafting digital experiences with precision, purpose, and a touch of
-        minimalism.
-      </p>
-    </header>
+  <!-- Filter Tabs -->
+  <div class="flex flex-wrap justify-center gap-4 mb-16 relative z-10">
+    <button class="filter-tab active px-6 py-3 rounded-full" data-filter="all">All</button>
+    <button class="filter-tab px-6 py-3 rounded-full" data-filter="data-science">Data Science</button>
+    <button class="filter-tab px-6 py-3 rounded-full" data-filter="ui-ux">UI/UX Design</button>
+    <button class="filter-tab px-6 py-3 rounded-full" data-filter="front-end">Front End</button>
+  </div>
 
-    <!-- Filter Tabs -->
-    <div class="flex flex-wrap justify-center gap-4 mb-16 relative z-10">
-      <button class="filter-tab active px-6 py-3 rounded-full" data-filter="all">All</button>
-      <button class="filter-tab px-6 py-3 rounded-full" data-filter="data-science">Data Science</button>
-      <button class="filter-tab px-6 py-3 rounded-full" data-filter="ui-ux">UI/UX Design</button>
-      <button class="filter-tab px-6 py-3 rounded-full" data-filter="front-end">Front End</button>
-    </div>
-
-    <!-- Projects Grid -->
-    <main class="container mx-auto px-6 max-w-6xl relative z-10">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-        <!-- Featured Project (Full Width) -->
-        <a
-          href="front-end/company-profile"
-          class="glass-card md:col-span-2 group relative project-card"
-          data-category="front-end"
-        >
-          <div class="grid grid-cols-1 lg:grid-cols-5 h-full">
-            <div
-              class="lg:col-span-3 aspect-[16/10] lg:aspect-auto overflow-hidden"
-            >
-              <img
-                src="src/projek 1/tumb-project1.png"
-                alt="Featured Project"
-                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
+  <!-- Projects Grid -->
+  <main class="container mx-auto px-6 max-w-6xl relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+      <!-- Featured Project (Full Width) -->
+      <a href="front-end/company-profile" class="glass-card md:col-span-2 group relative project-card"
+        data-category="front-end">
+        <div class="grid grid-cols-1 lg:grid-cols-5 h-full">
+          <div class="lg:col-span-3 aspect-[16/10] lg:aspect-auto overflow-hidden">
+            <img src="src/projek 1/tumb-project1.png" alt="Featured Project"
+              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+          </div>
+          <div
+            class="lg:col-span-2 p-10 md:p-14 flex flex-col justify-center bg-gradient-to-br from-dark-surface to-dark-bg">
+            <div class="flex gap-2 mb-6">
+              <span class="tag-pill">Laravel</span>
+              <span class="tag-pill">Tailwind</span>
             </div>
-            <div
-              class="lg:col-span-2 p-10 md:p-14 flex flex-col justify-center bg-gradient-to-br from-dark-surface to-dark-bg"
-            >
-              <div class="flex gap-2 mb-6">
-                <span class="tag-pill">Laravel</span>
-                <span class="tag-pill">Tailwind</span>
-              </div>
-              <h3
-                class="text-4xl font-bold mb-6 group-hover:text-acid-lime transition-colors leading-tight"
-              >
-                Website Profile Agensi Digital
-              </h3>
-              <p class="text-gray-400 text-lg leading-relaxed mb-10">
-                A modern corporate ecosystem designed for a high-end creative
-                agency. Featuring seamless animations and a performance-driven
-                architecture.
-              </p>
+            <h3 class="text-4xl font-bold mb-6 group-hover:text-acid-lime transition-colors leading-tight">
+              Website Profile Agensi Digital
+            </h3>
+            <p class="text-gray-400 text-lg leading-relaxed mb-10">
+              A modern corporate ecosystem designed for a high-end creative
+              agency. Featuring seamless animations and a performance-driven
+              architecture.
+            </p>
+            <div class="mt-auto flex items-center gap-4 text-white font-bold group/btn">
+              <span class="text-xl">Read Case Study</span>
               <div
-                class="mt-auto flex items-center gap-4 text-white font-bold group/btn"
-              >
-                <span class="text-xl">Read Case Study</span>
-                <div
-                  class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center group-hover/btn:bg-acid-lime group-hover/btn:text-black transition-all duration-500"
-                >
-                  <i
-                    class="fas fa-arrow-right transition-transform group-hover/btn:translate-x-1"
-                  ></i>
-                </div>
+                class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center group-hover/btn:bg-acid-lime group-hover/btn:text-black transition-all duration-500">
+                <i class="fas fa-arrow-right transition-transform group-hover/btn:translate-x-1"></i>
               </div>
             </div>
           </div>
-          <div
-            class="absolute top-6 left-6 px-4 py-2 bg-black/40 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest border border-white/5"
-          >
-            Featured Work
-          </div>
-        </a>
+        </div>
+        <div
+          class="absolute top-6 left-6 px-4 py-2 bg-black/40 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest border border-white/5">
+          Featured Work
+        </div>
+      </a>
 
-        <!-- Project 2 -->
-        <a href="front-end/sim-apotik-pos" class="glass-card group flex flex-col project-card" data-category="front-end">
-          <div class="aspect-[16/10] overflow-hidden">
-            <img
-              src="src/projek 2/tumb-project2.png"
-              alt="Project 2"
-              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-            />
+      <!-- Project 2 -->
+      <a href="front-end/sim-apotik-pos" class="glass-card group flex flex-col project-card" data-category="front-end">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="src/projek 2/tumb-project2.png" alt="Project 2"
+            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+        </div>
+        <div class="p-10 flex flex-col flex-1">
+          <div class="flex gap-2 mb-4">
+            <span class="tag-pill">SaaS</span>
+            <span class="tag-pill">Dashboard</span>
           </div>
-          <div class="p-10 flex flex-col flex-1">
-            <div class="flex gap-2 mb-4">
-              <span class="tag-pill">SaaS</span>
-              <span class="tag-pill">Dashboard</span>
-            </div>
-            <h3
-              class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors"
-            >
-              SIM Apotik & POS
-            </h3>
-            <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
-              Complete digital infrastructure for pharmacy management.
-              Streamlined inventory, real-time analytics, and optimized POS
-              flow.
-            </p>
-            <div class="flex items-center gap-2 text-white font-bold group/btn">
-              <span>Explore Project</span>
-              <i
-                class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"
-              ></i>
-            </div>
+          <h3 class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors">
+            SIM Apotik & POS
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+            Complete digital infrastructure for pharmacy management.
+            Streamlined inventory, real-time analytics, and optimized POS
+            flow.
+          </p>
+          <div class="flex items-center gap-2 text-white font-bold group/btn">
+            <span>Explore Project</span>
+            <i class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"></i>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- Project 3 -->
-        <a href="front-end/yayasan-haadii-nurul-ikhlas" class="glass-card group flex flex-col project-card" data-category="front-end">
-          <div class="aspect-[16/10] overflow-hidden">
-            <img
-              src="src/projek 3/tumb-project3.png"
-              alt="Project 3"
-              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-            />
+      <!-- Project 3 -->
+      <a href="front-end/yayasan-haadii-nurul-ikhlas" class="glass-card group flex flex-col project-card"
+        data-category="front-end">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="src/projek 3/tumb-project3.png" alt="Project 3"
+            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+        </div>
+        <div class="p-10 flex flex-col flex-1">
+          <div class="flex gap-2 mb-4">
+            <span class="tag-pill">Foundation</span>
+            <span class="tag-pill">Non-Profit</span>
           </div>
-          <div class="p-10 flex flex-col flex-1">
-            <div class="flex gap-2 mb-4">
-              <span class="tag-pill">Foundation</span>
-              <span class="tag-pill">Non-Profit</span>
-            </div>
-            <h3
-              class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors"
-            >
-              Yayasan Haadii Nurul Ikhlas
-            </h3>
-            <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
-              A community-driven platform for social welfare and education.
-              Focused on accessibility and identity visual clarity.
-            </p>
-            <div class="flex items-center gap-2 text-white font-bold group/btn">
-              <span>Explore Project</span>
-              <i
-                class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"
-              ></i>
-            </div>
+          <h3 class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors">
+            Yayasan Haadii Nurul Ikhlas
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+            A community-driven platform for social welfare and education.
+            Focused on accessibility and identity visual clarity.
+          </p>
+          <div class="flex items-center gap-2 text-white font-bold group/btn">
+            <span>Explore Project</span>
+            <i class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"></i>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- Project 4 (Vertical Style) -->
-        <a href="ui-ux/brewmo-coffee-app" class="glass-card group flex flex-col project-card" data-category="ui-ux">
-          <div class="aspect-[16/10] overflow-hidden">
-            <img
-              src="src/projek 4/project4.png"
-              alt="Project 4"
-              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-            />
+      <!-- Project 4 (Vertical Style) -->
+      <a href="ui-ux/brewmo-coffee-app" class="glass-card group flex flex-col project-card" data-category="ui-ux">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="src/projek 4/project4.png" alt="Project 4"
+            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+        </div>
+        <div class="p-10 flex flex-col flex-1">
+          <div class="flex gap-2 mb-4">
+            <span class="tag-pill">UI UX</span>
+            <span class="tag-pill">App Design</span>
           </div>
-          <div class="p-10 flex flex-col flex-1">
-            <div class="flex gap-2 mb-4">
-              <span class="tag-pill">UI UX</span>
-              <span class="tag-pill">App Design</span>
-            </div>
-            <h3
-              class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors"
-            >
-              Brewmo Coffee App
-            </h3>
-            <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
-              Designing the future of coffee ordering. A user-centered mobile
-              experience focused on speed and visual delight.
-            </p>
-            <div class="flex items-center gap-2 text-white font-bold group/btn">
-              <span>View Case Study</span>
-              <i
-                class="fas fa-arrow-right text-acid-lime text-xs transition-transform group-hover/btn:translate-x-1"
-              ></i>
-            </div>
+          <h3 class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors">
+            Brewmo Coffee App
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+            Designing the future of coffee ordering. A user-centered mobile
+            experience focused on speed and visual delight.
+          </p>
+          <div class="flex items-center gap-2 text-white font-bold group/btn">
+            <span>View Case Study</span>
+            <i class="fas fa-arrow-right text-acid-lime text-xs transition-transform group-hover/btn:translate-x-1"></i>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- Project 5 -->
-        <a href="front-end/buyheart-ecommerce" class="glass-card group flex flex-col project-card" data-category="front-end">
-          <div class="aspect-[16/10] overflow-hidden">
-            <img
-              src="src/projek 5/project5.png"
-              alt="Project 5"
-              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-            />
+      <!-- Project 5 -->
+      <a href="front-end/buyheart-ecommerce" class="glass-card group flex flex-col project-card"
+        data-category="front-end">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="src/projek 5/project5.png" alt="Project 5"
+            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+        </div>
+        <div class="p-10 flex flex-col flex-1">
+          <div class="flex gap-2 mb-4">
+            <span class="tag-pill">E-Commerce</span>
+            <span class="tag-pill">Retail</span>
           </div>
-          <div class="p-10 flex flex-col flex-1">
-            <div class="flex gap-2 mb-4">
-              <span class="tag-pill">E-Commerce</span>
-              <span class="tag-pill">Retail</span>
-            </div>
-            <h3
-              class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors"
-            >
-              Buyheart E-Commerce
-            </h3>
-            <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
-              Minimalist retail experience. Reducing cognitive load to increase
-              conversion and user satisfaction.
-            </p>
-            <div class="flex items-center gap-2 text-white font-bold group/btn">
-              <span>Explore Project</span>
-              <i
-                class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"
-              ></i>
-            </div>
+          <h3 class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors">
+            Buyheart E-Commerce
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+            Minimalist retail experience. Reducing cognitive load to increase
+            conversion and user satisfaction.
+          </p>
+          <div class="flex items-center gap-2 text-white font-bold group/btn">
+            <span>Explore Project</span>
+            <i class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"></i>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- Project 6 -->
-        <a href="data-science-data-analysis/clustering-kondisi-ekonomi-provinsi" class="glass-card group flex flex-col project-card" data-category="data-science">
-          <div class="aspect-[16/10] overflow-hidden">
-            <img
-              src="src/projek 6/tumb-project6.png"
-              alt="Project 6"
-              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-            />
+      <!-- Project 6 -->
+      <a href="data-science-data-analysis/clustering-kondisi-ekonomi-provinsi"
+        class="glass-card group flex flex-col project-card" data-category="data-science">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="src/projek 6/tumb-project6.png" alt="Project 6"
+            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+        </div>
+        <div class="p-10 flex flex-col flex-1">
+          <div class="flex gap-2 mb-4">
+            <span class="tag-pill">Data Science</span>
+            <span class="tag-pill">Python</span>
+            <span class="tag-pill">K-Means</span>
           </div>
-          <div class="p-10 flex flex-col flex-1">
-            <div class="flex gap-2 mb-4">
-              <span class="tag-pill">Data Science</span>
-              <span class="tag-pill">Python</span>
-              <span class="tag-pill">K-Means</span>
-            </div>
-            <h3
-              class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors"
-            >
-              Clustering Kondisi Ekonomi Provinsi
-            </h3>
-            <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
-              Analisis unsupervised machine learning untuk mengelompokkan 38 provinsi di Indonesia berdasarkan indikator kesejahteraan dan kapasitas ekonomi.
-            </p>
-            <div class="flex items-center gap-2 text-white font-bold group/btn">
-              <span>Explore Analysis</span>
-              <i
-                class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"
-              ></i>
-            </div>
+          <h3 class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors">
+            Clustering Kondisi Ekonomi Provinsi
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+            Analisis unsupervised machine learning untuk mengelompokkan 38 provinsi di Indonesia berdasarkan indikator
+            kesejahteraan dan kapasitas ekonomi.
+          </p>
+          <div class="flex items-center gap-2 text-white font-bold group/btn">
+            <span>Explore Analysis</span>
+            <i class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"></i>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <!-- Project 7 -->
-        <a href="data-science-data-analysis/sentiment-analysis-tokopedia-reviews" class="glass-card group flex flex-col project-card" data-category="data-science">
-          <div class="aspect-[16/10] overflow-hidden">
-            <img
-              src="src/projek 7/tumb-project7.png"
-              alt="Project 7"
-              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-            />
+      <!-- Project 7 -->
+      <a href="data-science-data-analysis/sentiment-analysis-tokopedia-reviews"
+        class="glass-card group flex flex-col project-card" data-category="data-science">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="src/projek 7/tumb-project7.png" alt="Project 7"
+            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+        </div>
+        <div class="p-10 flex flex-col flex-1">
+          <div class="flex gap-2 mb-4">
+            <span class="tag-pill">Data Science</span>
+            <span class="tag-pill">Python</span>
+            <span class="tag-pill">LSTM</span>
           </div>
-          <div class="p-10 flex flex-col flex-1">
-            <div class="flex gap-2 mb-4">
-              <span class="tag-pill">Data Science</span>
-              <span class="tag-pill">Python</span>
-              <span class="tag-pill">LSTM</span>
-            </div>
-            <h3
-              class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors"
-            >
-              Sentiment Analysis Tokopedia Reviews
-            </h3>
-            <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
-              Analisis sentimen ulasan Tokopedia menggunakan Natural Language Processing (NLP) dan model deep learning Long Short-Term Memory (LSTM) dengan akurasi 98%.
-            </p>
-            <div class="flex items-center gap-2 text-white font-bold group/btn">
-              <span>Explore Analysis</span>
-              <i
-                class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"
-              ></i>
-            </div>
+          <h3 class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors">
+            Sentiment Analysis Tokopedia Reviews
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+            Analisis sentimen ulasan Tokopedia menggunakan Natural Language Processing (NLP) dan model deep learning
+            Long Short-Term Memory (LSTM) dengan akurasi 98%.
+          </p>
+          <div class="flex items-center gap-2 text-white font-bold group/btn">
+            <span>Explore Analysis</span>
+            <i class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"></i>
           </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Let's Talk CTA -->
+    <section class="mt-32 mb-20">
+      <div class="glass-card p-12 md:p-20 text-center relative overflow-hidden group">
+        <div
+          class="absolute -top-24 -left-24 w-64 h-64 bg-acid-lime/10 blur-[100px] group-hover:bg-acid-lime/20 transition-all duration-700">
+        </div>
+        <h2 class="text-4xl md:text-6xl font-bold mb-8 relative z-10">
+          Have a project <br /><span class="text-acid-lime">in mind?</span>
+        </h2>
+        <p class="text-gray-400 text-lg mb-12 max-w-xl mx-auto relative z-10">
+          I'm always looking for interesting projects and creative people to
+          collaborate with.
+        </p>
+        <a href="contact"
+          class="inline-flex h-20 px-12 bg-white text-black text-xl font-bold rounded-full items-center justify-center hover:bg-acid-lime transition-all duration-300 transform hover:scale-105 active:scale-95 relative z-10">
+          Start a Conversation
         </a>
       </div>
+    </section>
+  </main>
 
-      <!-- Let's Talk CTA -->
-      <section class="mt-32 mb-20">
-        <div
-          class="glass-card p-12 md:p-20 text-center relative overflow-hidden group"
-        >
-          <div
-            class="absolute -top-24 -left-24 w-64 h-64 bg-acid-lime/10 blur-[100px] group-hover:bg-acid-lime/20 transition-all duration-700"
-          ></div>
-          <h2 class="text-4xl md:text-6xl font-bold mb-8 relative z-10">
-            Have a project <br /><span class="text-acid-lime">in mind?</span>
-          </h2>
-          <p class="text-gray-400 text-lg mb-12 max-w-xl mx-auto relative z-10">
-            I'm always looking for interesting projects and creative people to
-            collaborate with.
-          </p>
-          <a
-            href="contact"
-            class="inline-flex h-20 px-12 bg-white text-black text-xl font-bold rounded-full items-center justify-center hover:bg-acid-lime transition-all duration-300 transform hover:scale-105 active:scale-95 relative z-10"
-          >
-            Start a Conversation
-          </a>
-        </div>
-      </section>
-    </main>
+  <!-- Navigation -->
+  <nav
+    class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-dark-surface/80 backdrop-blur-2xl border border-white/10 p-2 rounded-3xl flex gap-2 z-50 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+    <a href="index" class="dock-item">
+      <i class="fas fa-home text-lg"></i>
+      <span class="text-[10px] uppercase font-bold tracking-wider mt-1">Home</span>
+    </a>
+    <a href="projects" class="dock-item active">
+      <i class="fas fa-folder text-lg"></i>
+      <span class="text-[10px] uppercase font-bold tracking-wider mt-1">Projects</span>
+    </a>
+    <a href="contact" class="dock-item">
+      <i class="fas fa-envelope text-lg"></i>
+      <span class="text-[10px] uppercase font-bold tracking-wider mt-1">Contact</span>
+    </a>
+  </nav>
 
-    <!-- Navigation -->
-    <nav
-      class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-dark-surface/80 backdrop-blur-2xl border border-white/10 p-2 rounded-3xl flex gap-2 z-50 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
-    >
-      <a href="index" class="dock-item">
-        <i class="fas fa-home text-lg"></i>
-        <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
-          >Home</span
-        >
-      </a>
-      <a href="projects" class="dock-item active">
-        <i class="fas fa-folder text-lg"></i>
-        <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
-          >Projects</span
-        >
-      </a>
-      <a href="contact" class="dock-item">
-        <i class="fas fa-envelope text-lg"></i>
-        <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
-          >Contact</span
-        >
-      </a>
-    </nav>
+  <!-- Filtering Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.filter-tab');
+      const cards = document.querySelectorAll('.project-card');
 
-    <!-- Filtering Script -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const tabs = document.querySelectorAll('.filter-tab');
-        const cards = document.querySelectorAll('.project-card');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Remove active class from all tabs
+          tabs.forEach(t => t.classList.remove('active'));
+          // Add active class to clicked tab
+          tab.classList.add('active');
 
-        tabs.forEach(tab => {
-          tab.addEventListener('click', () => {
-            // Remove active class from all tabs
-            tabs.forEach(t => t.classList.remove('active'));
-            // Add active class to clicked tab
-            tab.classList.add('active');
+          const filterValue = tab.getAttribute('data-filter');
 
-            const filterValue = tab.getAttribute('data-filter');
+          cards.forEach(card => {
+            if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+              card.classList.remove('hidden');
 
-            cards.forEach(card => {
-              if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                card.classList.remove('hidden');
-                
-                // Reset transitions and trigger reflow
-                card.style.transition = 'none';
-                card.style.opacity = '0';
-                card.style.transform = 'scale(0.95)';
-                
-                // Trigger reflow
-                card.offsetHeight; 
-                
-                // Animate in
-                card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-                card.style.opacity = '1';
-                card.style.transform = 'scale(1)';
-              } else {
-                card.classList.add('hidden');
-              }
-            });
+              // Reset transitions and trigger reflow
+              card.style.transition = 'none';
+              card.style.opacity = '0';
+              card.style.transform = 'scale(0.95)';
+
+              // Trigger reflow
+              card.offsetHeight;
+
+              // Animate in
+              card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+              card.style.opacity = '1';
+              card.style.transform = 'scale(1)';
+            } else {
+              card.classList.add('hidden');
+            }
           });
         });
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>
