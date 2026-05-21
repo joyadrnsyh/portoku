@@ -69,6 +69,12 @@
         .tag-pill {
           @apply px-3 py-1 bg-white/5 border border-white/5 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:border-acid-lime/30 group-hover:text-acid-lime transition-all duration-500;
         }
+        .filter-tab {
+          @apply px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 border border-border-subtle bg-white/5 text-gray-400 hover:border-acid-lime/50 hover:text-white cursor-pointer;
+        }
+        .filter-tab.active {
+          @apply bg-acid-lime text-black border-acid-lime hover:text-black;
+        }
       }
     </style>
   </head>
@@ -117,13 +123,22 @@
       </p>
     </header>
 
+    <!-- Filter Tabs -->
+    <div class="flex flex-wrap justify-center gap-4 mb-16 relative z-10">
+      <button class="filter-tab active px-6 py-3 rounded-full" data-filter="all">All</button>
+      <button class="filter-tab px-6 py-3 rounded-full" data-filter="data-science">Data Science</button>
+      <button class="filter-tab px-6 py-3 rounded-full" data-filter="ui-ux">UI/UX Design</button>
+      <button class="filter-tab px-6 py-3 rounded-full" data-filter="front-end">Front End</button>
+    </div>
+
     <!-- Projects Grid -->
     <main class="container mx-auto px-6 max-w-6xl relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
         <!-- Featured Project (Full Width) -->
         <a
-          href="project-1.html"
-          class="glass-card md:col-span-2 group relative"
+          href="front-end/project-1.html"
+          class="glass-card md:col-span-2 group relative project-card"
+          data-category="front-end"
         >
           <div class="grid grid-cols-1 lg:grid-cols-5 h-full">
             <div
@@ -174,7 +189,7 @@
         </a>
 
         <!-- Project 2 -->
-        <a href="project-2.html" class="glass-card group flex flex-col">
+        <a href="front-end/project-2.html" class="glass-card group flex flex-col project-card" data-category="front-end">
           <div class="aspect-[16/10] overflow-hidden">
             <img
               src="src/projek 2/tumb-project2.png"
@@ -207,7 +222,7 @@
         </a>
 
         <!-- Project 3 -->
-        <a href="project-3.html" class="glass-card group flex flex-col">
+        <a href="front-end/project-3.html" class="glass-card group flex flex-col project-card" data-category="front-end">
           <div class="aspect-[16/10] overflow-hidden">
             <img
               src="src/projek 3/tumb-project3.png"
@@ -239,7 +254,7 @@
         </a>
 
         <!-- Project 4 (Vertical Style) -->
-        <a href="project-4.html" class="glass-card group flex flex-col">
+        <a href="ui-ux/project-4.html" class="glass-card group flex flex-col project-card" data-category="ui-ux">
           <div class="aspect-[16/10] overflow-hidden">
             <img
               src="src/projek 4/project4.png"
@@ -271,7 +286,7 @@
         </a>
 
         <!-- Project 5 -->
-        <a href="project-5.html" class="glass-card group flex flex-col">
+        <a href="front-end/project-5.html" class="glass-card group flex flex-col project-card" data-category="front-end">
           <div class="aspect-[16/10] overflow-hidden">
             <img
               src="src/projek 5/project5.png"
@@ -295,6 +310,70 @@
             </p>
             <div class="flex items-center gap-2 text-white font-bold group/btn">
               <span>Explore Project</span>
+              <i
+                class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"
+              ></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- Project 6 -->
+        <a href="data-science-data-analysis/project-6.html" class="glass-card group flex flex-col project-card" data-category="data-science">
+          <div class="aspect-[16/10] overflow-hidden">
+            <img
+              src="src/projek 6/tumb-project6.png"
+              alt="Project 6"
+              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+            />
+          </div>
+          <div class="p-10 flex flex-col flex-1">
+            <div class="flex gap-2 mb-4">
+              <span class="tag-pill">Data Science</span>
+              <span class="tag-pill">Python</span>
+              <span class="tag-pill">K-Means</span>
+            </div>
+            <h3
+              class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors"
+            >
+              Clustering Kondisi Ekonomi Provinsi
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+              Analisis unsupervised machine learning untuk mengelompokkan 38 provinsi di Indonesia berdasarkan indikator kesejahteraan dan kapasitas ekonomi.
+            </p>
+            <div class="flex items-center gap-2 text-white font-bold group/btn">
+              <span>Explore Analysis</span>
+              <i
+                class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"
+              ></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- Project 7 -->
+        <a href="data-science-data-analysis/project-7.html" class="glass-card group flex flex-col project-card" data-category="data-science">
+          <div class="aspect-[16/10] overflow-hidden">
+            <img
+              src="src/projek 7/tumb-project7.png"
+              alt="Project 7"
+              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+            />
+          </div>
+          <div class="p-10 flex flex-col flex-1">
+            <div class="flex gap-2 mb-4">
+              <span class="tag-pill">Data Science</span>
+              <span class="tag-pill">Python</span>
+              <span class="tag-pill">LSTM</span>
+            </div>
+            <h3
+              class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors"
+            >
+              Sentiment Analysis Tokopedia Reviews
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+              Analisis sentimen ulasan Tokopedia menggunakan Natural Language Processing (NLP) dan model deep learning Long Short-Term Memory (LSTM) dengan akurasi 98%.
+            </p>
+            <div class="flex items-center gap-2 text-white font-bold group/btn">
+              <span>Explore Analysis</span>
               <i
                 class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"
               ></i>
@@ -351,5 +430,45 @@
         >
       </a>
     </nav>
+
+    <!-- Filtering Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const tabs = document.querySelectorAll('.filter-tab');
+        const cards = document.querySelectorAll('.project-card');
+
+        tabs.forEach(tab => {
+          tab.addEventListener('click', () => {
+            // Remove active class from all tabs
+            tabs.forEach(t => t.classList.remove('active'));
+            // Add active class to clicked tab
+            tab.classList.add('active');
+
+            const filterValue = tab.getAttribute('data-filter');
+
+            cards.forEach(card => {
+              if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                card.classList.remove('hidden');
+                
+                // Reset transitions and trigger reflow
+                card.style.transition = 'none';
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.95)';
+                
+                // Trigger reflow
+                card.offsetHeight; 
+                
+                // Animate in
+                card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'scale(1)';
+              } else {
+                card.classList.add('hidden');
+              }
+            });
+          });
+        });
+      });
+    </script>
   </body>
 </html>

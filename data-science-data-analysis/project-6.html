@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clustering Kondisi Ekonomi Provinsi di Indonesia | Project Detail</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "dark-bg": "#030303",
+              "dark-surface": "#0d0d0d",
+              "dark-hover": "#141414",
+              "acid-lime": "#d4fd52",
+              "acid-hover": "#e2ff80",
+              "border-subtle": "rgba(255, 255, 255, 0.08)",
+            },
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            borderRadius: {
+              bento: "2rem",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        body {
+          @apply bg-dark-bg text-white font-sans antialiased;
+        }
+      }
+      @layer components {
+        .detail-card {
+          @apply bg-dark-surface border border-border-subtle rounded-[2rem] p-8 md:p-10 transition-all duration-500 hover:border-white/10;
+        }
+        .dock-item {
+          @apply flex flex-col items-center justify-center p-2 rounded-xl transition-all duration-300 min-w-[64px] text-gray-400 hover:bg-white/5 hover:text-white;
+        }
+        .dock-item.active {
+          @apply bg-white/10 text-white;
+        }
+        .dock-item.active i {
+          @apply text-acid-lime;
+        }
+        .tech-badge {
+          @apply px-4 py-2 bg-white/5 border border-border-subtle rounded-full text-sm font-medium text-gray-400 hover:border-acid-lime/50 hover:text-acid-lime transition-all cursor-default;
+        }
+        .table-header {
+          @apply px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 border-b border-border-subtle bg-white/[0.02];
+        }
+        .table-cell {
+          @apply px-6 py-4 text-sm text-gray-300 border-b border-border-subtle;
+        }
+      }
+    </style>
+  </head>
+  <body class="pb-32">
+    <!-- Project Hero -->
+    <section class="pt-24 pb-16 px-6 max-w-5xl mx-auto text-center">
+      <div
+        class="inline-block px-4 py-1.5 border border-acid-lime text-acid-lime text-xs font-bold uppercase tracking-[0.2em] rounded-full mb-8 bg-acid-lime/5"
+      >
+        Data Science & Machine Learning
+      </div>
+      <h1
+        class="text-4xl md:text-6xl font-bold tracking-tighter leading-tight mb-8"
+      >
+        Clustering Kondisi Ekonomi Provinsi di Indonesia Menggunakan Metode K-Means
+      </h1>
+      <p
+        class="text-xl text-gray-400 font-normal leading-relaxed max-w-3xl mx-auto mb-10"
+      >
+        Analisis unsupervised machine learning untuk mengelompokkan 38 provinsi di Indonesia berdasarkan indikator kesejahteraan dan kapasitas ekonomi.
+      </p>
+
+      <div
+        class="flex flex-wrap justify-center gap-12 mb-12 py-8 border-y border-border-subtle"
+      >
+        <div class="flex items-center gap-3 text-gray-400">
+          <i class="far fa-calendar-alt text-acid-lime"></i>
+          <span class="font-medium text-white">Mei 2026</span>
+        </div>
+        <div class="flex items-center gap-3 text-gray-400">
+          <i class="fas fa-user text-acid-lime"></i>
+          <span class="font-medium text-white">Role: Lead Data Scientist</span>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="https://github.com/joy-adriansyah/Clustering_Ekonomi_Provinsi_Indonesia_Menggunakan_KMeans"
+          target="_blank"
+          class="px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-acid-lime transition-all flex items-center gap-2 group"
+        >
+          <i class="fab fa-github text-lg"></i>
+          <span>View Source Code</span>
+          <i
+            class="fas fa-external-link-alt text-xs group-hover:rotate-45 transition-transform"
+          ></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- Banner -->
+    <div class="container mx-auto px-6 max-w-6xl mb-24">
+      <div
+        class="rounded-[2.5rem] overflow-hidden border border-border-subtle shadow-[0_40px_100px_rgba(0,0,0,0.5)]"
+      >
+        <img
+          src="../src/projek 6/tumb-project6.png"
+          alt="Clustering Ekonomi Provinsi Cover"
+          class="w-full h-auto"
+        />
+      </div>
+    </div>
+
+    <!-- Content -->
+    <section class="container mx-auto px-6 max-w-6xl mb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Main Content -->
+        <div class="lg:col-span-2 flex flex-col gap-8">
+          <!-- Overview -->
+          <div class="detail-card">
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+              <span class="w-8 h-1 bg-acid-lime rounded-full"></span>
+              Overview
+            </h3>
+            <p class="text-gray-400 leading-relaxed text-lg mb-6">
+              Proyek ini menerapkan metode **K-Means Clustering** untuk menganalisis dan mengelompokkan 38 provinsi di Indonesia berdasarkan 4 indikator ekonomi utama. Dengan menggunakan metode visualisasi mutakhir seperti PCA Biplot dan Radar Chart, proyek ini mengidentifikasi disparitas regional yang signifikan dan anomali ekonomi di berbagai wilayah Indonesia.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+              <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
+                <h4 class="text-white font-bold mb-2 text-lg flex items-center gap-2">
+                  <i class="fas fa-chart-line text-acid-lime"></i>
+                  Elbow & Silhouette
+                </h4>
+                <p class="text-gray-400 text-sm">
+                  Menentukan jumlah kluster optimal (K=4) secara ilmiah dengan evaluasi metrik matematis dan visual.
+                </p>
+              </div>
+              <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
+                <h4 class="text-white font-bold mb-2 text-lg flex items-center gap-2">
+                  <i class="fas fa-project-diagram text-acid-lime"></i>
+                  Z-Score Scaling
+                </h4>
+                <p class="text-gray-400 text-sm">
+                  Standardisasi data untuk menyeimbangkan bobot variabel bernilai tinggi (PDRB) dengan variabel persentase.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dataset -->
+          <div class="detail-card">
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+              <span class="w-8 h-1 bg-acid-lime rounded-full"></span>
+              Dataset & Variabel
+            </h3>
+            <p class="text-gray-400 leading-relaxed mb-6">
+              Data bersumber dari **Badan Pusat Statistik (BPS) Indonesia 2023** (`dataset_ekonomi.xlsx`). Data mencakup seluruh 38 provinsi di Indonesia dengan nol nilai kosong (*missing values*) dan tanpa duplikasi.
+            </p>
+
+            <!-- Variables Table -->
+            <div class="overflow-x-auto rounded-xl border border-border-subtle mb-8">
+              <table class="min-w-full divide-y divide-border-subtle">
+                <thead>
+                  <tr>
+                    <th class="table-header">Variabel</th>
+                    <th class="table-header">Deskripsi</th>
+                    <th class="table-header text-right">Satuan</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-border-subtle bg-white/[0.01]">
+                  <tr>
+                    <td class="table-cell font-bold text-white">IPM</td>
+                    <td class="table-cell">Indeks Pembangunan Manusia (Kualitas kesehatan, pendidikan, & hidup)</td>
+                    <td class="table-cell text-right">Skor (0–100)</td>
+                  </tr>
+                  <tr>
+                    <td class="table-cell font-bold text-white">Kemiskinan</td>
+                    <td class="table-cell">Persentase penduduk di bawah garis kemiskinan</td>
+                    <td class="table-cell text-right">%</td>
+                  </tr>
+                  <tr>
+                    <td class="table-cell font-bold text-white">Pengangguran</td>
+                    <td class="table-cell">Tingkat Pengangguran Terbuka (TPT)</td>
+                    <td class="table-cell text-right">%</td>
+                  </tr>
+                  <tr>
+                    <td class="table-cell font-bold text-white">PDRB</td>
+                    <td class="table-cell">Produk Domestik Regional Bruto atas dasar harga berlaku</td>
+                    <td class="table-cell text-right">Miliar Rupiah</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Descriptive Stats -->
+            <h4 class="text-lg font-bold mb-4 text-white">Statistik Deskriptif</h4>
+            <div class="overflow-x-auto rounded-xl border border-border-subtle">
+              <table class="min-w-full divide-y divide-border-subtle">
+                <thead>
+                  <tr>
+                    <th class="table-header">Variabel</th>
+                    <th class="table-header text-right">Min</th>
+                    <th class="table-header text-right">Max</th>
+                    <th class="table-header text-right">Mean</th>
+                    <th class="table-header text-right">Std Dev</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-border-subtle bg-white/[0.01]">
+                  <tr>
+                    <td class="table-cell font-bold text-white">IPM</td>
+                    <td class="table-cell text-right">54.91</td>
+                    <td class="table-cell text-right">85.05</td>
+                    <td class="table-cell text-right">74.45</td>
+                    <td class="table-cell text-right">4.83</td>
+                  </tr>
+                  <tr>
+                    <td class="table-cell font-bold text-white">Kemiskinan</td>
+                    <td class="table-cell text-right">3.42%</td>
+                    <td class="table-cell text-right">29.45%</td>
+                    <td class="table-cell text-right">9.64%</td>
+                    <td class="table-cell text-right">6.12%</td>
+                  </tr>
+                  <tr>
+                    <td class="table-cell font-bold text-white">Pengangguran</td>
+                    <td class="table-cell text-right">1.49%</td>
+                    <td class="table-cell text-right">6.96%</td>
+                    <td class="table-cell text-right">4.36%</td>
+                    <td class="table-cell text-right">1.35%</td>
+                  </tr>
+                  <tr>
+                    <td class="table-cell font-bold text-white">PDRB</td>
+                    <td class="table-cell text-right">19,111</td>
+                    <td class="table-cell text-right">367,687</td>
+                    <td class="table-cell text-right">87,154</td>
+                    <td class="table-cell text-right">68,941</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Metodologi -->
+          <div class="detail-card">
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+              <span class="w-8 h-1 bg-acid-lime rounded-full"></span>
+              Metodologi Analisis
+            </h3>
+            <div class="relative pl-6 border-l-2 border-acid-lime/20 flex flex-col gap-8">
+              <!-- Step 1 -->
+              <div class="relative">
+                <div class="absolute -left-[31px] top-1 w-4 h-4 bg-acid-lime rounded-full border-4 border-dark-surface"></div>
+                <h4 class="text-white font-bold mb-1">1. Eksplorasi Data (EDA)</h4>
+                <p class="text-gray-400 text-sm">Analisis statistik deskriptif awal, pembuatan histogram + boxplot untuk deteksi pencilan, serta visualisasi matriks korelasi antar variabel.</p>
+              </div>
+              <!-- Step 2 -->
+              <div class="relative">
+                <div class="absolute -left-[31px] top-1 w-4 h-4 bg-acid-lime rounded-full border-4 border-dark-surface"></div>
+                <h4 class="text-white font-bold mb-1">2. Preprocessing Data</h4>
+                <p class="text-gray-400 text-sm">Melakukan standarisasi data menggunakan <code>StandardScaler</code> (Z-Score) agar skala variabel PDRB yang bernilai ratusan ribu tidak mendominasi perhitungan jarak Euclidean.</p>
+              </div>
+              <!-- Step 3 -->
+              <div class="relative">
+                <div class="absolute -left-[31px] top-1 w-4 h-4 bg-acid-lime rounded-full border-4 border-dark-surface"></div>
+                <h4 class="text-white font-bold mb-1">3. Penentuan Jumlah Kluster Optimal</h4>
+                <p class="text-gray-400 text-sm">Menggunakan <strong>Elbow Method</strong> (mencari sudut kurva WCSS/Inertia) dan perhitungan <strong>Silhouette Score per K</strong> untuk menetapkan K = 4 sebagai jumlah kluster terbaik.</p>
+              </div>
+              <!-- Step 4 -->
+              <div class="relative">
+                <div class="absolute -left-[31px] top-1 w-4 h-4 bg-acid-lime rounded-full border-4 border-dark-surface"></div>
+                <h4 class="text-white font-bold mb-1">4. Implementasi Algoritma K-Means</h4>
+                <p class="text-gray-400 text-sm">Menjalankan pemodelan dengan parameter <code>n_init=20</code>, <code>max_iter=500</code>, dan <code>random_state=42</code> untuk menjamin stabilitas dan konvergensi kluster.</p>
+              </div>
+              <!-- Step 5 -->
+              <div class="relative">
+                <div class="absolute -left-[31px] top-1 w-4 h-4 bg-acid-lime rounded-full border-4 border-dark-surface"></div>
+                <h4 class="text-white font-bold mb-1">5. Evaluasi & Visualisasi</h4>
+                <p class="text-gray-400 text-sm">Mengevaluasi hasil dengan Silhouette Coefficient, Davies-Bouldin Index, dan Calinski-Harabasz Score. Memvisualisasikan kluster lewat PCA Biplot, Radar Chart, dan Z-Score Clustermap.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hasil Clustering -->
+          <div class="detail-card">
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+              <span class="w-8 h-1 bg-acid-lime rounded-full"></span>
+              Hasil Clustering (K = 4)
+            </h3>
+            
+            <p class="text-gray-400 leading-relaxed mb-6">
+              Pengelompokkan menghasilkan 4 kluster dengan karakteristik ekonomi unik yang menggambarkan struktur kesejahteraan wilayah di Indonesia.
+            </p>
+
+            <!-- Distribution and Profiles -->
+            <div class="overflow-x-auto rounded-xl border border-border-subtle mb-8">
+              <table class="min-w-full divide-y divide-border-subtle">
+                <thead>
+                  <tr>
+                    <th class="table-header">Kluster</th>
+                    <th class="table-header">Karakteristik Utama</th>
+                    <th class="table-header text-right">Provinsi</th>
+                    <th class="table-header text-right">Persentase</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-border-subtle bg-white/[0.01]">
+                  <tr>
+                    <td class="table-cell font-bold text-red-500">C1</td>
+                    <td class="table-cell">Ekonomi Sangat Rendah (Pengangguran tinggi, PDRB rendah)</td>
+                    <td class="table-cell text-right">9</td>
+                    <td class="table-cell text-right">23.7%</td>
+                  </tr>
+                  <tr>
+                    <td class="table-cell font-bold text-yellow-500">C2</td>
+                    <td class="table-cell">Ekonomi Berkembang (Kluster terbesar, pengangguran moderat)</td>
+                    <td class="table-cell text-right">19</td>
+                    <td class="table-cell text-right">50.0%</td>
+                  </tr>
+                  <tr>
+                    <td class="table-cell font-bold text-blue-500">C3</td>
+                    <td class="table-cell">Ekonomi Menengah* (Kemiskinan ekstrem, IPM sangat rendah)</td>
+                    <td class="table-cell text-right">5</td>
+                    <td class="table-cell text-right">13.2%</td>
+                  </tr>
+                  <tr>
+                    <td class="table-cell font-bold text-green-500">C4</td>
+                    <td class="table-cell">Ekonomi Maju (IPM tinggi, kemiskinan terendah, PDRB tinggi)</td>
+                    <td class="table-cell text-right">5</td>
+                    <td class="table-cell text-right">13.2%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Cluster Profiling Means -->
+            <h4 class="text-lg font-bold mb-4 text-white font-medium">Profil Rata-Rata per Kluster</h4>
+            <div class="overflow-x-auto rounded-xl border border-border-subtle mb-8">
+              <table class="min-w-full divide-y divide-border-subtle">
+                <thead>
+                  <tr>
+                    <th class="table-header">Kluster</th>
+                    <th class="table-header text-right">Rerata IPM</th>
+                    <th class="table-header text-right">Kemiskinan (%)</th>
+                    <th class="table-header text-right">Pengangguran (%)</th>
+                    <th class="table-header text-right">PDRB (Miliar Rp)</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-border-subtle bg-white/[0.01]">
+                  <tr>
+                    <td class="table-cell font-bold text-red-500">C1</td>
+                    <td class="table-cell text-right text-white">75.42</td>
+                    <td class="table-cell text-right">10.47%</td>
+                    <td class="table-cell text-right text-red-400 font-medium">6.23%</td>
+                    <td class="table-cell text-right">63,665</td>
+                  </tr>
+                  <tr>
+                    <td class="table-cell font-bold text-yellow-500">C2</td>
+                    <td class="table-cell text-right text-white">74.94</td>
+                    <td class="table-cell text-right">8.30%</td>
+                    <td class="table-cell text-right text-green-400 font-medium">3.73%</td>
+                    <td class="table-cell text-right">70,276</td>
+                  </tr>
+                  <tr>
+                    <td class="table-cell font-bold text-blue-500">C3</td>
+                    <td class="table-cell text-right text-white">64.69</td>
+                    <td class="table-cell text-right text-red-400 font-medium">22.60%</td>
+                    <td class="table-cell text-right text-green-400 font-medium">3.44%</td>
+                    <td class="table-cell text-right">71,331</td>
+                  </tr>
+                  <tr>
+                    <td class="table-cell font-bold text-green-500">C4</td>
+                    <td class="table-cell text-right text-white">79.06</td>
+                    <td class="table-cell text-right text-green-400 font-medium">5.05%</td>
+                    <td class="table-cell text-right">5.14%</td>
+                    <td class="table-cell text-right text-green-400 font-medium">226,614</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Detailed breakdown -->
+            <h4 class="text-lg font-bold mb-4 text-white">Detail Pembagian Wilayah</h4>
+            <div class="flex flex-col gap-4">
+              <div class="p-6 bg-red-950/20 border border-red-500/10 rounded-2xl">
+                <span class="inline-block px-3 py-1 bg-red-500/15 text-red-400 text-xs font-bold rounded-full mb-3">Cluster 1 — Ekonomi Sangat Rendah</span>
+                <p class="text-sm text-gray-300 leading-relaxed mb-2 font-medium">Aceh, Sumatera Utara, Sumatera Barat, Jawa Barat, Banten, Sulawesi Utara, Maluku, Papua Barat Daya, Papua</p>
+                <p class="text-xs text-gray-500">Karakteristik: Tingkat pengangguran tertinggi, PDRB di bawah rata-rata nasional. Memerlukan intervensi lapangan kerja yang intensif.</p>
+              </div>
+
+              <div class="p-6 bg-yellow-950/20 border border-yellow-500/10 rounded-2xl">
+                <span class="inline-block px-3 py-1 bg-yellow-500/15 text-yellow-400 text-xs font-bold rounded-full mb-3">Cluster 2 — Ekonomi Berkembang</span>
+                <p class="text-sm text-gray-300 leading-relaxed mb-2 font-medium">Jambi, Sumatera Selatan, Bengkulu, Lampung, Kep. Bangka Belitung, Jawa Tengah, DI Yogyakarta, Jawa Timur, Bali, Nusa Tenggara Barat, Kalimantan Barat, Kalimantan Tengah, Kalimantan Selatan, Sulawesi Tengah, Sulawesi Selatan, Sulawesi Tenggara, Gorontalo, Sulawesi Barat, Maluku Utara</p>
+                <p class="text-xs text-gray-500">Karakteristik: Kelompok terbesar (50%). Tingkat pengangguran relatif rendah dan perkembangan ekonomi bertahap.</p>
+              </div>
+
+              <div class="p-6 bg-blue-950/20 border border-blue-500/10 rounded-2xl">
+                <span class="inline-block px-3 py-1 bg-blue-500/15 text-blue-400 text-xs font-bold rounded-full mb-3">Cluster 3 — Ekonomi Menengah*</span>
+                <p class="text-sm text-gray-300 leading-relaxed mb-2 font-medium">Nusa Tenggara Timur, Papua Barat, Papua Selatan, Papua Tengah, Papua Pegunungan</p>
+                <p class="text-xs text-gray-500">Karakteristik: PDRB sedang tetapi kemiskinan sangat ekstrem (>17%) dan IPM sangat rendah. Anomali akibat disparitas internal distribusi SDA di Papua.</p>
+              </div>
+
+              <div class="p-6 bg-green-950/20 border border-green-500/10 rounded-2xl">
+                <span class="inline-block px-3 py-1 bg-green-500/15 text-green-400 text-xs font-bold rounded-full mb-3">Cluster 4 — Ekonomi Maju</span>
+                <p class="text-sm text-gray-300 leading-relaxed mb-2 font-medium">Riau, Kepulauan Riau, DKI Jakarta, Kalimantan Timur, Kalimantan Utara</p>
+                <p class="text-xs text-gray-500">Karakteristik: IPM tertinggi, kemiskinan paling rendah, dan PDRB rata-rata 3.5× lipat lebih besar dibanding kluster lainnya.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evaluasi Model -->
+          <div class="detail-card">
+            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+              <span class="w-8 h-1 bg-acid-lime rounded-full"></span>
+              Evaluasi Model Clustering
+            </h3>
+            
+            <div class="overflow-x-auto rounded-xl border border-border-subtle mb-6">
+              <table class="min-w-full divide-y divide-border-subtle">
+                <thead>
+                  <tr>
+                    <th class="table-header">Metrik Evaluasi</th>
+                    <th class="table-header text-right">Nilai</th>
+                    <th class="table-header text-right">Interpretasi</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-border-subtle bg-white/[0.01]">
+                  <tr>
+                    <td class="table-cell font-bold text-white">Silhouette Score</td>
+                    <td class="table-cell text-right font-mono text-acid-lime">0.3465</td>
+                    <td class="table-cell text-right">Struktur cluster sedang (valid digunakan)</td>
+                  </tr>
+                  <tr>
+                    <td class="table-cell font-bold text-white">Davies-Bouldin Index</td>
+                    <td class="table-cell text-right font-mono text-acid-lime">0.8904</td>
+                    <td class="table-cell text-right">Semakin kecil semakin baik; separasi antar kluster cukup baik</td>
+                  </tr>
+                  <tr>
+                    <td class="table-cell font-bold text-white">Calinski-Harabasz Score</td>
+                    <td class="table-cell text-right font-mono text-acid-lime">21.22</td>
+                    <td class="table-cell text-right">Semakin besar semakin baik; penyebaran kelompok memadai</td>
+                  </tr>
+                  <tr>
+                    <td class="table-cell font-bold text-white">Inertia (WCSS)</td>
+                    <td class="table-cell text-right font-mono text-acid-lime">52.92</td>
+                    <td class="table-cell text-right">Tingkat kekompakan internal kluster memuaskan</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="p-6 bg-white/5 rounded-xl border border-white/5 text-sm text-gray-400">
+              <h5 class="text-white font-bold mb-2">Panduan Skala Silhouette Score:</h5>
+              <ul class="flex flex-col gap-1.5">
+                <li>• <strong class="text-gray-300">&gt; 0.70</strong>: Struktur kluster sangat kuat</li>
+                <li>• <strong class="text-gray-300">0.50 – 0.70</strong>: Struktur kluster kuat</li>
+                <li>• <strong class="text-gray-300">0.25 – 0.50</strong>: Struktur kluster sedang <span class="text-acid-lime font-bold">✓ (Kasus ini)</span></li>
+                <li>• <strong class="text-gray-300">&lt; 0.25</strong>: Struktur kluster lemah</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar / Meta Details -->
+        <div class="flex flex-col gap-8">
+          <!-- Tech Stack -->
+          <div class="detail-card">
+            <h3
+              class="text-xs font-bold mb-6 uppercase tracking-widest text-gray-500"
+            >
+              Tech Stack & Libraries
+            </h3>
+            <div class="flex flex-wrap gap-2.5">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">scikit-learn</span>
+              <span class="tech-badge">Pandas</span>
+              <span class="tech-badge">NumPy</span>
+              <span class="tech-badge">Matplotlib</span>
+              <span class="tech-badge">Seaborn</span>
+              <span class="tech-badge">Jupyter Notebook</span>
+              <span class="tech-badge">openpyxl</span>
+              <span class="tech-badge">scipy</span>
+            </div>
+          </div>
+
+          <!-- Project Info -->
+          <div class="detail-card bg-acid-lime text-black border-none">
+            <i class="fas fa-check-circle text-4xl mb-4"></i>
+            <h3 class="text-xl font-bold mb-1 tracking-tight">Status Proyek</h3>
+            <p class="font-medium opacity-80 mb-6">Selesai (Completed)</p>
+            <div class="h-px bg-black/10 w-full mb-6"></div>
+            <h3 class="text-sm font-bold uppercase tracking-wider opacity-60 mb-2">Sumber Data</h3>
+            <p class="text-xs font-bold bg-black/10 py-1.5 px-3 rounded-md inline-block">Badan Pusat Statistik (BPS)</p>
+          </div>
+
+          <!-- Visualizations generated list -->
+          <div class="detail-card">
+            <h3
+              class="text-xs font-bold mb-6 uppercase tracking-widest text-gray-500"
+            >
+              Visualisasi Dihasilkan
+            </h3>
+            <ul class="flex flex-col gap-3 text-sm text-gray-400">
+              <li class="flex gap-2.5 items-center">
+                <i class="far fa-image text-acid-lime"></i>
+                <span>distribusi_variabel.png</span>
+              </li>
+              <li class="flex gap-2.5 items-center">
+                <i class="far fa-image text-acid-lime"></i>
+                <span>matriks_korelasi.png</span>
+              </li>
+              <li class="flex gap-2.5 items-center">
+                <i class="far fa-image text-acid-lime"></i>
+                <span>elbow_method.png</span>
+              </li>
+              <li class="flex gap-2.5 items-center">
+                <i class="far fa-image text-acid-lime"></i>
+                <span>silhouette_score.png</span>
+              </li>
+              <li class="flex gap-2.5 items-center">
+                <i class="far fa-image text-acid-lime"></i>
+                <span>profil_cluster.png</span>
+              </li>
+              <li class="flex gap-2.5 items-center">
+                <i class="far fa-image text-acid-lime"></i>
+                <span>pca_biplot.png</span>
+              </li>
+              <li class="flex gap-2.5 items-center">
+                <i class="far fa-image text-acid-lime"></i>
+                <span>radar_chart.png</span>
+              </li>
+              <li class="flex gap-2.5 items-center">
+                <i class="far fa-image text-acid-lime"></i>
+                <span>heatmap_cluster.png</span>
+              </li>
+              <li class="flex gap-2.5 items-center">
+                <i class="far fa-image text-acid-lime"></i>
+                <span>silhouette_plot.png</span>
+              </li>
+              <li class="flex gap-2.5 items-center">
+                <i class="far fa-image text-acid-lime"></i>
+                <span>scatter_matrix.png</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full-Width Insights & Recommendations Section -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        <!-- Temuan Kunci -->
+        <div class="detail-card md:col-span-1">
+          <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+            <span class="w-8 h-1 bg-acid-lime rounded-full"></span>
+            Temuan Kunci
+          </h3>
+          <ul class="flex flex-col gap-4 text-gray-300">
+            <li class="flex gap-3 items-start">
+              <span class="text-acid-lime font-bold">01.</span>
+              <span><strong>Kesenjangan Geografis Signifikan</strong>: Jawa dan Kalimantan Timur melampaui Papua secara eksponensial dalam IPM dan PDRB.</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <span class="text-acid-lime font-bold">02.</span>
+              <span><strong>Kemiskinan Ekstrem di Papua</strong>: Papua Tengah (29.45%) & Papua Pegunungan (27.21%) merupakan angka kemiskinan tertinggi di Indonesia.</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <span class="text-acid-lime font-bold">03.</span>
+              <span><strong>Anomali DI Yogyakarta</strong>: Memiliki IPM sangat tinggi (82.48) tetapi angka kemiskinan relatif tinggi (10.08%), menandakan ketimpangan distribusi pendapatan.</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <span class="text-acid-lime font-bold">04.</span>
+              <span><strong>PDRB Tinggi ≠ Kesejahteraan Tinggi</strong>: Beberapa daerah kaya SDA tidak diikuti peningkatan IPM secara signifikan, menunjukkan tantangan alokasi daerah.</span>
+            </li>
+            <li class="flex gap-3 items-start">
+              <span class="text-acid-lime font-bold">05.</span>
+              <span><strong>Dominasi Cluster 4</strong>: Hanya 5 provinsi (13.2%) menguasai PDRB rata-rata 3.5× lipat lebih besar dibanding provinsi Cluster 1.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Rekomendasi Kebijakan -->
+        <div class="detail-card md:col-span-1">
+          <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+            <span class="w-8 h-1 bg-acid-lime rounded-full"></span>
+            Rekomendasi Kebijakan
+          </h3>
+          <div class="flex flex-col gap-4 text-sm">
+            <div class="flex justify-between items-center py-2 border-b border-border-subtle">
+              <span class="font-bold text-red-400">🔴 C1 – Sangat Rendah</span>
+              <span class="text-gray-400">Pemberantasan kemiskinan + program penyediaan lapangan kerja intensif.</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-border-subtle">
+              <span class="font-bold text-yellow-400">🟡 C2 – Berkembang</span>
+              <span class="text-gray-400">Stimulus ekonomi lokal, peningkatan mutu sekolah dan infrastruktur logistik.</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-border-subtle">
+              <span class="font-bold text-blue-400">🔵 C3 – Menengah*</span>
+              <span class="text-gray-400">Reformasi pembagian hasil royalti SDA & percepatan peningkatan SDM lokal di Papua.</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <span class="font-bold text-green-400">🟢 C4 – Maju</span>
+              <span class="text-gray-400">Pertahankan stabilitas investasi, perkuat efek limpahan ekonomi ke daerah tetangga.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nav -->
+    <nav
+      class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-dark-surface/80 backdrop-blur-2xl border border-white/10 p-2 rounded-2xl flex gap-2 z-50 shadow-2xl"
+    >
+      <a href="../index.html" class="dock-item">
+        <i class="fas fa-home text-lg"></i>
+        <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
+          >Home</span
+        >
+      </a>
+      <a href="../projects.html" class="dock-item active">
+        <i class="fas fa-folder text-lg"></i>
+        <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
+          >Projects</span
+        >
+      </a>
+      <a href="../contact.html" class="dock-item">
+        <i class="fas fa-envelope text-lg"></i>
+        <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
+          >Contact</span
+        >
+      </a>
+    </nav>
+  </body>
+</html>
