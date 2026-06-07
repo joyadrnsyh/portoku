@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <!-- Icons -->
@@ -23,18 +23,21 @@
         theme: {
           extend: {
             colors: {
-              "dark-bg": "#030303",
-              "dark-surface": "#0d0d0d",
-              "dark-hover": "#141414",
-              "acid-lime": "#d4fd52",
-              "acid-hover": "#e2ff80",
-              "border-subtle": "rgba(255, 255, 255, 0.08)",
+              "neo-bg": "#f4f4f0",
+              "neo-yellow": "#ffe600",
+              "neo-pink": "#ff90e8",
+              "neo-cyan": "#23f0ff",
+              "neo-green": "#00e59b",
+              "neo-orange": "#ff6b00",
+              "neo-purple": "#b28dff",
             },
             fontFamily: {
               sans: ["Plus Jakarta Sans", "sans-serif"],
             },
-            borderRadius: {
-              bento: "2rem",
+            boxShadow: {
+              'neo': '8px 8px 0px 0px rgba(0,0,0,1)',
+              'neo-sm': '4px 4px 0px 0px rgba(0,0,0,1)',
+              'neo-hover': '2px 2px 0px 0px rgba(0,0,0,1)',
             },
           },
         },
@@ -43,63 +46,64 @@
     <style type="text/tailwindcss">
       @layer base {
         body {
-          @apply bg-dark-bg text-white font-sans antialiased;
+          @apply bg-neo-bg text-black font-sans antialiased selection:bg-neo-cyan selection:text-black;
         }
       }
       @layer components {
         .detail-card {
-          @apply bg-dark-surface border border-border-subtle rounded-[2rem] p-8 md:p-10 transition-all duration-500 hover:border-white/10;
+          @apply bg-white border-4 border-black rounded-2xl p-8 md:p-10 transition-all duration-200 shadow-neo;
         }
-        .dock-item {
-          @apply flex flex-col items-center justify-center p-2 rounded-xl transition-all duration-300 min-w-[64px] text-gray-400 hover:bg-white/5 hover:text-white;
+        .neo-dock-item {
+          @apply flex flex-col items-center justify-center p-2 rounded-xl transition-all duration-200 min-w-[64px] text-black font-bold border-2 border-transparent hover:border-black hover:bg-neo-pink hover:shadow-neo-sm;
         }
-        .dock-item.active {
-          @apply bg-white/10 text-white;
-        }
-        .dock-item.active i {
-          @apply text-acid-lime;
+        .neo-dock-item.active {
+          @apply bg-neo-yellow border-black shadow-neo-sm;
         }
         .tech-badge {
-          @apply px-4 py-2 bg-white/5 border border-border-subtle rounded-full text-sm font-medium text-gray-400 hover:border-acid-lime/50 hover:text-acid-lime transition-all cursor-default;
+          @apply px-4 py-2 bg-white border-2 border-black rounded-xl text-sm font-extrabold text-black hover:bg-neo-yellow transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] cursor-default;
         }
         .table-header {
-          @apply px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-400 border-b border-border-subtle bg-white/[0.02];
+          @apply px-6 py-4 text-left text-xs font-extrabold uppercase tracking-wider text-black border-b-4 border-black bg-neo-pink;
         }
         .table-cell {
-          @apply px-6 py-4 text-sm text-gray-300 border-b border-border-subtle;
+          @apply px-6 py-4 text-sm font-bold text-black border-b-2 border-black bg-white;
         }
       }
     </style>
   </head>
-  <body class="pb-32">
+  <body class="pb-32 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')]">
     <!-- Project Hero -->
     <section class="pt-24 pb-16 px-6 max-w-5xl mx-auto text-center">
       <div
-        class="inline-block px-4 py-1.5 border border-acid-lime text-acid-lime text-xs font-bold uppercase tracking-[0.2em] rounded-full mb-8 bg-acid-lime/5"
+        class="inline-block px-4 py-1.5 border-4 border-black bg-neo-yellow text-black text-xs font-extrabold uppercase tracking-[0.2em] rounded-full mb-8 shadow-neo-sm transform -rotate-1"
       >
         Data Science & Business Analytics
       </div>
       <h1
-        class="text-4xl md:text-6xl font-bold tracking-tighter leading-tight mb-8"
+        class="text-4xl md:text-6xl font-extrabold tracking-tighter leading-tight mb-8 uppercase" style="-webkit-text-stroke: 1px black;"
       >
         Customer Segmentation Analysis Using RFM
       </h1>
       <p
-        class="text-xl text-gray-400 font-normal leading-relaxed max-w-3xl mx-auto mb-10"
+        class="text-xl text-black font-bold leading-relaxed max-w-3xl mx-auto mb-10 bg-white border-4 border-black p-4 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1"
       >
         Mengelompokkan pelanggan berdasarkan perilaku transaksi untuk strategi pemasaran yang lebih efektif, efisien, dan personal menggunakan metode RFM.
       </p>
 
       <div
-        class="flex flex-wrap justify-center gap-12 mb-12 py-8 border-y border-border-subtle"
+        class="flex flex-wrap justify-center gap-12 mb-12 py-8 border-y-4 border-black bg-white shadow-neo-sm"
       >
-        <div class="flex items-center gap-3 text-gray-400">
-          <i class="far fa-calendar-alt text-acid-lime"></i>
-          <span class="font-medium text-white">Januari 2026</span>
+        <div class="flex items-center gap-3 text-black">
+          <div class="bg-neo-pink border-2 border-black p-2 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+            <i class="far fa-calendar-alt"></i>
+          </div>
+          <span class="font-extrabold text-black uppercase">Januari 2026</span>
         </div>
-        <div class="flex items-center gap-3 text-gray-400">
-          <i class="fas fa-user text-acid-lime"></i>
-          <span class="font-medium text-white">Role: Data Analyst & Scientist</span>
+        <div class="flex items-center gap-3 text-black">
+          <div class="bg-neo-cyan border-2 border-black p-2 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+            <i class="fas fa-user"></i>
+          </div>
+          <span class="font-extrabold text-black uppercase">Role: Data Analyst & Scientist</span>
         </div>
       </div>
 
@@ -107,12 +111,12 @@
         <a
           href="https://github.com/joy-adriansyah/Customer-Segmentation-Analysis-Using-RFM"
           target="_blank"
-          class="px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-acid-lime transition-all flex items-center gap-2 group"
+          class="px-8 py-4 bg-neo-purple text-black border-4 border-black font-extrabold text-xl uppercase rounded-xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:bg-neo-green hover:translate-y-1 hover:translate-x-1 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center gap-3 group"
         >
-          <i class="fab fa-github text-lg"></i>
+          <i class="fab fa-github text-2xl"></i>
           <span>View Source Code</span>
           <i
-            class="fas fa-external-link-alt text-xs group-hover:rotate-45 transition-transform"
+            class="fas fa-external-link-alt text-sm group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform border-2 border-black p-1 rounded-full bg-white"
           ></i>
         </a>
       </div>
@@ -121,7 +125,7 @@
     <!-- Banner -->
     <div class="container mx-auto px-6 max-w-6xl mb-24">
       <div
-        class="rounded-[2.5rem] overflow-hidden border border-border-subtle shadow-[0_40px_100px_rgba(0,0,0,0.5)]"
+        class="rounded-3xl overflow-hidden border-8 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]"
       >
         <img
           src="../src/projek 8/tumb-project8.png"
@@ -138,51 +142,59 @@
         <div class="lg:col-span-2 flex flex-col gap-8">
           <!-- Overview & Objectives -->
           <div class="detail-card">
-            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-              <span class="w-8 h-1 bg-acid-lime rounded-full"></span>
+            <h3 class="text-3xl font-extrabold mb-6 flex items-center gap-3 uppercase">
+              <span class="w-8 h-8 border-4 border-black bg-neo-yellow rounded-full shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"></span>
               Overview & Objectives
             </h3>
-            <p class="text-gray-400 leading-relaxed text-lg mb-6">
-              Analisis ini menerapkan metode **RFM (Recency, Frequency, Monetary)** terhadap 2.000 transaksi penjualan sepanjang tahun 2025 untuk mengklasifikasikan 812 customer unik ke dalam 11 segmen perilaku yang dapat ditindaklanjuti secara strategis. Dengan pemetaan ini, alokasi anggaran pemasaran dapat dioptimalkan berdasarkan nilai kontribusi masing-masing segmen pelanggan.
+            <p class="text-black font-semibold leading-relaxed text-lg mb-6">
+              Analisis ini menerapkan metode <strong>RFM (Recency, Frequency, Monetary)</strong> terhadap 2.000 transaksi penjualan sepanjang tahun 2025 untuk mengklasifikasikan 812 customer unik ke dalam 11 segmen perilaku yang dapat ditindaklanjuti secara strategis. Dengan pemetaan ini, alokasi anggaran pemasaran dapat dioptimalkan berdasarkan nilai kontribusi masing-masing segmen pelanggan.
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-              <div class="p-5 bg-white/5 rounded-2xl border border-white/5 text-center">
-                <i class="fas fa-shopping-cart text-acid-lime text-2xl mb-3"></i>
-                <h4 class="text-white font-bold text-lg mb-1">2.000</h4>
-                <p class="text-gray-400 text-xs">Total Transaksi</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+              <div class="p-5 bg-white border-4 border-black rounded-xl text-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform hover:-translate-y-1 transition-transform">
+                <div class="w-12 h-12 mx-auto bg-neo-pink border-2 border-black rounded-full flex items-center justify-center mb-3">
+                  <i class="fas fa-shopping-cart text-black text-xl"></i>
+                </div>
+                <h4 class="text-black font-extrabold text-2xl mb-1">2.000</h4>
+                <p class="text-black font-bold text-xs uppercase">Total Transaksi</p>
               </div>
-              <div class="p-5 bg-white/5 rounded-2xl border border-white/5 text-center">
-                <i class="fas fa-users text-acid-lime text-2xl mb-3"></i>
-                <h4 class="text-white font-bold text-lg mb-1">812</h4>
-                <p class="text-gray-400 text-xs">Customer Unik</p>
+              <div class="p-5 bg-white border-4 border-black rounded-xl text-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform hover:-translate-y-1 transition-transform">
+                <div class="w-12 h-12 mx-auto bg-neo-cyan border-2 border-black rounded-full flex items-center justify-center mb-3">
+                  <i class="fas fa-users text-black text-xl"></i>
+                </div>
+                <h4 class="text-black font-extrabold text-2xl mb-1">812</h4>
+                <p class="text-black font-bold text-xs uppercase">Customer Unik</p>
               </div>
-              <div class="p-5 bg-white/5 rounded-2xl border border-white/5 text-center">
-                <i class="fas fa-wallet text-acid-lime text-2xl mb-3"></i>
-                <h4 class="text-white font-bold text-lg mb-1">Rp 59,85 M</h4>
-                <p class="text-gray-400 text-xs">Total Revenue</p>
+              <div class="p-5 bg-white border-4 border-black rounded-xl text-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform hover:-translate-y-1 transition-transform">
+                <div class="w-12 h-12 mx-auto bg-neo-yellow border-2 border-black rounded-full flex items-center justify-center mb-3">
+                  <i class="fas fa-wallet text-black text-xl"></i>
+                </div>
+                <h4 class="text-black font-extrabold text-2xl mb-1">59,8 M</h4>
+                <p class="text-black font-bold text-xs uppercase">Total Revenue</p>
               </div>
-              <div class="p-5 bg-white/5 rounded-2xl border border-white/5 text-center">
-                <i class="fas fa-chart-line text-acid-lime text-2xl mb-3"></i>
-                <h4 class="text-white font-bold text-lg mb-1">Rp 29,93 M</h4>
-                <p class="text-gray-400 text-xs">Avg Order Value</p>
+              <div class="p-5 bg-white border-4 border-black rounded-xl text-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform hover:-translate-y-1 transition-transform">
+                <div class="w-12 h-12 mx-auto bg-neo-green border-2 border-black rounded-full flex items-center justify-center mb-3">
+                  <i class="fas fa-chart-line text-black text-xl"></i>
+                </div>
+                <h4 class="text-black font-extrabold text-2xl mb-1">29,9 M</h4>
+                <p class="text-black font-bold text-xs uppercase">Avg Order Value</p>
               </div>
             </div>
           </div>
 
           <!-- Dataset & Preprocessing -->
           <div class="detail-card">
-            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-              <span class="w-8 h-1 bg-acid-lime rounded-full"></span>
+            <h3 class="text-3xl font-extrabold mb-6 flex items-center gap-3 uppercase">
+              <span class="w-8 h-8 border-4 border-black bg-neo-orange rounded-full shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"></span>
               Dataset & Preprocessing
             </h3>
-            <p class="text-gray-400 leading-relaxed mb-6">
+            <p class="text-black font-semibold leading-relaxed mb-6">
               Dataset memiliki 10 kolom dengan 2.000 baris transaksi dari periode 1 Januari 2025 sampai 31 Desember 2025. Data mentah telah di-parse dan divalidasi mutlak dari baris duplikat atau nilai kosong.
             </p>
 
             <!-- Dataset Structure Table -->
-            <h4 class="text-lg font-bold mb-4 text-white">Struktur Data</h4>
-            <div class="overflow-x-auto rounded-xl border border-border-subtle mb-8">
-              <table class="min-w-full divide-y divide-border-subtle bg-black/40">
+            <h4 class="text-xl font-extrabold mb-4 text-black uppercase inline-block bg-neo-cyan border-2 border-black px-3 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">Struktur Data</h4>
+            <div class="overflow-x-auto rounded-xl border-4 border-black mb-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <table class="min-w-full divide-y-4 divide-black">
                 <thead>
                   <tr>
                     <th class="table-header">Kolom</th>
@@ -191,41 +203,41 @@
                     <th class="table-header text-right">Keterangan</th>
                   </tr>
                 </thead>
-                <tbody class="divide-y divide-border-subtle bg-white/[0.01]">
+                <tbody class="divide-y-2 divide-black bg-white">
                   <tr>
-                    <td class="table-cell font-bold text-white">Transaction ID</td>
+                    <td class="table-cell font-extrabold text-black">Transaction ID</td>
                     <td class="table-cell">string</td>
-                    <td class="table-cell">string</td>
+                    <td class="table-cell bg-neo-yellow">string</td>
                     <td class="table-cell text-right">ID unik transaksi</td>
                   </tr>
                   <tr>
-                    <td class="table-cell font-bold text-white">Date</td>
+                    <td class="table-cell font-extrabold text-black">Date</td>
                     <td class="table-cell">string</td>
-                    <td class="table-cell">datetime</td>
+                    <td class="table-cell bg-neo-pink">datetime</td>
                     <td class="table-cell text-right">Format dd-mm-yyyy</td>
                   </tr>
                   <tr>
-                    <td class="table-cell font-bold text-white">Quantity</td>
+                    <td class="table-cell font-extrabold text-black">Quantity</td>
                     <td class="table-cell">integer</td>
-                    <td class="table-cell">integer</td>
+                    <td class="table-cell bg-neo-cyan">integer</td>
                     <td class="table-cell text-right">Jumlah unit</td>
                   </tr>
                   <tr>
-                    <td class="table-cell font-bold text-white">PPU</td>
+                    <td class="table-cell font-extrabold text-black">PPU</td>
                     <td class="table-cell">string</td>
-                    <td class="table-cell">float</td>
+                    <td class="table-cell bg-neo-green">float</td>
                     <td class="table-cell text-right">Harga per unit (pembersihan koma)</td>
                   </tr>
                   <tr>
-                    <td class="table-cell font-bold text-white">Amount</td>
+                    <td class="table-cell font-extrabold text-black">Amount</td>
                     <td class="table-cell">string</td>
-                    <td class="table-cell">float</td>
+                    <td class="table-cell bg-neo-purple">float</td>
                     <td class="table-cell text-right">Total nilai transaksi</td>
                   </tr>
                   <tr>
-                    <td class="table-cell font-bold text-white">Region</td>
+                    <td class="table-cell font-extrabold text-black">Region</td>
                     <td class="table-cell">string</td>
-                    <td class="table-cell">string</td>
+                    <td class="table-cell bg-neo-orange">string</td>
                     <td class="table-cell text-right">5 region Myanmar</td>
                   </tr>
                 </tbody>
@@ -233,345 +245,48 @@
             </div>
 
             <!-- Quality Check Table -->
-            <h4 class="text-lg font-bold mb-4 text-white">Hasil Pemeriksaan Kualitas Data</h4>
-            <div class="overflow-x-auto rounded-xl border border-border-subtle mb-6">
-              <table class="min-w-full divide-y divide-border-subtle bg-black/40">
+            <h4 class="text-xl font-extrabold mb-4 text-black uppercase inline-block bg-neo-pink border-2 border-black px-3 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-1">Kualitas Data</h4>
+            <div class="overflow-x-auto rounded-xl border-4 border-black mb-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <table class="min-w-full divide-y-4 divide-black">
                 <thead>
-                  <tr>
-                    <th class="table-header">Pemeriksaan</th>
-                    <th class="table-header text-right">Hasil</th>
+                  <tr class="bg-neo-yellow">
+                    <th class="table-header !bg-neo-yellow">Pemeriksaan</th>
+                    <th class="table-header !bg-neo-yellow text-right">Hasil</th>
                   </tr>
                 </thead>
-                <tbody class="divide-y divide-border-subtle bg-white/[0.01]">
+                <tbody class="divide-y-2 divide-black bg-white">
                   <tr>
                     <td class="table-cell">Missing values (Data Kosong)</td>
-                    <td class="table-cell text-right text-green-400 font-bold">0</td>
+                    <td class="table-cell text-right font-extrabold">0</td>
                   </tr>
                   <tr>
                     <td class="table-cell">Baris Duplikat Penuh</td>
-                    <td class="table-cell text-right text-green-400 font-bold">0</td>
+                    <td class="table-cell text-right font-extrabold">0</td>
                   </tr>
                   <tr>
                     <td class="table-cell">Transaction ID Duplikat</td>
-                    <td class="table-cell text-right text-green-400 font-bold">0</td>
+                    <td class="table-cell text-right font-extrabold">0</td>
                   </tr>
                   <tr>
                     <td class="table-cell">Quantity & Amount ≤ 0</td>
-                    <td class="table-cell text-right text-green-400 font-bold">0 (Semua Valid)</td>
-                  </tr>
-                  <tr>
-                    <td class="table-cell">Konsistensi Amount vs Qty × PPU</td>
-                    <td class="table-cell text-right text-green-400 font-bold">Konsisten (Selisih < 1)</td>
+                    <td class="table-cell text-right font-extrabold">0 (Valid)</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
             <!-- Outliers section -->
-            <div class="p-6 bg-white/5 rounded-2xl border border-white/5 mt-4">
-              <h4 class="text-white font-bold mb-2 flex items-center gap-2">
-                <i class="fas fa-exclamation-triangle text-acid-lime"></i>
+            <div class="p-6 bg-[#ffdbdb] border-4 border-black rounded-xl mt-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+              <h4 class="text-black font-extrabold mb-2 flex items-center gap-2 uppercase text-lg">
+                <div class="bg-white border-2 border-black p-1 rounded-full"><i class="fas fa-exclamation-triangle text-black"></i></div>
                 Deteksi Outlier & Penanganan
               </h4>
-              <p class="text-gray-400 text-sm leading-relaxed mb-3">
-                Menggunakan metode IQR pada kolom Amount diperoleh: Q1 = Rp 3,74 Juta, Q3 = Rp 17,55 Juta, IQR = Rp 13,81 Juta. Jumlah outlier (> Q3 + 1.5×IQR) adalah <strong>272 transaksi (13,6%)</strong>.
+              <p class="text-black font-semibold text-sm leading-relaxed mb-3">
+                Menggunakan metode IQR pada kolom Amount diperoleh: Q1 = Rp 3,74 Juta, Q3 = Rp 17,55 Juta, IQR = Rp 13,81 Juta. Jumlah outlier (> Q3 + 1.5×IQR) adalah <strong class="bg-white px-1 border border-black">272 transaksi (13,6%)</strong>.
               </p>
-              <p class="text-gray-500 text-xs">
+              <p class="text-black text-xs font-bold border-l-4 border-black pl-3 py-1 bg-white">
                 *Outlier tidak dihapus karena mencerminkan transaksi korporat/bulk yang sah, bukan kesalahan input data, dan sangat relevan untuk mengidentifikasi segmen bernilai tinggi (Champions).
               </p>
-            </div>
-          </div>
-
-          <!-- Exploratory Data Analysis -->
-          <div class="detail-card">
-            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-              <span class="w-8 h-1 bg-acid-lime rounded-full"></span>
-              Exploratory Data Analysis (EDA)
-            </h3>
-            
-            <!-- Tren Bulanan -->
-            <h4 class="text-lg font-bold mb-4 text-white">Tren Bulanan (2025)</h4>
-            <p class="text-gray-400 text-sm mb-4">
-              Revenue tertinggi diraih pada bulan **Agustus (Rp 7,10 Miliar)** dan **November (Rp 7,06 Miliar)**, didorong oleh transaksi pembelian bulk berskala besar.
-            </p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <!-- Region Revenue -->
-              <div>
-                <h5 class="text-sm font-bold text-gray-400 mb-3 uppercase tracking-wider">Revenue per Region</h5>
-                <div class="overflow-x-auto rounded-xl border border-border-subtle bg-black/40">
-                  <table class="min-w-full divide-y divide-border-subtle">
-                    <thead>
-                      <tr>
-                        <th class="table-header">Region</th>
-                        <th class="table-header text-right">Revenue (Juta)</th>
-                        <th class="table-header text-right">%</th>
-                      </tr>
-                    </thead>
-                    <tbody class="divide-y divide-border-subtle bg-white/[0.01]">
-                      <tr>
-                        <td class="table-cell font-bold text-white">Yangon</td>
-                        <td class="table-cell text-right">22.984,4</td>
-                        <td class="table-cell text-right text-acid-lime font-bold">38,4%</td>
-                      </tr>
-                      <tr>
-                        <td class="table-cell font-bold text-white">Mandalay</td>
-                        <td class="table-cell text-right">16.437,7</td>
-                        <td class="table-cell text-right">27,5%</td>
-                      </tr>
-                      <tr>
-                        <td class="table-cell font-bold text-white">Bago</td>
-                        <td class="table-cell text-right">9.236,3</td>
-                        <td class="table-cell text-right">15,4%</td>
-                      </tr>
-                      <tr>
-                        <td class="table-cell font-bold text-white">Naypyitaw</td>
-                        <td class="table-cell text-right">7.451,9</td>
-                        <td class="table-cell text-right">12,5%</td>
-                      </tr>
-                      <tr>
-                        <td class="table-cell font-bold text-white">Taunggyi</td>
-                        <td class="table-cell text-right">3.741,3</td>
-                        <td class="table-cell text-right">6,3%</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              <!-- Category Revenue -->
-              <div>
-                <h5 class="text-sm font-bold text-gray-400 mb-3 uppercase tracking-wider">Revenue per Kategori Produk</h5>
-                <div class="overflow-x-auto rounded-xl border border-border-subtle bg-black/40">
-                  <table class="min-w-full divide-y divide-border-subtle">
-                    <thead>
-                      <tr>
-                        <th class="table-header">Kategori</th>
-                        <th class="table-header text-right">Revenue (Juta)</th>
-                        <th class="table-header text-right">%</th>
-                      </tr>
-                    </thead>
-                    <tbody class="divide-y divide-border-subtle bg-white/[0.01]">
-                      <tr>
-                        <td class="table-cell font-bold text-white">Electronics</td>
-                        <td class="table-cell text-right">43.207,7</td>
-                        <td class="table-cell text-right text-acid-lime font-bold">72,2%</td>
-                      </tr>
-                      <tr>
-                        <td class="table-cell font-bold text-white">Furniture</td>
-                        <td class="table-cell text-right">15.144,1</td>
-                        <td class="table-cell text-right">25,3%</td>
-                      </tr>
-                      <tr>
-                        <td class="table-cell font-bold text-white">Office Supplies</td>
-                        <td class="table-cell text-right">1.499,8</td>
-                        <td class="table-cell text-right">2,5%</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-
-            <!-- Top 5 Products -->
-            <h4 class="text-lg font-bold mb-4 text-white">Top 5 Produk Penyumbang Revenue</h4>
-            <div class="overflow-x-auto rounded-xl border border-border-subtle bg-black/40">
-              <table class="min-w-full divide-y divide-border-subtle">
-                <thead>
-                  <tr>
-                    <th class="table-header">Produk</th>
-                    <th class="table-header">Kategori</th>
-                    <th class="table-header text-right">Revenue (Juta)</th>
-                    <th class="table-header text-right">% Total</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-border-subtle bg-white/[0.01]">
-                  <tr>
-                    <td class="table-cell font-bold text-white">27-inch 4K Monitor</td>
-                    <td class="table-cell">Electronics</td>
-                    <td class="table-cell text-right">19.999,2</td>
-                    <td class="table-cell text-right text-acid-lime font-bold">33,4%</td>
-                  </tr>
-                  <tr>
-                    <td class="table-cell font-bold text-white">Noise-Cancelling Headphones</td>
-                    <td class="table-cell">Electronics</td>
-                    <td class="table-cell text-right">14.587,2</td>
-                    <td class="table-cell text-right text-acid-lime font-bold">24,4%</td>
-                  </tr>
-                  <tr>
-                    <td class="table-cell font-bold text-white">Standing Desk Converter</td>
-                    <td class="table-cell">Furniture</td>
-                    <td class="table-cell text-right">7.989,0</td>
-                    <td class="table-cell text-right">13,3%</td>
-                  </tr>
-                  <tr>
-                    <td class="table-cell font-bold text-white">Ergonomic Mesh Chair</td>
-                    <td class="table-cell">Furniture</td>
-                    <td class="table-cell text-right">5.343,8</td>
-                    <td class="table-cell text-right">8,9%</td>
-                  </tr>
-                  <tr>
-                    <td class="table-cell font-bold text-white">Wireless Mechanical Keyboard</td>
-                    <td class="table-cell">Electronics</td>
-                    <td class="table-cell text-right">4.235,0</td>
-                    <td class="table-cell text-right">7,1%</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p class="text-xs text-gray-500 mt-3">
-              *Produk <strong>27-inch 4K Monitor</strong> dan <strong>Noise-Cancelling Headphones</strong> menyumbang total <strong>57,8%</strong> dari seluruh pendapatan perusahaan.
-            </p>
-          </div>
-
-          <!-- Kalkulasi & Skoring RFM -->
-          <div class="detail-card">
-            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-              <span class="w-8 h-1 bg-acid-lime rounded-full"></span>
-              Metode Kalkulasi & Skoring RFM
-            </h3>
-            <p class="text-gray-400 leading-relaxed mb-6">
-              Metrik RFM didefinisikan secara individual per customer berdasarkan hari dari transaksi terakhir (Recency), jumlah transaksi unik (Frequency), dan total belanja (Monetary). Tiap metrik dibagi menjadi 5 kuintil untuk memberikan skor 1-5.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-              <div class="p-5 bg-white/5 rounded-2xl border border-white/5">
-                <div class="text-acid-lime font-bold text-xl mb-2">Recency (R)</div>
-                <p class="text-gray-400 text-xs">Jeda hari transaksi terakhir ke snapshot (1 Jan 2026). Nilai R kecil mendapatkan skor kuintil tinggi (5).</p>
-              </div>
-              <div class="p-5 bg-white/5 rounded-2xl border border-white/5">
-                <div class="text-acid-lime font-bold text-xl mb-2">Frequency (F)</div>
-                <p class="text-gray-400 text-xs">Jumlah transaksi unik per customer sepanjang tahun 2025. Jumlah transaksi banyak memperoleh skor tinggi (5).</p>
-              </div>
-              <div class="p-5 bg-white/5 rounded-2xl border border-white/5">
-                <div class="text-acid-lime font-bold text-xl mb-2">Monetary (M)</div>
-                <p class="text-gray-400 text-xs">Total pembelanjaan nominal (Juta Rupiah) per customer. Nominal pembelanjaan tinggi memperoleh skor tinggi (5).</p>
-              </div>
-            </div>
-            <div class="p-5 bg-black/40 rounded-xl border border-border-subtle text-sm text-gray-300">
-              <strong>RFM Code:</strong> Kombinasi string skor R_score + F_score + M_score (Contoh: "555" adalah Champions, "111" adalah Lost).
-            </div>
-          </div>
-
-          <!-- Segmentasi Customer -->
-          <div class="detail-card">
-            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-              <span class="w-8 h-1 bg-acid-lime rounded-full"></span>
-              Profil Segmen Customer
-            </h3>
-            <p class="text-gray-400 leading-relaxed mb-6">
-              Hasil segmentasi mengklasifikasikan 812 customer unik ke dalam 11 kategori perilaku. Ditemukan pola Pareto yang sangat kuat.
-            </p>
-
-            <!-- Profiling Table -->
-            <div class="overflow-x-auto rounded-xl border border-border-subtle bg-black/40 mb-8">
-              <table class="min-w-full divide-y divide-border-subtle">
-                <thead>
-                  <tr>
-                    <th class="table-header">Segmen</th>
-                    <th class="table-header text-right">Customer</th>
-                    <th class="table-header text-right">% Cust</th>
-                    <th class="table-header text-right">Avg Rec (hari)</th>
-                    <th class="table-header text-right">Avg Freq</th>
-                    <th class="table-header text-right">Avg Mon (Jt)</th>
-                    <th class="table-header text-right">Total Rev (Jt)</th>
-                    <th class="table-header text-right">% Rev</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-border-subtle bg-white/[0.01]">
-                  <tr>
-                    <td class="table-cell font-bold text-white">🏆 Champions</td>
-                    <td class="table-cell text-right">139</td>
-                    <td class="table-cell text-right">17,1%</td>
-                    <td class="table-cell text-right">31,1</td>
-                    <td class="table-cell text-right">4,7</td>
-                    <td class="table-cell text-right">272,1</td>
-                    <td class="table-cell text-right font-bold text-acid-lime">37.815,7</td>
-                    <td class="table-cell text-right font-bold text-acid-lime">63,2%</td>
-                  </tr>
-                  <tr>
-                    <td class="table-cell font-bold text-white">💎 Loyal Customers</td>
-                    <td class="table-cell text-right">150</td>
-                    <td class="table-cell text-right">18,5%</td>
-                    <td class="table-cell text-right">63,1</td>
-                    <td class="table-cell text-right">3,1</td>
-                    <td class="table-cell text-right">74,8</td>
-                    <td class="table-cell text-right">11.218,4</td>
-                    <td class="table-cell text-right">18,7%</td>
-                  </tr>
-                  <tr>
-                    <td class="table-cell font-bold text-white">⚠️ At Risk</td>
-                    <td class="table-cell text-right">72</td>
-                    <td class="table-cell text-right">8,9%</td>
-                    <td class="table-cell text-right">160,8</td>
-                    <td class="table-cell text-right">3,2</td>
-                    <td class="table-cell text-right">70,2</td>
-                    <td class="table-cell text-right">5.055,9</td>
-                    <td class="table-cell text-right text-red-400">8,4%</td>
-                  </tr>
-                  <tr>
-                    <td class="table-cell font-bold text-white">💀 Lost</td>
-                    <td class="table-cell text-right">157</td>
-                    <td class="table-cell text-right">19,3%</td>
-                    <td class="table-cell text-right">248,6</td>
-                    <td class="table-cell text-right">1,2</td>
-                    <td class="table-cell text-right">13,0</td>
-                    <td class="table-cell text-right">2.035,0</td>
-                    <td class="table-cell text-right text-gray-500">3,4%</td>
-                  </tr>
-                  <tr>
-                    <td class="table-cell font-bold text-white">🆕 New Customers</td>
-                    <td class="table-cell text-right">78</td>
-                    <td class="table-cell text-right">9,6%</td>
-                    <td class="table-cell text-right">39,1</td>
-                    <td class="table-cell text-right">1,2</td>
-                    <td class="table-cell text-right">15,5</td>
-                    <td class="table-cell text-right">1.206,6</td>
-                    <td class="table-cell text-right">2,0%</td>
-                  </tr>
-                  <tr>
-                    <td class="table-cell font-bold text-white">📈 Potential Loyalist</td>
-                    <td class="table-cell text-right">68</td>
-                    <td class="table-cell text-right">8,4%</td>
-                    <td class="table-cell text-right">74,2</td>
-                    <td class="table-cell text-right">2,1</td>
-                    <td class="table-cell text-right">11,7</td>
-                    <td class="table-cell text-right">797,7</td>
-                    <td class="table-cell text-right">1,3%</td>
-                  </tr>
-                  <tr class="text-gray-500">
-                    <td class="table-cell">Lainnya (5 Segmen)</td>
-                    <td class="table-cell text-right">148</td>
-                    <td class="table-cell text-right">18,2%</td>
-                    <td class="table-cell text-right">-</td>
-                    <td class="table-cell text-right">-</td>
-                    <td class="table-cell text-right">-</td>
-                    <td class="table-cell text-right">1.722,2</td>
-                    <td class="table-cell text-right">2,8%</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- Detailed profiling description -->
-            <div class="flex flex-col gap-4">
-              <div class="p-6 bg-green-950/20 border border-green-500/10 rounded-2xl">
-                <h5 class="text-white font-bold text-sm mb-1">🏆 Champions (17,1% customer | 63,2% revenue)</h5>
-                <p class="text-gray-300 text-xs leading-relaxed">
-                  Belanja baru-baru ini (rata-rata 31 hari), sering bertransaksi (avg 4.7x), dan memiliki pengeluaran paling masif (avg Rp 272,1 Juta). Merupakan pilar utama bisnis.
-                </p>
-              </div>
-              <div class="p-6 bg-blue-950/20 border border-blue-500/10 rounded-2xl">
-                <h5 class="text-white font-bold text-sm mb-1">💎 Loyal Customers (18,5% customer | 18,7% revenue)</h5>
-                <p class="text-gray-300 text-xs leading-relaxed">
-                  Pelanggan setia dengan frekuensi belanja yang stabil (avg 3.1x) dan recency menengah (avg 63 hari). Fondasi penjualan berkala.
-                </p>
-              </div>
-              <div class="p-6 bg-red-950/20 border border-red-500/10 rounded-2xl">
-                <h5 class="text-white font-bold text-sm mb-1">⚠️ At Risk (8,9% customer | 8,4% revenue)</h5>
-                <p class="text-gray-300 text-xs leading-relaxed">
-                  Dulu sangat aktif dan bernilai tinggi (avg spend Rp 70,2 Juta), tetapi tidak berbelanja selama rata-rata **160 hari**. Merupakan sasaran kritis tindakan winback.
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -579,133 +294,58 @@
         <!-- Sidebar -->
         <div class="flex flex-col gap-8">
           <!-- Tech Stack -->
-          <div class="detail-card">
+          <div class="detail-card bg-neo-purple">
             <h3
-              class="text-xs font-bold mb-6 uppercase tracking-widest text-gray-500"
+              class="text-sm font-extrabold mb-6 uppercase tracking-widest text-black bg-white inline-block border-2 border-black px-2 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-2"
             >
               Tech Stack & Libraries
             </h3>
-            <div class="flex flex-wrap gap-2.5">
+            <div class="flex flex-wrap gap-3">
               <span class="tech-badge">Python</span>
               <span class="tech-badge">Pandas</span>
               <span class="tech-badge">scikit-learn</span>
               <span class="tech-badge">Matplotlib</span>
               <span class="tech-badge">Seaborn</span>
               <span class="tech-badge">Jupyter Notebook</span>
-              <span class="tech-badge">RFM Analysis</span>
-              <span class="tech-badge">Clustering</span>
+              <span class="tech-badge bg-neo-yellow">RFM Analysis</span>
+              <span class="tech-badge bg-neo-cyan">Clustering</span>
             </div>
           </div>
 
           <!-- Project Status -->
-          <div class="detail-card bg-acid-lime text-black border-none">
-            <i class="fas fa-chart-pie text-4xl mb-4"></i>
-            <h3 class="text-xl font-bold mb-1 tracking-tight">Status Proyek</h3>
-            <p class="font-medium opacity-80 mb-6">Completed (Jan 2026)</p>
-            <div class="h-px bg-black/10 w-full mb-6"></div>
-            <h3 class="text-sm font-bold uppercase tracking-wider opacity-60 mb-2">Konsentrasi Pendapatan</h3>
-            <p class="text-xs font-bold bg-black/10 py-1.5 px-3 rounded-md inline-block">Top 35% Cust = 81.9% Rev</p>
-          </div>
-
-          <!-- Future Improvements -->
-          <div class="detail-card">
-            <h3
-              class="text-xs font-bold mb-6 uppercase tracking-widest text-gray-500"
-            >
-              Future Improvements
-            </h3>
-            <ul class="flex flex-col gap-3 text-sm text-gray-400">
-              <li class="flex gap-2 items-center">
-                <i class="fas fa-sync text-acid-lime"></i>
-                <span>Automated CRM Tagging</span>
-              </li>
-              <li class="flex gap-2 items-center">
-                <i class="fas fa-desktop text-acid-lime"></i>
-                <span>Real-Time Segment Dashboard</span>
-              </li>
-              <li class="flex gap-2 items-center">
-                <i class="fas fa-flask text-acid-lime"></i>
-                <span>A/B Testing Winback Campaigns</span>
-              </li>
-            </ul>
+          <div class="detail-card bg-neo-green">
+            <div class="bg-white border-4 border-black rounded-full w-16 h-16 flex items-center justify-center mb-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <i class="fas fa-chart-pie text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-extrabold mb-1 tracking-tight uppercase">Status Proyek</h3>
+            <p class="font-bold text-black border-2 border-black bg-white inline-block px-3 py-1 mb-6 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">Completed (Jan 2026)</p>
+            <div class="h-1 bg-black w-full mb-6"></div>
+            <h3 class="text-sm font-extrabold uppercase tracking-wider text-black mb-2">Konsentrasi Pendapatan</h3>
+            <p class="text-sm font-extrabold bg-neo-yellow border-4 border-black py-2 px-3 rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">Top 35% Cust = 81.9% Rev</p>
           </div>
         </div>
       </div>
 
-      <!-- Business Insights & Action Matrix -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-        <!-- Temuan Kunci -->
-        <div class="detail-card md:col-span-1">
-          <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-            <span class="w-8 h-1 bg-acid-lime rounded-full"></span>
-            Insights & Temuan Utama
-          </h3>
-          <ul class="flex flex-col gap-4 text-gray-300">
-            <li class="flex gap-3 items-start">
-              <span class="text-acid-lime font-bold">01.</span>
-              <span><strong>Dominasi Pendapatan</strong>: Kelompok 17.1% teratas (Champions) memegang porsi 63.2% dari seluruh omzet transaksi.</span>
-            </li>
-            <li class="flex gap-3 items-start">
-              <span class="text-acid-lime font-bold">02.</span>
-              <span><strong>Konsentrasi Region</strong>: Kota utama **Yangon** dan **Mandalay** menyumbang total 65,9% pendapatan perusahaan.</span>
-            </li>
-            <li class="flex gap-3 items-start">
-              <span class="text-acid-lime font-bold">03.</span>
-              <span><strong>Kategori Dominan</strong>: Electronics mendominasi omzet hingga 72,2% secara mutlak, jauh melampaui Office Supplies (2,5%).</span>
-            </li>
-            <li class="flex gap-3 items-start">
-              <span class="text-acid-lime font-bold">04.</span>
-              <span><strong>Kerugian At Risk</strong>: Nilai potensial dari 72 pelanggan di segmen At Risk mencapai Rp 5,06 Miliar yang perlu diaktifkan kembali.</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Rekomendasi Aksi Bisnis -->
-        <div class="detail-card md:col-span-1">
-          <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-            <span class="w-8 h-1 bg-acid-lime rounded-full"></span>
-            Matriks Aksi Prioritas
-          </h3>
-          <div class="flex flex-col gap-4 text-sm">
-            <div class="flex justify-between items-center py-2 border-b border-border-subtle">
-              <span class="font-bold text-red-400">🔴 Kritis: At Risk & Cant Lose</span>
-              <span class="text-gray-400 text-right">Email winback personal + diskon khusus 15-20% terbatas.</span>
-            </div>
-            <div class="flex justify-between items-center py-2 border-b border-border-subtle">
-              <span class="font-bold text-yellow-400">🟠 Tinggi: Champions</span>
-              <span class="text-gray-400 text-right">Layanan VIP, program referral eksklusif, & early access produk.</span>
-            </div>
-            <div class="flex justify-between items-center py-2 border-b border-border-subtle">
-              <span class="font-bold text-blue-400">🟡 Sedang: New Customers</span>
-              <span class="text-gray-400 text-right">Welcome series, kupon belanja ke-2, onboarding terarah.</span>
-            </div>
-            <div class="flex justify-between items-center py-2">
-              <span class="font-bold text-green-400">🟢 Rendah: Lost Customers</span>
-              <span class="text-gray-400 text-right">Gunakan survei keluar untuk data riset, alokasikan minimal budget.</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- Nav -->
     <nav
-      class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-dark-surface/80 backdrop-blur-2xl border border-white/10 p-2 rounded-2xl flex gap-2 z-50 shadow-2xl"
+      class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-white border-4 border-black p-2 rounded-2xl flex gap-2 z-50 shadow-neo"
     >
-      <a href="../index" class="dock-item">
-        <i class="fas fa-home text-lg"></i>
+      <a href="../index" class="neo-dock-item">
+        <i class="fas fa-home text-xl"></i>
         <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
           >Home</span
         >
       </a>
-      <a href="../projects" class="dock-item active">
-        <i class="fas fa-folder text-lg"></i>
+      <a href="../projects" class="neo-dock-item active">
+        <i class="fas fa-folder text-xl"></i>
         <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
           >Projects</span
         >
       </a>
-      <a href="../contact" class="dock-item">
-        <i class="fas fa-envelope text-lg"></i>
+      <a href="../contact" class="neo-dock-item">
+        <i class="fas fa-envelope text-xl"></i>
         <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
           >Contact</span
         >

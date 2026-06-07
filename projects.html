@@ -8,7 +8,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -19,25 +19,21 @@
       theme: {
         extend: {
           colors: {
-            "dark-bg": "#030303",
-            "dark-surface": "#0d0d0d",
-            "dark-hover": "#141414",
-            "acid-lime": "#d4fd52",
-            "acid-hover": "#e2ff80",
-            "border-subtle": "rgba(255, 255, 255, 0.08)",
+            "neo-bg": "#f4f4f0",
+            "neo-yellow": "#ffe600",
+            "neo-pink": "#ff90e8",
+            "neo-cyan": "#23f0ff",
+            "neo-green": "#00e59b",
+            "neo-orange": "#ff6b00",
+            "neo-purple": "#b28dff",
           },
           fontFamily: {
             sans: ["Plus Jakarta Sans", "sans-serif"],
           },
-          animation: {
-            float: "float 6s ease-in-out infinite",
-            "pulse-soft": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-          },
-          keyframes: {
-            float: {
-              "0%, 100%": { transform: "translateY(0)" },
-              "50%": { transform: "translateY(-20px)" },
-            },
+          boxShadow: {
+            'neo': '8px 8px 0px 0px rgba(0,0,0,1)',
+            'neo-sm': '4px 4px 0px 0px rgba(0,0,0,1)',
+            'neo-hover': '2px 2px 0px 0px rgba(0,0,0,1)',
           },
         },
       },
@@ -46,289 +42,278 @@
   <style type="text/tailwindcss">
     @layer base {
         body {
-          @apply bg-dark-bg text-white font-sans antialiased selection:bg-acid-lime selection:text-black;
+          @apply bg-neo-bg text-black font-sans antialiased selection:bg-neo-pink selection:text-black;
         }
       }
       @layer components {
-        .glass-card {
-          @apply bg-dark-surface/60 backdrop-blur-xl border border-border-subtle rounded-[2.5rem] overflow-hidden transition-all duration-700 hover:border-white/20 hover:bg-dark-hover/80;
+        .neo-card {
+          @apply bg-white border-4 border-black rounded-2xl shadow-neo transition-all duration-200 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden;
         }
-        .dock-item {
-          @apply flex flex-col items-center justify-center p-2 rounded-xl transition-all duration-300 min-w-[64px] text-gray-400 hover:bg-white/5 hover:text-white;
+        .neo-dock-item {
+          @apply flex flex-col items-center justify-center p-2 rounded-xl transition-all duration-200 min-w-[64px] text-black font-bold border-2 border-transparent hover:border-black hover:bg-neo-pink hover:shadow-neo-sm;
         }
-        .dock-item.active {
-          @apply bg-white/10 text-white;
+        .neo-dock-item.active {
+          @apply bg-neo-yellow border-black shadow-neo-sm;
         }
-        .dock-item.active i {
-          @apply text-acid-lime;
-        }
-        .tag-pill {
-          @apply px-3 py-1 bg-white/5 border border-white/5 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-wider text-gray-400 group-hover:border-acid-lime/30 group-hover:text-acid-lime transition-all duration-500;
+        .neo-tag {
+          @apply px-3 py-1 bg-white border-2 border-black rounded-full text-xs font-bold uppercase tracking-wider text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)];
         }
         .filter-tab {
-          @apply px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 border border-border-subtle bg-white/5 text-gray-400 hover:border-acid-lime/50 hover:text-white cursor-pointer;
+          @apply px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-200 border-4 border-black bg-white text-black hover:-translate-y-1 hover:shadow-neo-sm cursor-pointer shadow-[2px_2px_0px_0px_rgba(0,0,0,1)];
         }
         .filter-tab.active {
-          @apply bg-acid-lime text-black border-acid-lime hover:text-black;
+          @apply bg-neo-pink translate-y-1 shadow-none;
         }
       }
     </style>
 </head>
 
-<body class="pb-32 relative min-h-screen">
-  <!-- Background Decoration -->
-  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-    <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-acid-lime/10 blur-[150px] animate-pulse-soft"></div>
-    <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/10 blur-[150px] animate-float"></div>
-  </div>
+<body class="pb-32 relative min-h-screen bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')]">
 
   <!-- Header -->
   <header class="pt-32 pb-20 px-6 max-w-5xl mx-auto text-center relative z-10">
     <div
-      class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-border-subtle rounded-full text-xs font-bold uppercase tracking-[0.2em] text-acid-lime mb-8">
-      <span class="relative flex h-2 w-2">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-acid-lime opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-2 w-2 bg-acid-lime"></span>
-      </span>
+      class="inline-flex items-center gap-2 px-4 py-2 bg-neo-cyan border-4 border-black rounded-full text-xs font-bold uppercase tracking-[0.2em] text-black mb-8 shadow-neo-sm">
+      <span class="relative flex h-3 w-3 border-2 border-black rounded-full bg-white"></span>
       Portfolio
     </div>
-    <h1 class="text-6xl md:text-8xl font-bold tracking-tighter leading-tight mb-8">
+    <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter leading-tight mb-8 uppercase" style="-webkit-text-stroke: 2px black;">
       Selected
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-600">Works</span>
+      <span class="text-neo-yellow" style="text-shadow: 6px 6px 0px black;">Works</span>
     </h1>
-    <p class="text-xl text-gray-400 font-normal leading-relaxed max-w-2xl mx-auto">
+    <p class="text-xl text-black font-bold leading-relaxed max-w-2xl mx-auto bg-white border-4 border-black p-4 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
       Crafting digital experiences with precision, purpose, and a touch of
-      minimalism.
+      brutalism.
     </p>
   </header>
 
   <!-- Filter Tabs -->
   <div class="flex flex-wrap justify-center gap-4 mb-16 relative z-10">
-    <button class="filter-tab active px-6 py-3 rounded-full" data-filter="all">All</button>
-    <button class="filter-tab px-6 py-3 rounded-full" data-filter="data-science">Data Science</button>
-    <button class="filter-tab px-6 py-3 rounded-full" data-filter="ui-ux">UI/UX Design</button>
-    <button class="filter-tab px-6 py-3 rounded-full" data-filter="front-end">Front End</button>
+    <button class="filter-tab active" data-filter="all">All</button>
+    <button class="filter-tab" data-filter="data-science">Data Science</button>
+    <button class="filter-tab" data-filter="ui-ux">UI/UX Design</button>
+    <button class="filter-tab" data-filter="front-end">Front End</button>
   </div>
 
   <!-- Projects Grid -->
   <main class="container mx-auto px-6 max-w-6xl relative z-10">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
       <!-- Featured Project (Full Width) -->
-      <a href="front-end/company-profile" class="glass-card md:col-span-2 group relative project-card"
+      <a href="front-end/company-profile" class="neo-card md:col-span-2 group relative project-card bg-neo-purple"
         data-category="front-end">
         <div class="grid grid-cols-1 lg:grid-cols-5 h-full">
-          <div class="lg:col-span-3 aspect-[16/10] lg:aspect-auto overflow-hidden">
+          <div class="lg:col-span-3 aspect-[16/10] lg:aspect-auto overflow-hidden border-r-4 border-black">
             <img src="src/projek 1/tumb-project1.png" alt="Featured Project"
-              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
           </div>
           <div
-            class="lg:col-span-2 p-10 md:p-14 flex flex-col justify-center bg-gradient-to-br from-dark-surface to-dark-bg">
+            class="lg:col-span-2 p-10 md:p-14 flex flex-col justify-center bg-neo-yellow">
             <div class="flex gap-2 mb-6">
-              <span class="tag-pill">Laravel</span>
-              <span class="tag-pill">Tailwind</span>
+              <span class="neo-tag bg-neo-pink">Laravel</span>
+              <span class="neo-tag bg-neo-cyan">Tailwind</span>
             </div>
-            <h3 class="text-4xl font-bold mb-6 group-hover:text-acid-lime transition-colors leading-tight">
+            <h3 class="text-4xl font-extrabold mb-6 text-black uppercase leading-tight">
               Website Profile Agensi Digital
             </h3>
-            <p class="text-gray-400 text-lg leading-relaxed mb-10">
+            <p class="text-black font-bold text-lg leading-relaxed mb-10 bg-white border-2 border-black p-4 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               A modern corporate ecosystem designed for a high-end creative
               agency. Featuring seamless animations and a performance-driven
               architecture.
             </p>
-            <div class="mt-auto flex items-center gap-4 text-white font-bold group/btn">
-              <span class="text-xl">Read Case Study</span>
+            <div class="mt-auto flex items-center gap-4 text-black font-bold group/btn">
+              <span class="text-xl uppercase border-b-4 border-black pb-1">Read Case Study</span>
               <div
-                class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center group-hover/btn:bg-acid-lime group-hover/btn:text-black transition-all duration-500">
+                class="w-12 h-12 bg-white border-4 border-black rounded-full flex items-center justify-center group-hover/btn:bg-neo-pink transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 <i class="fas fa-arrow-right transition-transform group-hover/btn:translate-x-1"></i>
               </div>
             </div>
           </div>
         </div>
         <div
-          class="absolute top-6 left-6 px-4 py-2 bg-black/40 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest border border-white/5">
+          class="absolute top-6 left-6 px-4 py-2 bg-neo-yellow border-4 border-black rounded-full text-xs font-bold uppercase tracking-widest shadow-neo-sm transform -rotate-3 z-10">
           Featured Work
         </div>
       </a>
 
       <!-- Project 2 -->
-      <a href="front-end/sim-apotik-pos" class="glass-card group flex flex-col project-card" data-category="front-end">
-        <div class="aspect-[16/10] overflow-hidden">
+      <a href="front-end/sim-apotik-pos" class="neo-card group flex flex-col project-card bg-white" data-category="front-end">
+        <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
           <img src="src/projek 2/tumb-project2.png" alt="Project 2"
-            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         </div>
-        <div class="p-10 flex flex-col flex-1">
+        <div class="p-8 flex flex-col flex-1 bg-neo-cyan">
           <div class="flex gap-2 mb-4">
-            <span class="tag-pill">SaaS</span>
-            <span class="tag-pill">Dashboard</span>
+            <span class="neo-tag">SaaS</span>
+            <span class="neo-tag">Dashboard</span>
           </div>
-          <h3 class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors">
+          <h3 class="text-3xl font-extrabold mb-4 text-black uppercase">
             SIM Apotik & POS
           </h3>
-          <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+          <p class="text-black font-bold text-sm leading-relaxed mb-8 flex-1 bg-white border-2 border-black p-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
             Complete digital infrastructure for pharmacy management.
             Streamlined inventory, real-time analytics, and optimized POS
             flow.
           </p>
-          <div class="flex items-center gap-2 text-white font-bold group/btn">
+          <div class="flex items-center gap-2 text-black font-extrabold uppercase group/btn bg-white border-4 border-black self-start px-4 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover/btn:bg-neo-yellow transition-colors">
             <span>Explore Project</span>
-            <i class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"></i>
+            <i class="fas fa-arrow-right text-black text-sm transition-transform group-hover/btn:translate-x-1"></i>
           </div>
         </div>
       </a>
 
       <!-- Project 3 -->
-      <a href="front-end/yayasan-haadii-nurul-ikhlas" class="glass-card group flex flex-col project-card"
+      <a href="front-end/yayasan-haadii-nurul-ikhlas" class="neo-card group flex flex-col project-card bg-white"
         data-category="front-end">
-        <div class="aspect-[16/10] overflow-hidden">
+        <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
           <img src="src/projek 3/tumb-project3.png" alt="Project 3"
-            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         </div>
-        <div class="p-10 flex flex-col flex-1">
+        <div class="p-8 flex flex-col flex-1 bg-neo-pink">
           <div class="flex gap-2 mb-4">
-            <span class="tag-pill">Foundation</span>
-            <span class="tag-pill">Non-Profit</span>
+            <span class="neo-tag">Foundation</span>
+            <span class="neo-tag">Non-Profit</span>
           </div>
-          <h3 class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors">
+          <h3 class="text-3xl font-extrabold mb-4 text-black uppercase">
             Yayasan Haadii Nurul Ikhlas
           </h3>
-          <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+          <p class="text-black font-bold text-sm leading-relaxed mb-8 flex-1 bg-white border-2 border-black p-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
             A community-driven platform for social welfare and education.
             Focused on accessibility and identity visual clarity.
           </p>
-          <div class="flex items-center gap-2 text-white font-bold group/btn">
+          <div class="flex items-center gap-2 text-black font-extrabold uppercase group/btn bg-white border-4 border-black self-start px-4 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover/btn:bg-neo-yellow transition-colors">
             <span>Explore Project</span>
-            <i class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"></i>
+            <i class="fas fa-arrow-right text-black text-sm transition-transform group-hover/btn:translate-x-1"></i>
           </div>
         </div>
       </a>
 
       <!-- Project 4 (Vertical Style) -->
-      <a href="ui-ux/brewmo-coffee-app" class="glass-card group flex flex-col project-card" data-category="ui-ux">
-        <div class="aspect-[16/10] overflow-hidden">
+      <a href="ui-ux/brewmo-coffee-app" class="neo-card group flex flex-col project-card bg-white" data-category="ui-ux">
+        <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
           <img src="src/projek 4/project4.png" alt="Project 4"
-            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         </div>
-        <div class="p-10 flex flex-col flex-1">
+        <div class="p-8 flex flex-col flex-1 bg-neo-orange">
           <div class="flex gap-2 mb-4">
-            <span class="tag-pill">UI UX</span>
-            <span class="tag-pill">App Design</span>
+            <span class="neo-tag">UI UX</span>
+            <span class="neo-tag">App Design</span>
           </div>
-          <h3 class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors">
+          <h3 class="text-3xl font-extrabold mb-4 text-black uppercase">
             Brewmo Coffee App
           </h3>
-          <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+          <p class="text-black font-bold text-sm leading-relaxed mb-8 flex-1 bg-white border-2 border-black p-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
             Designing the future of coffee ordering. A user-centered mobile
             experience focused on speed and visual delight.
           </p>
-          <div class="flex items-center gap-2 text-white font-bold group/btn">
+          <div class="flex items-center gap-2 text-black font-extrabold uppercase group/btn bg-white border-4 border-black self-start px-4 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover/btn:bg-neo-yellow transition-colors">
             <span>View Case Study</span>
-            <i class="fas fa-arrow-right text-acid-lime text-xs transition-transform group-hover/btn:translate-x-1"></i>
+            <i class="fas fa-arrow-right text-black text-sm transition-transform group-hover/btn:translate-x-1"></i>
           </div>
         </div>
       </a>
 
       <!-- Project 5 -->
-      <a href="front-end/buyheart-ecommerce" class="glass-card group flex flex-col project-card"
+      <a href="front-end/buyheart-ecommerce" class="neo-card group flex flex-col project-card bg-white"
         data-category="front-end">
-        <div class="aspect-[16/10] overflow-hidden">
+        <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
           <img src="src/projek 5/project5.png" alt="Project 5"
-            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         </div>
-        <div class="p-10 flex flex-col flex-1">
+        <div class="p-8 flex flex-col flex-1 bg-neo-green">
           <div class="flex gap-2 mb-4">
-            <span class="tag-pill">E-Commerce</span>
-            <span class="tag-pill">Retail</span>
+            <span class="neo-tag">E-Commerce</span>
+            <span class="neo-tag">Retail</span>
           </div>
-          <h3 class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors">
+          <h3 class="text-3xl font-extrabold mb-4 text-black uppercase">
             Buyheart E-Commerce
           </h3>
-          <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+          <p class="text-black font-bold text-sm leading-relaxed mb-8 flex-1 bg-white border-2 border-black p-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
             Minimalist retail experience. Reducing cognitive load to increase
             conversion and user satisfaction.
           </p>
-          <div class="flex items-center gap-2 text-white font-bold group/btn">
+          <div class="flex items-center gap-2 text-black font-extrabold uppercase group/btn bg-white border-4 border-black self-start px-4 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover/btn:bg-neo-yellow transition-colors">
             <span>Explore Project</span>
-            <i class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"></i>
+            <i class="fas fa-arrow-right text-black text-sm transition-transform group-hover/btn:translate-x-1"></i>
           </div>
         </div>
       </a>
 
       <!-- Project 6 -->
       <a href="data-science-data-analysis/clustering-kondisi-ekonomi-provinsi"
-        class="glass-card group flex flex-col project-card" data-category="data-science">
-        <div class="aspect-[16/10] overflow-hidden">
+        class="neo-card group flex flex-col project-card bg-white" data-category="data-science">
+        <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
           <img src="src/projek 6/tumb-project6.png" alt="Project 6"
-            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         </div>
-        <div class="p-10 flex flex-col flex-1">
+        <div class="p-8 flex flex-col flex-1 bg-neo-yellow">
           <div class="flex gap-2 mb-4">
-            <span class="tag-pill">Data Science</span>
-            <span class="tag-pill">Python</span>
-            <span class="tag-pill">K-Means</span>
+            <span class="neo-tag">Data Science</span>
+            <span class="neo-tag">Python</span>
+            <span class="neo-tag">K-Means</span>
           </div>
-          <h3 class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors">
+          <h3 class="text-3xl font-extrabold mb-4 text-black uppercase">
             Clustering Kondisi Ekonomi Provinsi
           </h3>
-          <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+          <p class="text-black font-bold text-sm leading-relaxed mb-8 flex-1 bg-white border-2 border-black p-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
             Analisis unsupervised machine learning untuk mengelompokkan 38 provinsi di Indonesia berdasarkan indikator
             kesejahteraan dan kapasitas ekonomi.
           </p>
-          <div class="flex items-center gap-2 text-white font-bold group/btn">
+          <div class="flex items-center gap-2 text-black font-extrabold uppercase group/btn bg-white border-4 border-black self-start px-4 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover/btn:bg-neo-pink transition-colors">
             <span>Explore Analysis</span>
-            <i class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"></i>
+            <i class="fas fa-arrow-right text-black text-sm transition-transform group-hover/btn:translate-x-1"></i>
           </div>
         </div>
       </a>
 
       <!-- Project 7 -->
       <a href="data-science-data-analysis/sentiment-analysis-tokopedia-reviews"
-        class="glass-card group flex flex-col project-card" data-category="data-science">
-        <div class="aspect-[16/10] overflow-hidden">
+        class="neo-card group flex flex-col project-card bg-white" data-category="data-science">
+        <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
           <img src="src/projek 7/tumb-project7.png" alt="Project 7"
-            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         </div>
-        <div class="p-10 flex flex-col flex-1">
+        <div class="p-8 flex flex-col flex-1 bg-neo-purple">
           <div class="flex gap-2 mb-4">
-            <span class="tag-pill">Data Science</span>
-            <span class="tag-pill">Python</span>
-            <span class="tag-pill">LSTM</span>
+            <span class="neo-tag">Data Science</span>
+            <span class="neo-tag">Python</span>
+            <span class="neo-tag">LSTM</span>
           </div>
-          <h3 class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors">
+          <h3 class="text-3xl font-extrabold mb-4 text-black uppercase">
             Sentiment Analysis Tokopedia Reviews
           </h3>
-          <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+          <p class="text-black font-bold text-sm leading-relaxed mb-8 flex-1 bg-white border-2 border-black p-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
             Analisis sentimen ulasan Tokopedia menggunakan Natural Language Processing (NLP) dan model deep learning
             Long Short-Term Memory (LSTM) dengan akurasi 98%.
           </p>
-          <div class="flex items-center gap-2 text-white font-bold group/btn">
+          <div class="flex items-center gap-2 text-black font-extrabold uppercase group/btn bg-white border-4 border-black self-start px-4 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover/btn:bg-neo-yellow transition-colors">
             <span>Explore Analysis</span>
-            <i class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"></i>
+            <i class="fas fa-arrow-right text-black text-sm transition-transform group-hover/btn:translate-x-1"></i>
           </div>
         </div>
       </a>
 
       <!-- Project 8 -->
       <a href="data-science-data-analysis/customer-segmentation-rfm"
-        class="glass-card group flex flex-col project-card" data-category="data-science">
-        <div class="aspect-[16/10] overflow-hidden">
+        class="neo-card group flex flex-col project-card bg-white" data-category="data-science">
+        <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
           <img src="src/projek 8/tumb-project8.png" alt="Project 8"
-            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         </div>
-        <div class="p-10 flex flex-col flex-1">
+        <div class="p-8 flex flex-col flex-1 bg-neo-pink">
           <div class="flex gap-2 mb-4">
-            <span class="tag-pill">Data Science</span>
-            <span class="tag-pill">Python</span>
-            <span class="tag-pill">RFM</span>
+            <span class="neo-tag">Data Science</span>
+            <span class="neo-tag">Python</span>
+            <span class="neo-tag">RFM</span>
           </div>
-          <h3 class="text-3xl font-bold mb-4 group-hover:text-acid-lime transition-colors">
+          <h3 class="text-3xl font-extrabold mb-4 text-black uppercase">
             Customer Segmentation Analysis Using RFM
           </h3>
-          <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-1">
+          <p class="text-black font-bold text-sm leading-relaxed mb-8 flex-1 bg-white border-2 border-black p-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
             Mengelompokkan pelanggan berdasarkan perilaku transaksi untuk strategi pemasaran yang lebih efektif dan personal.
           </p>
-          <div class="flex items-center gap-2 text-white font-bold group/btn">
+          <div class="flex items-center gap-2 text-black font-extrabold uppercase group/btn bg-white border-4 border-black self-start px-4 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover/btn:bg-neo-yellow transition-colors">
             <span>Explore Analysis</span>
-            <i class="fas fa-plus text-acid-lime text-xs transition-transform group-hover/btn:rotate-90"></i>
+            <i class="fas fa-arrow-right text-black text-sm transition-transform group-hover/btn:translate-x-1"></i>
           </div>
         </div>
       </a>
@@ -336,19 +321,16 @@
 
     <!-- Let's Talk CTA -->
     <section class="mt-32 mb-20">
-      <div class="glass-card p-12 md:p-20 text-center relative overflow-hidden group">
-        <div
-          class="absolute -top-24 -left-24 w-64 h-64 bg-acid-lime/10 blur-[100px] group-hover:bg-acid-lime/20 transition-all duration-700">
-        </div>
-        <h2 class="text-4xl md:text-6xl font-bold mb-8 relative z-10">
-          Have a project <br /><span class="text-acid-lime">in mind?</span>
+      <div class="neo-card p-12 md:p-20 text-center relative overflow-hidden bg-neo-cyan border-8">
+        <h2 class="text-5xl md:text-7xl font-extrabold mb-8 uppercase text-black" style="-webkit-text-stroke: 2px black; text-shadow: 4px 4px 0px white;">
+          Have a project <br /><span class="text-neo-yellow">in mind?</span>
         </h2>
-        <p class="text-gray-400 text-lg mb-12 max-w-xl mx-auto relative z-10">
+        <p class="text-black font-bold text-xl mb-12 max-w-xl mx-auto bg-white border-4 border-black p-4 rounded-xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
           I'm always looking for interesting projects and creative people to
           collaborate with.
         </p>
         <a href="contact"
-          class="inline-flex h-20 px-12 bg-white text-black text-xl font-bold rounded-full items-center justify-center hover:bg-acid-lime transition-all duration-300 transform hover:scale-105 active:scale-95 relative z-10">
+          class="inline-flex h-20 px-12 bg-neo-pink text-black text-2xl font-extrabold rounded-2xl items-center justify-center border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:translate-x-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-2 active:translate-y-2 transition-all uppercase">
           Start a Conversation
         </a>
       </div>
@@ -357,17 +339,17 @@
 
   <!-- Navigation -->
   <nav
-    class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-dark-surface/80 backdrop-blur-2xl border border-white/10 p-2 rounded-3xl flex gap-2 z-50 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-    <a href="index" class="dock-item">
-      <i class="fas fa-home text-lg"></i>
+    class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-white border-4 border-black p-2 rounded-2xl flex gap-2 z-50 shadow-neo">
+    <a href="index" class="neo-dock-item">
+      <i class="fas fa-home text-xl"></i>
       <span class="text-[10px] uppercase font-bold tracking-wider mt-1">Home</span>
     </a>
-    <a href="projects" class="dock-item active">
-      <i class="fas fa-folder text-lg"></i>
+    <a href="projects" class="neo-dock-item active">
+      <i class="fas fa-folder text-xl"></i>
       <span class="text-[10px] uppercase font-bold tracking-wider mt-1">Projects</span>
     </a>
-    <a href="contact" class="dock-item">
-      <i class="fas fa-envelope text-lg"></i>
+    <a href="contact" class="neo-dock-item">
+      <i class="fas fa-envelope text-xl"></i>
       <span class="text-[10px] uppercase font-bold tracking-wider mt-1">Contact</span>
     </a>
   </nav>
@@ -380,9 +362,7 @@
 
       tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-          // Remove active class from all tabs
           tabs.forEach(t => t.classList.remove('active'));
-          // Add active class to clicked tab
           tab.classList.add('active');
 
           const filterValue = tab.getAttribute('data-filter');
@@ -391,18 +371,15 @@
             if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
               card.classList.remove('hidden');
 
-              // Reset transitions and trigger reflow
               card.style.transition = 'none';
               card.style.opacity = '0';
-              card.style.transform = 'scale(0.95)';
+              card.style.transform = 'translateY(10px)';
 
-              // Trigger reflow
-              card.offsetHeight;
+              card.offsetHeight; // trigger reflow
 
-              // Animate in
               card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
               card.style.opacity = '1';
-              card.style.transform = 'scale(1)';
+              card.style.transform = 'translateY(0)';
             } else {
               card.classList.add('hidden');
             }

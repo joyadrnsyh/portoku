@@ -8,7 +8,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -19,22 +19,31 @@
       theme: {
         extend: {
           colors: {
-            "dark-bg": "#030303",
-            "dark-surface": "#0d0d0d",
-            "dark-hover": "#141414",
-            "acid-lime": "#d4fd52",
-            "acid-hover": "#e2ff80",
-            "border-subtle": "rgba(255, 255, 255, 0.08)",
+            "neo-bg": "#f4f4f0",
+            "neo-yellow": "#ffe600",
+            "neo-pink": "#ff90e8",
+            "neo-cyan": "#23f0ff",
+            "neo-green": "#00e59b",
+            "neo-orange": "#ff6b00",
+            "neo-purple": "#b28dff",
           },
           fontFamily: {
             sans: ["Plus Jakarta Sans", "sans-serif"],
           },
-          borderRadius: {
-            bento: "2rem",
+          boxShadow: {
+            'neo': '8px 8px 0px 0px rgba(0,0,0,1)',
+            'neo-sm': '4px 4px 0px 0px rgba(0,0,0,1)',
+            'neo-hover': '2px 2px 0px 0px rgba(0,0,0,1)',
           },
           animation: {
-            "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            "marquee": "marquee 25s linear infinite",
           },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-100%)' },
+            }
+          }
         },
       },
     };
@@ -42,39 +51,43 @@
   <style type="text/tailwindcss">
     @layer base {
         body {
-          @apply bg-dark-bg text-white font-sans antialiased;
+          @apply bg-neo-bg text-black font-sans antialiased selection:bg-neo-pink selection:text-black;
         }
       }
       @layer components {
-        .bento-card {
-          @apply bg-dark-surface border border-border-subtle rounded-bento p-8 transition-all duration-500 hover:border-white/20 hover:bg-dark-hover relative overflow-hidden flex flex-col;
+        .neo-card {
+          @apply bg-white border-4 border-black rounded-2xl shadow-neo transition-all duration-200 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden flex flex-col;
         }
-        .dock-item {
-          @apply flex flex-col items-center justify-center p-2 rounded-xl transition-all duration-300 min-w-[64px] text-gray-400 hover:bg-white/5 hover:text-white;
+        .neo-dock-item {
+          @apply flex flex-col items-center justify-center p-2 rounded-xl transition-all duration-200 min-w-[64px] text-black font-bold border-2 border-transparent hover:border-black hover:bg-neo-pink hover:shadow-neo-sm;
         }
-        .dock-item.active {
-          @apply bg-white/10 text-white;
+        .neo-dock-item.active {
+          @apply bg-neo-yellow border-black shadow-neo-sm;
         }
-        .dock-item.active i {
-          @apply text-acid-lime;
+        .neo-tag {
+          @apply px-3 py-1 bg-white border-2 border-black rounded-full text-xs font-bold uppercase tracking-wider text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)];
         }
       }
     </style>
 </head>
 
-<body class="pb-32">
+<body
+  class="pb-32 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')]">
   <!-- Hero Header -->
-  <header class="pt-24 pb-16 px-6 max-w-4xl mx-auto text-center">
+  <header class="pt-24 pb-12 px-6 max-w-4xl mx-auto text-center">
     <div
-      class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-border-subtle rounded-full text-sm font-medium text-gray-400 mb-8 animate-fade-in">
-      <div class="w-2 h-2 bg-green-500 rounded-full shadow-[0_0_10px_rgba(34,197,94,0.5)] animate-pulse"></div>
-      Open to work
+      class="inline-flex items-center gap-2 px-4 py-2 bg-neo-yellow border-4 border-black rounded-full text-sm font-bold text-black mb-8 shadow-neo-sm hover:translate-y-[-2px] transition-transform cursor-default">
+      <div class="w-3 h-3 bg-neo-green border-2 border-black rounded-full animate-pulse"></div>
+      OPEN TO WORK
     </div>
-    <h1 class="text-5xl md:text-7xl font-bold tracking-tighter leading-[1.1] mb-6">
+    <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter leading-[1.1] mb-6 uppercase"
+      style="-webkit-text-stroke: 1px black;">
       Building digital<br />
-      <span class="text-gray-500">products that matter.</span>
+      <span class="text-white" style="-webkit-text-stroke: 2px black; text-shadow: 4px 4px 0px black;">products that
+        matter.</span>
     </h1>
-    <p class="text-xl text-gray-400 font-normal leading-relaxed max-w-2xl mx-auto">
+    <p
+      class="text-xl text-black font-semibold leading-relaxed max-w-2xl mx-auto border-4 border-black bg-white p-4 rounded-xl shadow-neo-sm transform -rotate-1">
       Software Engineer with a focus on intuitive design and robust
       architecture.
     </p>
@@ -84,113 +97,122 @@
   <main class="container mx-auto px-6 max-w-6xl">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[240px]">
       <!-- 1. Profile (Span 2) -->
-      <div class="bento-card md:col-span-2 flex-row items-center justify-between group">
+      <div
+        class="neo-card md:col-span-2 flex-row items-center justify-between p-8 bg-neo-cyan transform hover:rotate-1">
         <div class="z-10">
-          <h3 class="text-2xl font-bold mb-1">Joy Adriansyah.</h3>
-          <p class="text-gray-400">based in Yogyakarta, ID</p>
+          <h3 class="text-3xl font-extrabold mb-2 uppercase">Joy Adriansyah.</h3>
+          <p
+            class="text-black font-bold bg-white inline-block px-2 py-1 border-2 border-black rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+            BASED IN YOGYAKARTA, ID</p>
         </div>
         <div class="relative w-24 h-24 md:w-32 md:h-32">
           <img src="src/pp.jpg" alt="Profile"
-            class="w-full h-full object-cover rounded-full border-2 border-border-subtle group-hover:border-acid-lime/50 transition-colors duration-500" />
-          <div
-            class="absolute -inset-1 bg-gradient-to-tr from-acid-lime to-transparent rounded-full opacity-0 group-hover:opacity-20 blur transition-opacity duration-500">
-          </div>
+            class="w-full h-full object-cover rounded-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-neo-yellow" />
         </div>
       </div>
 
       <!-- 2. Location/Map (Span 1) -->
-      <div class="bento-card items-start justify-center">
-        <div class="bg-acid-lime/10 p-3 rounded-2xl mb-4 text-acid-lime">
-          <i class="fas fa-map-pin text-xl"></i>
+      <div class="neo-card items-start justify-center p-8 bg-white">
+        <div
+          class="bg-neo-pink border-4 border-black p-3 rounded-full mb-4 text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          <i class="fas fa-map-pin text-2xl"></i>
         </div>
-        <p class="text-gray-400 text-sm mb-1 uppercase tracking-widest">
+        <p class="text-black font-bold text-sm mb-1 uppercase tracking-widest">
           Local Time
         </p>
-        <p class="text-xl font-bold">
+        <p class="text-xl font-extrabold">
           Yogyakarta
-          <span class="text-acid-lime font-medium ml-2">GMT+7</span>
+          <span
+            class="bg-neo-green border-2 border-black px-2 py-1 text-sm rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] ml-2">GMT+7</span>
         </p>
       </div>
 
       <!-- 3. Social Action (Span 1) -->
       <a href="mailto:joyadriansyah1@gmail.com"
-        class="bento-card bg-acid-lime hover:bg-acid-hover border-none items-center justify-center text-black group">
-        <i
-          class="fas fa-paper-plane text-5xl transition-transform duration-500 group-hover:-rotate-45 group-hover:scale-110"></i>
+        class="neo-card bg-neo-yellow items-center justify-center text-black group hover:-rotate-3 active:translate-x-2 active:translate-y-2 active:shadow-none">
+        <i class="fas fa-paper-plane text-6xl group-hover:-rotate-45 transition-transform duration-300"></i>
       </a>
 
       <!-- 4. Main Project (Span 2, Row 2) -->
-      <a href="front-end/company-profile" class="bento-card md:col-span-2 md:row-span-2 p-0 group">
-        <img src="src/projek 1/tumb-project1.png" alt="Dashboard UI"
-          class="w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700" />
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-8 flex flex-col justify-end">
-          <h3 class="text-2xl font-bold mb-3">Company Profile Website</h3>
+      <a href="front-end/company-profile" class="neo-card md:col-span-2 md:row-span-2 p-0 group bg-neo-purple">
+        <div class="h-12 border-b-4 border-black flex items-center px-4 gap-2 bg-white">
+          <div class="w-3 h-3 rounded-full bg-neo-pink border-2 border-black"></div>
+          <div class="w-3 h-3 rounded-full bg-neo-yellow border-2 border-black"></div>
+          <div class="w-3 h-3 rounded-full bg-neo-green border-2 border-black"></div>
+        </div>
+        <div class="relative flex-1 overflow-hidden p-4">
+          <img src="src/projek 1/tumb-project1.png" alt="Dashboard UI"
+            class="w-full h-full object-cover border-4 border-black rounded-xl shadow-neo transition-transform duration-500 group-hover:scale-[1.02]" />
+        </div>
+        <div class="border-t-4 border-black p-6 bg-white">
+          <h3 class="text-2xl font-extrabold mb-3 uppercase">Company Profile Website</h3>
           <div class="flex gap-2">
-            <span
-              class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs border border-white/5">Laravel</span>
-            <span class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs border border-white/5">Tailwind
-              CSS</span>
+            <span class="neo-tag">Laravel</span>
+            <span class="neo-tag">Tailwind CSS</span>
           </div>
         </div>
       </a>
 
       <!-- 5. Tech Stack (Span 1) -->
-      <div class="bento-card justify-between">
-        <h3 class="text-xs font-bold uppercase tracking-[2px] text-gray-500 text-center">
-          Stack
-        </h3>
-        <div class="grid grid-cols-4 gap-4">
-          <i class="fab fa-react text-2xl text-gray-400 hover:text-acid-lime transition-colors cursor-default"
+      <div class="neo-card p-6 bg-white flex flex-col justify-between">
+        <div
+          class="bg-black text-white py-1 px-3 border-2 border-black rounded shadow-[2px_2px_0px_0px_#ffe600] inline-block self-start mb-4">
+          <h3 class="text-xs font-bold uppercase tracking-[2px]">Tech Stack</h3>
+        </div>
+        <div class="grid grid-cols-4 gap-4 mt-auto">
+          <i class="fab fa-react text-3xl hover:text-neo-cyan hover:scale-110 transition-transform cursor-default"
             title="React"></i>
-          <i class="fab fa-js text-2xl text-gray-400 hover:text-acid-lime transition-colors cursor-default"
+          <i class="fab fa-js text-3xl hover:text-neo-yellow hover:scale-110 transition-transform cursor-default"
             title="JavaScript"></i>
-          <i class="fab fa-laravel text-2xl text-gray-400 hover:text-acid-lime transition-colors cursor-default"
+          <i class="fab fa-laravel text-3xl hover:text-[#ff2d20] hover:scale-110 transition-transform cursor-default"
             title="Laravel"></i>
-          <i class="fab fa-php text-2xl text-gray-400 hover:text-acid-lime transition-colors cursor-default"
+          <i class="fab fa-php text-3xl hover:text-[#777bb4] hover:scale-110 transition-transform cursor-default"
             title="PHP"></i>
-          <i class="fab fa-html5 text-2xl text-gray-400 hover:text-acid-lime transition-colors cursor-default"
+          <i class="fab fa-html5 text-3xl hover:text-[#e34f26] hover:scale-110 transition-transform cursor-default"
             title="HTML5"></i>
-          <i class="fab fa-css3-alt text-2xl text-gray-400 hover:text-acid-lime transition-colors cursor-default"
+          <i class="fab fa-css3-alt text-3xl hover:text-[#1572b6] hover:scale-110 transition-transform cursor-default"
             title="CSS3"></i>
-          <i class="fab fa-figma text-2xl text-gray-400 hover:text-acid-lime transition-colors cursor-default"
+          <i class="fab fa-figma text-3xl hover:text-neo-pink hover:scale-110 transition-transform cursor-default"
             title="Figma"></i>
-          <i class="fab fa-wordpress text-2xl text-gray-400 hover:text-acid-lime transition-colors cursor-default"
+          <i class="fab fa-wordpress text-3xl hover:text-[#21759b] hover:scale-110 transition-transform cursor-default"
             title="WordPress"></i>
         </div>
       </div>
 
       <!-- 6. Github (Span 1) -->
       <a href="https://github.com/joyadrnsyh" target="_blank"
-        class="bento-card bg-[#161b22] hover:bg-[#1f242c] items-start justify-between p-8 group">
-        <i class="fab fa-github text-4xl text-white group-hover:scale-110 transition-transform"></i>
+        class="neo-card bg-black items-start justify-between p-8 group hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_#23f0ff]">
+        <i class="fab fa-github text-5xl text-white group-hover:rotate-12 transition-transform"></i>
         <div>
-          <p class="text-white font-bold text-lg leading-tight">
+          <p class="text-white font-extrabold text-xl leading-tight uppercase">
             Contributions
           </p>
-          <p class="text-gray-400 text-sm">Open Source Work</p>
+          <p class="text-neo-yellow font-bold text-sm">Open Source Work</p>
         </div>
       </a>
 
       <!-- 7. Stats (Span 2) -->
-      <div class="bento-card md:col-span-2 flex-row items-center justify-around text-center">
-        <div>
-          <h3 class="text-4xl font-bold text-white mb-1">2+</h3>
-          <p class="text-gray-400 text-sm uppercase tracking-widest">
+      <div class="neo-card md:col-span-2 flex-row items-center justify-around text-center p-8 bg-neo-pink">
+        <div
+          class="bg-white border-4 border-black p-4 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-2">
+          <h3 class="text-5xl font-extrabold text-black mb-1">2+</h3>
+          <p class="text-black font-bold text-sm uppercase tracking-widest">
             Years Exp.
           </p>
         </div>
-        <div class="w-px h-12 bg-white/10 hidden md:block"></div>
-        <div>
-          <h3 class="text-4xl font-bold text-white mb-1">20+</h3>
-          <p class="text-gray-400 text-sm uppercase tracking-widest">
+        <div class="w-1 h-16 bg-black hidden md:block"></div>
+        <div
+          class="bg-white border-4 border-black p-4 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-2">
+          <h3 class="text-5xl font-extrabold text-black mb-1">20+</h3>
+          <p class="text-black font-bold text-sm uppercase tracking-widest">
             Projects
           </p>
         </div>
-        <div class="w-px h-12 bg-white/10 hidden md:block"></div>
-        <div>
-          <h3 class="text-4xl font-bold text-acid-lime mb-1">99%</h3>
-          <p class="text-gray-400 text-sm uppercase tracking-widest">
+        <div class="w-1 h-16 bg-black hidden md:block"></div>
+        <div
+          class="bg-neo-yellow border-4 border-black p-4 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+          <h3 class="text-5xl font-extrabold text-black mb-1">99%</h3>
+          <p class="text-black font-bold text-sm uppercase tracking-widest">
             Quality
           </p>
         </div>
@@ -200,17 +222,17 @@
 
   <!-- Floating Dock Nav -->
   <nav
-    class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-dark-surface/80 backdrop-blur-2xl border border-white/10 p-2 rounded-2xl flex gap-2 z-50 shadow-2xl">
-    <a href="index" class="dock-item active">
-      <i class="fas fa-home text-lg"></i>
+    class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-white border-4 border-black p-2 rounded-2xl flex gap-2 z-50 shadow-neo">
+    <a href="index" class="neo-dock-item active">
+      <i class="fas fa-home text-xl"></i>
       <span class="text-[10px] uppercase font-bold tracking-wider mt-1">Home</span>
     </a>
-    <a href="projects" class="dock-item">
-      <i class="fas fa-folder text-lg"></i>
+    <a href="projects" class="neo-dock-item">
+      <i class="fas fa-folder text-xl"></i>
       <span class="text-[10px] uppercase font-bold tracking-wider mt-1">Projects</span>
     </a>
-    <a href="contact" class="dock-item">
-      <i class="fas fa-envelope text-lg"></i>
+    <a href="contact" class="neo-dock-item">
+      <i class="fas fa-envelope text-xl"></i>
       <span class="text-[10px] uppercase font-bold tracking-wider mt-1">Contact</span>
     </a>
   </nav>

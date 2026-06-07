@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <!-- Icons -->
@@ -23,18 +23,21 @@
         theme: {
           extend: {
             colors: {
-              "dark-bg": "#030303",
-              "dark-surface": "#0d0d0d",
-              "dark-hover": "#141414",
-              "acid-lime": "#d4fd52",
-              "acid-hover": "#e2ff80",
-              "border-subtle": "rgba(255, 255, 255, 0.08)",
+              "neo-bg": "#f4f4f0",
+              "neo-yellow": "#ffe600",
+              "neo-pink": "#ff90e8",
+              "neo-cyan": "#23f0ff",
+              "neo-green": "#00e59b",
+              "neo-orange": "#ff6b00",
+              "neo-purple": "#b28dff",
             },
             fontFamily: {
               sans: ["Plus Jakarta Sans", "sans-serif"],
             },
-            borderRadius: {
-              bento: "2rem",
+            boxShadow: {
+              'neo': '8px 8px 0px 0px rgba(0,0,0,1)',
+              'neo-sm': '4px 4px 0px 0px rgba(0,0,0,1)',
+              'neo-hover': '2px 2px 0px 0px rgba(0,0,0,1)',
             },
           },
         },
@@ -43,35 +46,32 @@
     <style type="text/tailwindcss">
       @layer base {
         body {
-          @apply bg-dark-bg text-white font-sans antialiased;
+          @apply bg-neo-bg text-black font-sans antialiased selection:bg-neo-yellow selection:text-black;
         }
       }
       @layer components {
         .contact-input {
-          @apply w-full bg-white/5 border border-border-subtle rounded-2xl p-4 text-white outline-none focus:border-acid-lime/50 transition-all focus:bg-white/10;
+          @apply w-full bg-white border-4 border-black rounded-xl p-4 text-black font-bold outline-none focus:bg-neo-pink transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:translate-x-1 focus:translate-y-1;
         }
-        .dock-item {
-          @apply flex flex-col items-center justify-center p-2 rounded-xl transition-all duration-300 min-w-[64px] text-gray-400 hover:bg-white/5 hover:text-white;
+        .neo-dock-item {
+          @apply flex flex-col items-center justify-center p-2 rounded-xl transition-all duration-200 min-w-[64px] text-black font-bold border-2 border-transparent hover:border-black hover:bg-neo-pink hover:shadow-neo-sm;
         }
-        .dock-item.active {
-          @apply bg-white/10 text-white;
-        }
-        .dock-item.active i {
-          @apply text-acid-lime;
+        .neo-dock-item.active {
+          @apply bg-neo-yellow border-black shadow-neo-sm;
         }
       }
     </style>
   </head>
-  <body class="pb-32">
+  <body class="pb-32 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')]">
     <!-- Header -->
     <header class="pt-24 pb-16 px-6 max-w-4xl mx-auto text-center">
       <h1
-        class="text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-6 text-white"
+        class="text-6xl md:text-8xl font-extrabold tracking-tighter leading-tight mb-6 uppercase" style="-webkit-text-stroke: 2px black;"
       >
-        Get in <span class="text-acid-lime">Touch</span>
+        Get in <span class="text-neo-pink" style="text-shadow: 6px 6px 0px black;">Touch</span>
       </h1>
       <p
-        class="text-xl text-gray-400 font-normal leading-relaxed max-w-xl mx-auto"
+        class="text-xl text-black font-bold leading-relaxed max-w-xl mx-auto bg-white border-4 border-black p-4 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-1"
       >
         Have a project in mind or just want to say hi? I'm always open to new
         opportunities.
@@ -80,13 +80,8 @@
 
     <main class="container mx-auto px-6 max-w-2xl mb-24">
       <div
-        class="bg-dark-surface border border-border-subtle rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden group"
+        class="bg-neo-cyan border-8 border-black rounded-3xl p-8 md:p-12 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden group"
       >
-        <!-- Decoration Blur -->
-        <div
-          class="absolute -top-24 -right-24 w-48 h-48 bg-acid-lime opacity-5 blur-[100px] group-hover:opacity-10 transition-opacity duration-700"
-        ></div>
-
         <form
           id="contact-form"
           action="https://formsubmit.co/joyadriansyah1@gmail.com"
@@ -98,7 +93,7 @@
           <input type="hidden" name="_subject" value="Pesan Baru dari Portofolio!">
           <div class="flex flex-col gap-2">
             <label
-              class="text-sm font-bold uppercase tracking-widest text-gray-500 ml-1"
+              class="text-sm font-extrabold uppercase tracking-widest text-black ml-1 bg-white border-2 border-black px-2 py-1 inline-block self-start shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-2"
               >Your Name</label
             >
             <input
@@ -106,13 +101,13 @@
               name="name"
               placeholder="John Doe"
               required
-              class="contact-input"
+              class="contact-input mt-2"
             />
           </div>
 
           <div class="flex flex-col gap-2">
             <label
-              class="text-sm font-bold uppercase tracking-widest text-gray-500 ml-1"
+              class="text-sm font-extrabold uppercase tracking-widest text-black ml-1 bg-white border-2 border-black px-2 py-1 inline-block self-start shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-1"
               >Your Email</label
             >
             <input
@@ -120,13 +115,13 @@
               name="email"
               placeholder="john@example.com"
               required
-              class="contact-input"
+              class="contact-input mt-2"
             />
           </div>
 
           <div class="flex flex-col gap-2">
             <label
-              class="text-sm font-bold uppercase tracking-widest text-gray-500 ml-1"
+              class="text-sm font-extrabold uppercase tracking-widest text-black ml-1 bg-white border-2 border-black px-2 py-1 inline-block self-start shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform -rotate-1"
               >Your Message</label
             >
             <textarea
@@ -134,24 +129,24 @@
               placeholder="Tell me about your project..."
               required
               rows="5"
-              class="contact-input resize-none"
+              class="contact-input mt-2 resize-none"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            class="mt-4 bg-acid-lime hover:bg-acid-hover text-black font-bold py-5 rounded-2xl transition-all duration-300 transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3"
+            class="mt-6 bg-neo-yellow hover:bg-neo-green text-black font-extrabold text-xl py-5 rounded-2xl border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:translate-x-1 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-2 active:translate-y-2 transition-all uppercase flex items-center justify-center gap-3"
           >
             <span>Send Message</span>
-            <i class="fas fa-paper-plane text-sm"></i>
+            <i class="fas fa-paper-plane text-xl"></i>
           </button>
         </form>
       </div>
 
       <!-- Social Links -->
-      <div class="mt-16 text-center">
+      <div class="mt-20 text-center">
         <p
-          class="text-gray-500 font-medium mb-8 uppercase tracking-[4px] text-xs"
+          class="text-black bg-white border-4 border-black px-4 py-2 inline-block font-extrabold mb-8 uppercase tracking-[4px] text-xs shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1"
         >
           Or feel free to reach out via
         </p>
@@ -159,28 +154,28 @@
           <a
             href="https://www.linkedin.com/in/joyadriansyah/"
             target="_blank"
-            class="w-14 h-14 bg-white/5 border border-border-subtle rounded-2xl flex items-center justify-center text-2xl transition-all hover:bg-acid-lime hover:text-black hover:-translate-y-2"
+            class="w-16 h-16 bg-white border-4 border-black rounded-xl flex items-center justify-center text-3xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:bg-[#0a66c2] hover:text-white hover:-translate-y-2 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all"
           >
             <i class="fab fa-linkedin-in"></i>
           </a>
           <a
             href="https://wa.me/6285783482134"
             target="_blank"
-            class="w-14 h-14 bg-white/5 border border-border-subtle rounded-2xl flex items-center justify-center text-2xl transition-all hover:bg-acid-lime hover:text-black hover:-translate-y-2"
+            class="w-16 h-16 bg-white border-4 border-black rounded-xl flex items-center justify-center text-3xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:bg-[#25d366] hover:text-white hover:-translate-y-2 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all"
           >
             <i class="fab fa-whatsapp"></i>
           </a>
           <a
             href="https://www.instagram.com/joyadriansyah_/"
             target="_blank"
-            class="w-14 h-14 bg-white/5 border border-border-subtle rounded-2xl flex items-center justify-center text-2xl transition-all hover:bg-acid-lime hover:text-black hover:-translate-y-2"
+            class="w-16 h-16 bg-white border-4 border-black rounded-xl flex items-center justify-center text-3xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:bg-[#e1306c] hover:text-white hover:-translate-y-2 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all"
           >
             <i class="fab fa-instagram"></i>
           </a>
           <a
             href="https://github.com/joyadrnsyh"
             target="_blank"
-            class="w-14 h-14 bg-white/5 border border-border-subtle rounded-2xl flex items-center justify-center text-2xl transition-all hover:bg-acid-lime hover:text-black hover:-translate-y-2"
+            class="w-16 h-16 bg-white border-4 border-black rounded-xl flex items-center justify-center text-3xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white hover:-translate-y-2 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all"
           >
             <i class="fab fa-github"></i>
           </a>
@@ -190,22 +185,22 @@
 
     <!-- Navigation -->
     <nav
-      class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-dark-surface/80 backdrop-blur-2xl border border-white/10 p-2 rounded-2xl flex gap-2 z-50 shadow-2xl"
+      class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-white border-4 border-black p-2 rounded-2xl flex gap-2 z-50 shadow-neo"
     >
-      <a href="index" class="dock-item">
-        <i class="fas fa-home text-lg"></i>
+      <a href="index" class="neo-dock-item">
+        <i class="fas fa-home text-xl"></i>
         <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
           >Home</span
         >
       </a>
-      <a href="projects" class="dock-item">
-        <i class="fas fa-folder text-lg"></i>
+      <a href="projects" class="neo-dock-item">
+        <i class="fas fa-folder text-xl"></i>
         <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
           >Projects</span
         >
       </a>
-      <a href="contact" class="dock-item active">
-        <i class="fas fa-envelope text-lg"></i>
+      <a href="contact" class="neo-dock-item active">
+        <i class="fas fa-envelope text-xl"></i>
         <span class="text-[10px] uppercase font-bold tracking-wider mt-1"
           >Contact</span
         >
@@ -225,7 +220,7 @@
         const originalText = buttonText.textContent;
         buttonText.textContent = 'Sending...';
         button.disabled = true;
-        buttonIcon.className = 'fas fa-spinner animate-spin text-sm';
+        buttonIcon.className = 'fas fa-spinner animate-spin text-xl';
         
         try {
           const response = await fetch(form.action, {
@@ -237,51 +232,48 @@
           });
           
           if (response.ok) {
-            showToast('Pesan berhasil dikirim!', 'success');
+            showToast('Message sent successfully!', 'success');
             form.reset();
           } else {
-            showToast('Gagal mengirim pesan. Silakan coba lagi.', 'error');
+            showToast('Failed to send message. Please try again.', 'error');
           }
         } catch (error) {
-          showToast('Terjadi kesalahan. Silakan coba lagi.', 'error');
+          showToast('An error occurred. Please try again.', 'error');
         } finally {
           // Restore button state
           buttonText.textContent = originalText;
           button.disabled = false;
-          buttonIcon.className = 'fas fa-paper-plane text-sm';
+          buttonIcon.className = 'fas fa-paper-plane text-xl';
         }
       });
 
-      // Simple premium Toast helper
+      // Neobrutalist Toast helper
       function showToast(message, type) {
-        // Remove existing toasts first
         const existingToasts = document.querySelectorAll('.toast-notification');
         existingToasts.forEach(t => t.remove());
 
         const toast = document.createElement('div');
-        toast.className = `toast-notification fixed top-6 right-6 z-50 px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border transition-all duration-500 transform translate-y-[-20px] opacity-0 ${
+        toast.className = `toast-notification fixed top-6 right-6 z-50 px-6 py-4 rounded-xl border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex items-center gap-3 transition-all duration-500 transform translate-y-[-20px] opacity-0 text-black font-bold uppercase ${
           type === 'success' 
-            ? 'bg-green-950/90 border-green-500/30 text-green-400' 
-            : 'bg-red-950/90 border-red-500/30 text-red-400'
+            ? 'bg-neo-green' 
+            : 'bg-[#ff3b3b]'
         }`;
         
         const icon = document.createElement('i');
-        icon.className = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
+        icon.className = type === 'success' ? 'fas fa-check-circle text-2xl' : 'fas fa-exclamation-circle text-2xl';
         
         const text = document.createElement('span');
-        text.className = 'font-bold text-sm';
+        text.className = 'font-extrabold text-sm';
         text.textContent = message;
         
         toast.appendChild(icon);
         toast.appendChild(text);
         document.body.appendChild(toast);
         
-        // Trigger transition
         setTimeout(() => {
           toast.classList.remove('translate-y-[-20px]', 'opacity-0');
         }, 100);
         
-        // Hide and remove after 4 seconds
         setTimeout(() => {
           toast.classList.add('translate-y-[-20px]', 'opacity-0');
           setTimeout(() => {
