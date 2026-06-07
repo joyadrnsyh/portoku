@@ -58,12 +58,6 @@
         .neo-tag {
           @apply px-3 py-1 bg-white border-2 border-black rounded-full text-xs font-bold uppercase tracking-wider text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)];
         }
-        .filter-tab {
-          @apply px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-200 border-4 border-black bg-white text-black hover:-translate-y-1 hover:shadow-neo-sm cursor-pointer shadow-[2px_2px_0px_0px_rgba(0,0,0,1)];
-        }
-        .filter-tab.active {
-          @apply bg-neo-pink translate-y-1 shadow-none;
-        }
       }
     </style>
 </head>
@@ -90,41 +84,31 @@
     </p>
   </header>
 
-  <!-- Filter Tabs -->
-  <div class="flex flex-wrap justify-center gap-4 mb-16 relative z-10">
-    <button class="filter-tab active" data-filter="all">All</button>
-    <button class="filter-tab" data-filter="data-science">Data Science</button>
-    <button class="filter-tab" data-filter="ui-ux">UI/UX Design</button>
-    <button class="filter-tab" data-filter="front-end">Front End</button>
-  </div>
-
   <!-- Projects Grid -->
   <main class="container mx-auto px-6 max-w-6xl relative z-10">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
       <!-- Featured Project (Full Width) -->
-      <a href="front-end/company-profile" class="neo-card md:col-span-2 group relative project-card bg-neo-purple"
+      <a href="front-end/vendora-pos" class="neo-card md:col-span-2 group relative project-card bg-neo-orange"
         data-category="front-end">
         <div class="grid grid-cols-1 lg:grid-cols-5 h-full">
           <div class="lg:col-span-3 aspect-[16/10] lg:aspect-auto overflow-hidden border-r-4 border-black">
-            <img src="src/projek 1/tumb-project1.png" alt="Featured Project"
+            <img src="src/projek 10/tumb.png" onerror="this.src='https://via.placeholder.com/800x450.png?text=Vendora+POS'" alt="Vendora POS"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
           </div>
           <div class="lg:col-span-2 p-10 md:p-14 flex flex-col justify-center bg-neo-yellow">
             <div class="flex gap-2 mb-6">
-              <span class="neo-tag bg-neo-pink">Laravel</span>
-              <span class="neo-tag bg-neo-cyan">Tailwind</span>
+              <span class="neo-tag bg-neo-pink">Next.js</span>
+              <span class="neo-tag bg-neo-cyan">TypeScript</span>
             </div>
             <h3 class="text-4xl font-extrabold mb-6 text-black uppercase leading-tight">
-              Website Profile Agensi Digital
+              Vendora POS
             </h3>
             <p
               class="text-black font-bold text-lg leading-relaxed mb-10 bg-white border-2 border-black p-4 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              A modern corporate ecosystem designed for a high-end creative
-              agency. Featuring seamless animations and a performance-driven
-              architecture.
+              Aplikasi Point of Sale (POS) modern dengan antarmuka yang responsif, dibangun dengan Next.js dan TypeScript untuk performa tinggi.
             </p>
             <div class="mt-auto flex items-center gap-4 text-black font-bold group/btn">
-              <span class="text-xl uppercase border-b-4 border-black pb-1">Read Case Study</span>
+              <span class="text-xl uppercase border-b-4 border-black pb-1">Explore Project</span>
               <div
                 class="w-12 h-12 bg-white border-4 border-black rounded-full flex items-center justify-center group-hover/btn:bg-neo-pink transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 <i class="fas fa-arrow-right transition-transform group-hover/btn:translate-x-1"></i>
@@ -133,16 +117,101 @@
           </div>
         </div>
         <div
-          class="absolute top-6 left-6 px-4 py-2 bg-neo-yellow border-4 border-black rounded-full text-xs font-bold uppercase tracking-widest shadow-neo-sm transform -rotate-3 z-10">
-          Featured Work
+          class="absolute top-6 left-6 px-4 py-2 bg-neo-purple border-4 border-black rounded-full text-xs font-bold uppercase tracking-widest shadow-neo-sm transform -rotate-3 z-10">
+          Newest Project
         </div>
       </a>
 
       <!-- Project 2 -->
+      <a href="front-end/demo-web-umkm" class="neo-card group flex flex-col project-card bg-white"
+        data-category="front-end">
+        <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
+          <img src="src/projek 9/tumb.png"
+            onerror="this.src='https://via.placeholder.com/800x450.png?text=Demo+Web+UMKM'" alt="Web UMKM"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        </div>
+        <div class="p-8 flex flex-col flex-1 bg-neo-cyan">
+          <div class="flex gap-2 mb-4">
+            <span class="neo-tag">Vue 3</span>
+            <span class="neo-tag">Vite</span>
+            <span class="neo-tag">Tailwind</span>
+          </div>
+          <h3 class="text-3xl font-extrabold mb-4 text-black uppercase">
+            Web UMKM (Rental Motor)
+          </h3>
+          <p
+            class="text-black font-bold text-sm leading-relaxed mb-8 flex-1 bg-white border-2 border-black p-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+            Website profil profesional untuk UMKM dengan desain responsif, performa tinggi, dan standar SEO yang baik menggunakan teknologi modern Vue 3 dan Tailwind.
+          </p>
+          <div
+            class="flex items-center gap-2 text-black font-extrabold uppercase group/btn bg-white border-4 border-black self-start px-4 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover/btn:bg-neo-yellow transition-colors">
+            <span>Explore Project</span>
+            <i class="fas fa-arrow-right text-black text-sm transition-transform group-hover/btn:translate-x-1"></i>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project 3 -->
+      <a href="front-end/buyheart-ecommerce" class="neo-card group flex flex-col project-card bg-white"
+        data-category="front-end">
+        <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
+          <img src="src/projek 5/project5.png" alt="Buyheart E-Commerce"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        </div>
+        <div class="p-8 flex flex-col flex-1 bg-neo-green">
+          <div class="flex gap-2 mb-4">
+            <span class="neo-tag">E-Commerce</span>
+            <span class="neo-tag">Retail</span>
+          </div>
+          <h3 class="text-3xl font-extrabold mb-4 text-black uppercase">
+            Buyheart E-Commerce
+          </h3>
+          <p
+            class="text-black font-bold text-sm leading-relaxed mb-8 flex-1 bg-white border-2 border-black p-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+            Minimalist retail experience. Reducing cognitive load to increase
+            conversion and user satisfaction.
+          </p>
+          <div
+            class="flex items-center gap-2 text-black font-extrabold uppercase group/btn bg-white border-4 border-black self-start px-4 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover/btn:bg-neo-yellow transition-colors">
+            <span>Explore Project</span>
+            <i class="fas fa-arrow-right text-black text-sm transition-transform group-hover/btn:translate-x-1"></i>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project 4 -->
+      <a href="front-end/yayasan-haadii-nurul-ikhlas" class="neo-card group flex flex-col project-card bg-white"
+        data-category="front-end">
+        <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
+          <img src="src/projek 3/tumb-project3.png" alt="Yayasan Haadii Nurul Ikhlas"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        </div>
+        <div class="p-8 flex flex-col flex-1 bg-neo-pink">
+          <div class="flex gap-2 mb-4">
+            <span class="neo-tag">Foundation</span>
+            <span class="neo-tag">Non-Profit</span>
+          </div>
+          <h3 class="text-3xl font-extrabold mb-4 text-black uppercase">
+            Yayasan Haadii Nurul Ikhlas
+          </h3>
+          <p
+            class="text-black font-bold text-sm leading-relaxed mb-8 flex-1 bg-white border-2 border-black p-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+            A community-driven platform for social welfare and education.
+            Focused on accessibility and identity visual clarity.
+          </p>
+          <div
+            class="flex items-center gap-2 text-black font-extrabold uppercase group/btn bg-white border-4 border-black self-start px-4 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover/btn:bg-neo-yellow transition-colors">
+            <span>Explore Project</span>
+            <i class="fas fa-arrow-right text-black text-sm transition-transform group-hover/btn:translate-x-1"></i>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project 5 -->
       <a href="front-end/sim-apotik-pos" class="neo-card group flex flex-col project-card bg-white"
         data-category="front-end">
         <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
-          <img src="src/projek 2/tumb-project2.png" alt="Project 2"
+          <img src="src/projek 2/tumb-project2.png" alt="SIM Apotik & POS"
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         </div>
         <div class="p-8 flex flex-col flex-1 bg-neo-cyan">
@@ -167,235 +236,35 @@
         </div>
       </a>
 
-      <!-- Project 3 -->
-      <a href="front-end/yayasan-haadii-nurul-ikhlas" class="neo-card group flex flex-col project-card bg-white"
-        data-category="front-end">
-        <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
-          <img src="src/projek 3/tumb-project3.png" alt="Project 3"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-        </div>
-        <div class="p-8 flex flex-col flex-1 bg-neo-pink">
-          <div class="flex gap-2 mb-4">
-            <span class="neo-tag">Foundation</span>
-            <span class="neo-tag">Non-Profit</span>
-          </div>
-          <h3 class="text-3xl font-extrabold mb-4 text-black uppercase">
-            Yayasan Haadii Nurul Ikhlas
-          </h3>
-          <p
-            class="text-black font-bold text-sm leading-relaxed mb-8 flex-1 bg-white border-2 border-black p-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-            A community-driven platform for social welfare and education.
-            Focused on accessibility and identity visual clarity.
-          </p>
-          <div
-            class="flex items-center gap-2 text-black font-extrabold uppercase group/btn bg-white border-4 border-black self-start px-4 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover/btn:bg-neo-yellow transition-colors">
-            <span>Explore Project</span>
-            <i class="fas fa-arrow-right text-black text-sm transition-transform group-hover/btn:translate-x-1"></i>
-          </div>
-        </div>
-      </a>
-
-      <!-- Project 4 (Vertical Style) -->
-      <a href="ui-ux/brewmo-coffee-app" class="neo-card group flex flex-col project-card bg-white"
-        data-category="ui-ux">
-        <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
-          <img src="src/projek 4/project4.png" alt="Project 4"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-        </div>
-        <div class="p-8 flex flex-col flex-1 bg-neo-orange">
-          <div class="flex gap-2 mb-4">
-            <span class="neo-tag">UI UX</span>
-            <span class="neo-tag">App Design</span>
-          </div>
-          <h3 class="text-3xl font-extrabold mb-4 text-black uppercase">
-            Brewmo Coffee App
-          </h3>
-          <p
-            class="text-black font-bold text-sm leading-relaxed mb-8 flex-1 bg-white border-2 border-black p-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-            Designing the future of coffee ordering. A user-centered mobile
-            experience focused on speed and visual delight.
-          </p>
-          <div
-            class="flex items-center gap-2 text-black font-extrabold uppercase group/btn bg-white border-4 border-black self-start px-4 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover/btn:bg-neo-yellow transition-colors">
-            <span>View Case Study</span>
-            <i class="fas fa-arrow-right text-black text-sm transition-transform group-hover/btn:translate-x-1"></i>
-          </div>
-        </div>
-      </a>
-
-      <!-- Project 5 -->
-      <a href="front-end/buyheart-ecommerce" class="neo-card group flex flex-col project-card bg-white"
-        data-category="front-end">
-        <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
-          <img src="src/projek 5/project5.png" alt="Project 5"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-        </div>
-        <div class="p-8 flex flex-col flex-1 bg-neo-green">
-          <div class="flex gap-2 mb-4">
-            <span class="neo-tag">E-Commerce</span>
-            <span class="neo-tag">Retail</span>
-          </div>
-          <h3 class="text-3xl font-extrabold mb-4 text-black uppercase">
-            Buyheart E-Commerce
-          </h3>
-          <p
-            class="text-black font-bold text-sm leading-relaxed mb-8 flex-1 bg-white border-2 border-black p-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-            Minimalist retail experience. Reducing cognitive load to increase
-            conversion and user satisfaction.
-          </p>
-          <div
-            class="flex items-center gap-2 text-black font-extrabold uppercase group/btn bg-white border-4 border-black self-start px-4 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover/btn:bg-neo-yellow transition-colors">
-            <span>Explore Project</span>
-            <i class="fas fa-arrow-right text-black text-sm transition-transform group-hover/btn:translate-x-1"></i>
-          </div>
-        </div>
-      </a>
-
       <!-- Project 6 -->
-      <a href="data-science-data-analysis/clustering-kondisi-ekonomi-provinsi"
-        class="neo-card group flex flex-col project-card bg-white" data-category="data-science">
+      <a href="front-end/company-profile" class="neo-card group flex flex-col project-card bg-white"
+        data-category="front-end">
         <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
-          <img src="src/projek 6/tumb-project6.png" alt="Project 6"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-        </div>
-        <div class="p-8 flex flex-col flex-1 bg-neo-yellow">
-          <div class="flex gap-2 mb-4">
-            <span class="neo-tag">Data Science</span>
-            <span class="neo-tag">Python</span>
-            <span class="neo-tag">K-Means</span>
-          </div>
-          <h3 class="text-3xl font-extrabold mb-4 text-black uppercase">
-            Clustering Kondisi Ekonomi Provinsi
-          </h3>
-          <p
-            class="text-black font-bold text-sm leading-relaxed mb-8 flex-1 bg-white border-2 border-black p-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-            Analisis unsupervised machine learning untuk mengelompokkan 38 provinsi di Indonesia berdasarkan indikator
-            kesejahteraan dan kapasitas ekonomi.
-          </p>
-          <div
-            class="flex items-center gap-2 text-black font-extrabold uppercase group/btn bg-white border-4 border-black self-start px-4 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover/btn:bg-neo-pink transition-colors">
-            <span>Explore Analysis</span>
-            <i class="fas fa-arrow-right text-black text-sm transition-transform group-hover/btn:translate-x-1"></i>
-          </div>
-        </div>
-      </a>
-
-      <!-- Project 7 -->
-      <a href="data-science-data-analysis/sentiment-analysis-tokopedia-reviews"
-        class="neo-card group flex flex-col project-card bg-white" data-category="data-science">
-        <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
-          <img src="src/projek 7/tumb-project7.png" alt="Project 7"
+          <img src="src/projek 1/tumb-project1.png" alt="Website Profile Agensi Digital"
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         </div>
         <div class="p-8 flex flex-col flex-1 bg-neo-purple">
           <div class="flex gap-2 mb-4">
-            <span class="neo-tag">Data Science</span>
-            <span class="neo-tag">Python</span>
-            <span class="neo-tag">LSTM</span>
-          </div>
-          <h3 class="text-3xl font-extrabold mb-4 text-black uppercase">
-            Sentiment Analysis Tokopedia Reviews
-          </h3>
-          <p
-            class="text-black font-bold text-sm leading-relaxed mb-8 flex-1 bg-white border-2 border-black p-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-            Analisis sentimen ulasan Tokopedia menggunakan Natural Language Processing (NLP) dan model deep learning
-            Long Short-Term Memory (LSTM) dengan akurasi 98%.
-          </p>
-          <div
-            class="flex items-center gap-2 text-black font-extrabold uppercase group/btn bg-white border-4 border-black self-start px-4 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover/btn:bg-neo-yellow transition-colors">
-            <span>Explore Analysis</span>
-            <i class="fas fa-arrow-right text-black text-sm transition-transform group-hover/btn:translate-x-1"></i>
-          </div>
-        </div>
-      </a>
-
-      <!-- Project 8 -->
-      <a href="data-science-data-analysis/customer-segmentation-rfm"
-        class="neo-card group flex flex-col project-card bg-white" data-category="data-science">
-        <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
-          <img src="src/projek 8/tumb-project8.png" alt="Project 8"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-        </div>
-        <div class="p-8 flex flex-col flex-1 bg-neo-pink">
-          <div class="flex gap-2 mb-4">
-            <span class="neo-tag">Data Science</span>
-            <span class="neo-tag">Python</span>
-            <span class="neo-tag">RFM</span>
-          </div>
-          <h3 class="text-3xl font-extrabold mb-4 text-black uppercase">
-            Customer Segmentation Analysis Using RFM
-          </h3>
-          <p
-            class="text-black font-bold text-sm leading-relaxed mb-8 flex-1 bg-white border-2 border-black p-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-            Mengelompokkan pelanggan berdasarkan perilaku transaksi untuk strategi pemasaran yang lebih efektif dan
-            personal.
-          </p>
-          <div
-            class="flex items-center gap-2 text-black font-extrabold uppercase group/btn bg-white border-4 border-black self-start px-4 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover/btn:bg-neo-yellow transition-colors">
-            <span>Explore Analysis</span>
-            <i class="fas fa-arrow-right text-black text-sm transition-transform group-hover/btn:translate-x-1"></i>
-          </div>
-        </div>
-      </a>
-
-      <!-- Project 9 -->
-      <a href="front-end/demo-web-umkm" class="neo-card group flex flex-col project-card bg-white"
-        data-category="front-end">
-        <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
-          <img src="src/projek 9/tumb.png"
-            onerror="this.src='https://via.placeholder.com/800x450.png?text=Demo+Web+UMKM'" alt="Project 9"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-        </div>
-        <div class="p-8 flex flex-col flex-1 bg-neo-cyan">
-          <div class="flex gap-2 mb-4">
-            <span class="neo-tag">Vue 3</span>
-            <span class="neo-tag">Vite</span>
+            <span class="neo-tag">Laravel</span>
             <span class="neo-tag">Tailwind</span>
           </div>
           <h3 class="text-3xl font-extrabold mb-4 text-black uppercase">
-            Web UMKM (Rental Motor)
+            Website Profile Agensi Digital
           </h3>
           <p
             class="text-black font-bold text-sm leading-relaxed mb-8 flex-1 bg-white border-2 border-black p-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-            Website profil profesional untuk UMKM dengan desain responsif, performa tinggi, dan standar SEO yang baik
-            menggunakan teknologi modern Vue 3 dan Tailwind.
+            A modern corporate ecosystem designed for a high-end creative
+            agency. Featuring seamless animations and a performance-driven
+            architecture.
           </p>
           <div
             class="flex items-center gap-2 text-black font-extrabold uppercase group/btn bg-white border-4 border-black self-start px-4 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover/btn:bg-neo-yellow transition-colors">
-            <span>Explore Project</span>
+            <span>Read Case Study</span>
             <i class="fas fa-arrow-right text-black text-sm transition-transform group-hover/btn:translate-x-1"></i>
           </div>
         </div>
       </a>
 
-      <!-- Project 10 -->
-      <a href="front-end/vendora-pos" class="neo-card group flex flex-col project-card bg-white"
-        data-category="front-end">
-        <div class="aspect-[16/10] overflow-hidden border-b-4 border-black">
-          <img src="src/projek 10/tumb.png"
-            onerror="this.src='https://via.placeholder.com/800x450.png?text=Vendora+POS'" alt="Project 10"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-        </div>
-        <div class="p-8 flex flex-col flex-1 bg-neo-orange">
-          <div class="flex gap-2 mb-4">
-            <span class="neo-tag">Next.js</span>
-            <span class="neo-tag">TypeScript</span>
-          </div>
-          <h3 class="text-3xl font-extrabold mb-4 text-black uppercase">
-            Vendora POS
-          </h3>
-          <p
-            class="text-black font-bold text-sm leading-relaxed mb-8 flex-1 bg-white border-2 border-black p-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-            Aplikasi Point of Sale (POS) modern dengan antarmuka yang responsif, dibangun dengan Next.js dan TypeScript
-            untuk performa tinggi.
-          </p>
-          <div
-            class="flex items-center gap-2 text-black font-extrabold uppercase group/btn bg-white border-4 border-black self-start px-4 py-2 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover/btn:bg-neo-yellow transition-colors">
-            <span>Explore Project</span>
-            <i class="fas fa-arrow-right text-black text-sm transition-transform group-hover/btn:translate-x-1"></i>
-          </div>
-        </div>
-      </a>
     </div>
 
     <!-- Let's Talk CTA -->
@@ -435,40 +304,6 @@
     </a>
   </nav>
 
-  <!-- Filtering Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const tabs = document.querySelectorAll('.filter-tab');
-      const cards = document.querySelectorAll('.project-card');
-
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          tabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-
-          const filterValue = tab.getAttribute('data-filter');
-
-          cards.forEach(card => {
-            if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-              card.classList.remove('hidden');
-
-              card.style.transition = 'none';
-              card.style.opacity = '0';
-              card.style.transform = 'translateY(10px)';
-
-              card.offsetHeight; // trigger reflow
-
-              card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-              card.style.opacity = '1';
-              card.style.transform = 'translateY(0)';
-            } else {
-              card.classList.add('hidden');
-            }
-          });
-        });
-      });
-    });
-  </script>
 </body>
 
 </html>
